@@ -39,7 +39,4 @@ double long2double (long long bitcode)
 
     if (exponent==2047 && mantissa!=0)
         return NAN;
-
-
-
 }
