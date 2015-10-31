@@ -2,16 +2,6 @@
 
 #include <math.h>
 
-void main(void){
-    int size, s;
-    int a[7] =
-{
-1,2,3,4, 15,0, -3
-};
-size=7;
-s = sub(a, size);
-}
-
 void sub(int myMatrix[], int n){
     int i, min;
 
@@ -37,5 +27,14 @@ for (i = 0; i < n; i++)
 
 puts("\n");
 printf("Naimenshe sered chisel, sho diliatsa nacilo na 3: %i", min);
-return 1;
+}
+
+void main(void){
+    int size, s;
+    int a[7] =
+{
+1,2,3,4, 15,0, -3
+};
+size=7;
+sub(a, size);
 }
