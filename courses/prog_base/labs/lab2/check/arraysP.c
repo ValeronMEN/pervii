@@ -267,7 +267,5 @@ for(i = 0; i<4; i++){
             printf("%d\n",myMatrix3[i]);
     }
 puts(" \n");
-
-getchar();
 return 0;
 }
