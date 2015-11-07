@@ -203,7 +203,7 @@ j=0;
      }
 metka1:
     n = 0;
-    for (k=0; k<movesLen; k++){
+    for (k=0; k<resLen; k++){
         if (res[k]!=0){
             n = n+1;
         }
