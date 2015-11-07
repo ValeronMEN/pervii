@@ -12,31 +12,20 @@ for (i = 0; i < size; i++)
 int checkRand2(int arr[], int size){
     int j, result;
     for (j=size-1; j>-1; j--){
-        if (arr[j]<(-255)){
-        result = 0;
-        return 0; break;
-        }
-        if (arr[j]>255){
-        result = 0;
-        return 0; break;
-        }
-        if (arr[j]>=(-255) && arr[j]<=255){
-    result = 1;
+           if (arr[j]<(-255)&&arr[j]>255){
+           return 0;
+           }
     }
-    }
-    if (result==1)
-        return 1;
+    return 1;
 }
 
 float meanValue(int arr[], int size){
-    int i, sum;
+    int i, sum=0;
     float ser;
-    sum = 0;
 for (i=0; i<size; i++){
-    sum = sum + arr[i];
+    sum += arr[i];
     }
-    ser = sum/size;
-    return ser;
+    return sum/size;
 }
 
 int minValue(int arr[], int size){
@@ -46,85 +35,60 @@ for (i=0; i<size; i++){
 if (min>arr[i]){
     min = arr[i];
 }
-if (min<=arr[i]){
-    min = min;
-}
 }
 return min;
 }
 
 int meanIndex(int arr[], int size){
-    int i, n, sum;
+    int i, n = 0, sum = 0, min, j, k=0;
     float ser;
-    int min, j, k;
-    sum = 0;
-    n = 0;
 for (i=0; i<size; i++){
-    sum = sum + arr[i];
-    n=n+1;
+    sum +=arr[i];
+    n++;
     }
-    ser = sum/n;
-    min = arr[0];
-    k=0;
-    for (j=0; j<size; j++){
-        if ((fabs(ser-arr[j]))<(fabs(ser-min))){
-           min = arr[j];
-           k=j;
-        }
-        if ((fabs(ser-arr[j]))>=(fabs(ser-min))){
-           min = min;
-        }
+ser = sum/n;
+min = arr[0];
+for (j=0; j<size; j++){
+    if ((fabs(ser-arr[j]))<(fabs(ser-min))){
+        min = arr[j];
+        k=j;
     }
-    return k;
+}
+return k;
 }
 
 int minIndex(int arr[], int size){
-int i, min, k;
+int i, min, k=0;
     min = arr[0];
-    k=0;
      for (i=0; i<size; i++){
       if (min>arr[i]){
           min=arr[i];
           k=i;
-      }
-      if (min<=arr[i]){
-          min = min;
       }
      }
 return k;
 }
 
 int maxOccurance(int arr[], int size){
-int j, i, kolvo, max, zn, x, y, l;
-x=0;
+int j, i, kolvo=0, max, zn, x=0, y, l;
 for (y=size-1; y>-1; y--){
     if (arr[size-1]==arr[y]){
-        x=x+1;
+        x++;
     }
 }
 max = x;
 zn=arr[size-1];
-kolvo = 0;
 for (j=size-1; j>-1; j--){
         for (i=size-1; i>-1; i--){
             if (arr[j]==arr[i])
-            kolvo = kolvo + 1;
+            kolvo++;
         }
         if (max<kolvo){
             max=kolvo;
             zn=arr[j];
         }
-        if (max>kolvo){
-            max=max;
-            zn=zn;
-        }
-         if (max=kolvo){
-            if (zn<arr[j]){
-                zn=arr[j];
-            }
-            if (zn>arr[j]){
-                zn=zn;
-            }
+         if (max==kolvo&&zn<arr[j]){
+            zn=arr[j];
          }
         kolvo=0;
     }
@@ -132,17 +96,14 @@ for (j=size-1; j>-1; j--){
 }
 
 int diff(int arr1[], int arr2[], int res[], int size){
-int i, j, result;
+int i;
 for (i=0; i<size; i++){
     res[i] = arr1[i]-arr2[i];
-}
-result = 1;
-for (j=0; j<size; j++){
-    if (res[j]!=0){
-    result = 0;
-}
-}
-return result;
+        if (res[i]!=0){
+        return 0;
+        }
+     }
+return 1;
 }
 
 void sub(int arr1[], int arr2[], int res[], int size){
@@ -153,14 +114,13 @@ for (i=0; i<size; i++){
 }
 
 int lt(int arr1[], int arr2[], int size){
-int i, result;
-result = 1;
+int i;
 for (i=0; i<size; i++){
     if (arr1[i]>arr2[i]){
-        result = 0;
+        return 0;
     }
 }
-return result;
+return 1;
 }
 
 void land(int arr1[], int arr2[], int res[], int size){
@@ -169,7 +129,6 @@ for (i=0; i<size; i++){
     res[i] = arr1[i]&arr2[i];
 }
 }
-
 
 int main(){
 int i, x, min, ind, ind2, chas, pr, pr2, riz, riz2;

@@ -1,23 +1,22 @@
 #include <stdio.h>
 
 double calc(int n, int m){
-    int i, j;
-    int r, rsum, r2, rsum2;
-    for (i=1; i<(n+1); i++){
-        for (j=1; j<(m+1); j++){
-            r=1/(j);
-            rsum=rsum+r;
-        }
-        r2=rsum*i;
-        rsum2=rsum2+r2;
-    }
-    return rsum2;
+int i, j;
+double resultIn=0, result=0;
+
+for (i = 1; i<n; i++){
+	for (j = 1; j<m; j++){
+	resultIn += 1/j;
+	}
+result += i*resultIn;
+}
+return result;
 }
 
 double calc(int, int);
 
 int main() {
-	int a=1, b=1;
+	int a=56, b=7;
 	double result;
 
 	result = calc(a, b);
