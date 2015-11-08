@@ -9,18 +9,14 @@ double long2double (long long bitcode)
     int sign=b[0];
 
     int exponent=0;
-    for (int i=1; i<=bitcode; i++)
-        if (exponent = exponent + b[i])
-        return (int)pow(2, bitcode-i);
-          else
-        return 0;
+    for (int i=1; i<=11; i++)
+        if (b[i])
+        exponent += pow(2, 11-i);
 
     double mantissa=0;
     for (int i=12; i<=63; i++)
-        if (mantissa = mantissa + b[i])
-        return pow(2, bitcode - i);
-          else
-        return 0;
+        if (b[i])
+        mantissa += pow(2, 11 - i);
 
     if (exponent>0 && exponent<2047)
         return pow(-1, sign) * pow(2, exponent-1023) * (mantissa+1);

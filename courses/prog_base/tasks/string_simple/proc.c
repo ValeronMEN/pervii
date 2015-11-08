@@ -1,15 +1,10 @@
 #include <string.h>
 
 char * process(char * resultStr, const char * textLines[], int linesNum, const char * extraStr){
- int i, n, nomersbolshim, j, max;
+ int i, n=0, nomersbolshim=0, j, max=0;
  char piece[100];
  char * ppiece;
  ppiece = piece;
-
-
- max=0;
- nomersbolshim=0;
- n=0;
 
  ppiece = strstr(textLines[0], extraStr);
  if (ppiece==NULL){
@@ -22,7 +17,7 @@ char * process(char * resultStr, const char * textLines[], int linesNum, const c
             if (ppiece==NULL){
                break;
                 }
-                n = n+1;
+                n++;
         }
  }
 
@@ -40,21 +35,15 @@ ppiece = strstr(textLines[j], extraStr);
             if (ppiece==NULL){
                break;
                 }
-                n = n+1;
+                n++;
         }
-
 
  }
  if (max<n){
             max=n;
             nomersbolshim = j;}
-
-        if (max>=n){
-            max=max;
-            nomersbolshim=nomersbolshim;}
 }
 
  sprintf(resultStr, "%i %s", max, textLines[nomersbolshim]);
  return resultStr;
-
 }
