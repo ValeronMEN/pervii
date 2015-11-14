@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1447527653 source:c:\users\ёзер\desktop\conn\conn\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1447527653 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\tasks\console\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
