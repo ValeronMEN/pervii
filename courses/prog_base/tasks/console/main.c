@@ -5,6 +5,17 @@
 #define SCCP SetConsoleCursorPosition(hConsole, pos)
 #define S Sleep(mil)
 
+void color(int x, int y){
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    if(y==x||y==(x-55)){
+       SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE);
+    } else if(x>y&&x<(y+55)){
+       SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN | BACKGROUND_BLUE);
+    } else {
+       SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN);
+    }
+}
+
 int main()
 {
     int i;
@@ -39,15 +50,4 @@ int main()
 
 pos.X=0; pos.Y=26; SCCP;
 return 0;
-}
-
-void color(int x, int y){
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    if(y==x||y==(x-55)){
-       SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE);
-    } else if(x>y&&x<(y+55)){
-       SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN | BACKGROUND_BLUE);
-    } else {
-       SetConsoleTextAttribute(hConsole, BACKGROUND_GREEN);
-    }
 }
