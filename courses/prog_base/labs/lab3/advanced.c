@@ -121,3 +121,22 @@ void printmatrixund(int size, float mat[size][size]){
     }
 }
 
+void printmatrixsec(int size, float mat[size][size]){
+    int i,j;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    COORD pos;
+
+   SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+    pos.X=2; pos.Y=2; SCCP;
+    for(j=0; j<size; j++){
+    for(i=0; i<size; i++){
+        if ((size-1-i)==(j)){
+            SetConsoleTextAttribute(hConsole, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+        }
+        printf("%.1f", mat[i][j]);
+        pos.X=pos.X+6; pos.Y; SCCP;
+        SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+    }
+    pos.Y=pos.Y+2, pos.X=2; SCCP;
+    }
+}

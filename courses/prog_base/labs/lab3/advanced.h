@@ -4,6 +4,7 @@ void printmatrixsum(int size, float mat[size][size]);
 void printmatrixcol(int size, float mat[size][size], int col);
 void printmatrixch(int size, float mat[size][size], int indexl, int indexc);
 void printmatrixund(int size, float mat[size][size]);
+void printmatrixsec(int size, float mat[size][size]);
 
 /*
     - !null             to zero all elements of the matrix

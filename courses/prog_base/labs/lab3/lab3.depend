@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1448150778 source:c:\users\ёзер\desktop\conn\lab3op\main.c
+1448191139 source:c:\users\ёзер\desktop\conn\lab3op\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
@@ -18,15 +18,15 @@
 
 1448149167 c:\users\ёзер\desktop\conn\lab3op\functions.h
 
-1448150694 source:c:\users\ёзер\desktop\conn\lab3op\advanced.c
+1448190999 source:c:\users\ёзер\desktop\conn\lab3op\advanced.c
 	<stdio.h>
 	<stdlib.h>
 	"functions.h"
 	<windows.h>
 
-1448150694 c:\users\ёзер\desktop\conn\lab3op\advanced.h
+1448190765 c:\users\ёзер\desktop\conn\lab3op\advanced.h
 
-1448150694 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.c
+1448190999 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.c
 	<stdio.h>
 	<stdlib.h>
 	"functions.h"
@@ -42,9 +42,9 @@
 	<math.h>
 	"advanced.h"
 
-1448150694 c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.h
+1448190765 c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.h
 
-1448150827 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\main.c
+1448191139 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>

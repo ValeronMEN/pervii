@@ -18,19 +18,22 @@ int main()
 
     printf("Enter matrix size. Size can be [0..12].\n");
     printf(">> ");
-    scanf("%i", &size);
-    if (size>12||size<0){
+    if (scanf("%i", &size)==NULL){
         puts("");
         color_error;
         printf("Error: Invalid matrix size.\n");
         color_default;
         return 1;
     }
-
+    if (size>12||size<0){
+        puts("");
+        color_error;
+        printf("Error: Invalid matrix size. Size can be [0..12].\n");
+        color_default;
+        return 1;
+    }
     system("cls");
     pos.X=0; pos.Y=0; SCCP;
-
-    //first matrix
 
     float mat[size][size];
     char *command;
@@ -171,9 +174,10 @@ int main()
                 continue;
         }
         if (*(command+i+1)=='s'&&*(command+i+2)=='e'&&*(command+i+3)=='c'&&*(command+i+4)=='d'&&*(command+i+5)=='i'&&*(command+i+6)=='a'){
-                standard;
+                system("cls");
+                showzone(size);
                 secdia(size, mat);
-                printmatrix(size, mat);
+                printmatrixsec(size, mat);
                 pos.X=0; pos.Y=size*2+4; SCCP;
                 color_default;
                 printf("Enter command. For help menu use command !help.\n");
