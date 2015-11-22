@@ -1,0 +1,12 @@
+void random(int size, float matmat[size][size], int d1, int d2);
+void help(int size);
+void rotateCW180(int size, float mat[size][size]);
+void change(int size, float mat[size][size], int indexl, int indexc, float val);
+void hor(int size, float mat[size][size]);
+void secdia(int size, float mat[size][size]);
+float sumall(int size, float mat[size][size]);
+float sumcol(int size, float mat[size][size], int col);
+float sumund(int size, float mat[size][size]);
+void min1max1(int size, float mat[size][size]);
+void minlmaxl(int size, float mat[size][size]);
+void cmcm(int size, float mat[size][size]);

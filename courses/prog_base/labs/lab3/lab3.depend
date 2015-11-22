@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1448150778 source:c:\users\ёзер\desktop\conn\lab3op\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"advanced.h"
+	"functions.h"
+
+1447884736 c:\users\ёзер\desktop\conn\lab3op\functions.c
+
+1448149325 source:c:\users\ёзер\desktop\conn\lab3op\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<math.h>
+	"advanced.h"
+
+1448149167 c:\users\ёзер\desktop\conn\lab3op\functions.h
+
+1448150694 source:c:\users\ёзер\desktop\conn\lab3op\advanced.c
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+	<windows.h>
+
+1448150694 c:\users\ёзер\desktop\conn\lab3op\advanced.h
+
+1448150694 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.c
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+	<windows.h>
+
+1448149167 c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\functions.h
+
+1448149325 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<math.h>
+	"advanced.h"
+
+1448150694 c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\advanced.h
+
+1448150827 source:c:\users\ёзер\documents\github\pervii\courses\prog_base\labs\lab3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"advanced.h"
+	"functions.h"
+
