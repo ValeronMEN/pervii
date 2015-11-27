@@ -51,3 +51,28 @@
 	"advanced.h"
 	"functions.h"
 
+1448190999 source:c:\users\ёзер\desktop\conn\lab3op2\advanced.c
+	<stdio.h>
+	<stdlib.h>
+	"functions.h"
+	<windows.h>
+
+1448149167 c:\users\ёзер\desktop\conn\lab3op2\functions.h
+
+1448149325 source:c:\users\ёзер\desktop\conn\lab3op2\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	<math.h>
+	"advanced.h"
+
+1448190765 c:\users\ёзер\desktop\conn\lab3op2\advanced.h
+
+1448191139 source:c:\users\ёзер\desktop\conn\lab3op2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"advanced.h"
+	"functions.h"
+
