@@ -22,5 +22,9 @@ int main(void){
 
     printf("Character with minimum ASCII code has code: %i,\nCharacter is %c\n", *minimal, *minimal);
 
+    free(tmp);
+    free(minimal);
+    free(i);
+
     return 0;
 }
