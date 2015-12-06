@@ -2,18 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void){
-    char stroka[100];
-    int * pointer;
-    int k=0;
-
-    pointer = &k;
-
-    gets(stroka);
-    printf("An amount of elements in string: %i\n", strlen(stroka));
-    return function1(stroka, pointer, strlen(stroka));
-}
-
 int function1(char * stroka, int * pointer, int size){
     if (*pointer == 5) return 1;
 
@@ -32,4 +20,16 @@ int function1(char * stroka, int * pointer, int size){
     if (*pointer == 5) return 1;
 
     return 0;
+}
+
+int main(void){
+    char stroka[100];
+    int * pointer;
+    int k=0;
+
+    pointer = &k;
+
+    gets(stroka);
+    printf("An amount of elements in string: %i\n", strlen(stroka));
+    return function1(stroka, pointer, strlen(stroka));
 }
