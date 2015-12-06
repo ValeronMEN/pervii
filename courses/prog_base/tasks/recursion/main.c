@@ -3,7 +3,7 @@
 #include <string.h>
 
 int function1(char * stroka, int * pointer, int size){
-    if (*pointer == 5) return 1;
+    if (*pointer == 6) return 1;
 
     if (size==0) return 0;
 
@@ -17,7 +17,7 @@ int function1(char * stroka, int * pointer, int size){
 
     function1(stroka+1, pointer, size-1);
 
-    if (*pointer == 5) return 1;
+    if (*pointer == 6) return 1;
 
     return 0;
 }
@@ -28,7 +28,7 @@ int main(void){
     int k=0;
 
     pointer = &k;
-
+    printf("Enter your string:\n>> ");
     gets(stroka);
     printf("An amount of elements in string: %i\n", strlen(stroka));
     return function1(stroka, pointer, strlen(stroka));
