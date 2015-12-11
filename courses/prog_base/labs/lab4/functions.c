@@ -4,14 +4,7 @@
 #include <windows.h>
 #include <conio.h>
 
-#define SCCP SetConsoleCursorPosition(hConsole, pos)
 #define color_default SetConsoleTextAttribute(hConsole, 7)
-#define color_disco SetConsoleTextAttribute(hConsole, 13)
-#define color_elka SetConsoleTextAttribute(hConsole, 42)
-#define color_error SetConsoleTextAttribute(hConsole, 12)
-#define color_edit SetConsoleTextAttribute(hConsole, 11)
-#define color_mem SetConsoleTextAttribute(hConsole, 9)
-#define color_play SetConsoleTextAttribute(hConsole, 10)
 
 struct Notes{
     char name;
