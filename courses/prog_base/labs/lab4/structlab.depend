@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1449411846 source:d:\Универ\ОП\лаба4\structlab\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+
+1449688476 source:d:\Универ\ОП\лаба4\structlab\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"functions.h"
+
+1449412012 d:\Универ\ОП\лаба4\structlab\functions.h
+
+1449839342 source:d:\Универ\ОП\лаба4 в2\structlab\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"functions.h"
+
+1449836734 d:\Универ\ОП\лаба4 в2\structlab\functions.h
+
+1449836384 source:d:\Универ\ОП\лаба4 в2\structlab\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+
+1449865017 source:d:\Универ\ОП\лаба в4\structlab\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+
+1449864413 source:d:\Универ\ОП\лаба в4\structlab\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"functions.h"
+
+1449851594 d:\Универ\ОП\лаба в4\structlab\functions.h
+

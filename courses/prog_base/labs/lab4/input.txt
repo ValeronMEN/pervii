@@ -1,0 +1,91 @@
+15
+1
+Detroit Rock City
+Kiss
+Shock Rock
+F G F G A B B A S C
+
+2
+Nothings Gonna Change My Love For You
+Air Supply
+Soft Rock
+F C F C S C S D G E A
+
+3
+Poison
+No Alice
+ee
+E D A E B B A C F E C
+
+4
+Kickstart my Heart
+Motley Crue
+Hard Rock
+C C A C C A B F E
+
+5
+What can i do?
+Smokie
+Hard Rock
+F G F G A B B A S C
+
+6
+Demon Speeding
+Rob Zombie
+Industrial Metal
+F C F C S C S D G E A
+
+7
+Talk To Me Dirty
+Poison
+Shock Rock
+E D A E B B A C F E C
+
+8
+Dastish Fantastish
+Accept
+Industrial Metal
+S S A S B A S D D B
+
+9
+Dash
+Medved
+Shock Rock
+C D E F G A B S
+
+10
+JJ2
+Valera
+33
+C D E F G A B S
+
+11
+Dido
+Valera
+Soft
+C D E F G A B S
+
+12
+Fuck yourself
+Igor
+Hard Rock
+D D E E F E D C D E S B A G
+
+13
+Hilarius
+igor
+Hard Rock
+S B S B S B E D C D S S B E F B S
+
+14
+My new song
+Valerchic
+Shock Rock
+C D E ? ? S F B G ? ? S G B A 
+
+15
+Fatality
+BB
+Shock Rock
+C D C ? ? D C D ? ? C D E F G ? 
+

@@ -1,0 +1,60 @@
+10
+1
+Gods made heavy metal
+Manowar
+Heavy Metal
+C C A C C A B F E
+
+2
+Detroit Rock City
+Kiss
+Shock Rock
+F G F G A B B A S C
+
+3
+Nothings Gonna Change My Love For You
+Air Supply
+Soft Rock
+F C F C S C S D G E A
+
+4
+Poison
+Alice Cooper
+Shock Rock
+E D A E B B A C F E C
+
+5
+Ripper
+Judas Priest
+Heavy Metal
+S S A S B A S D D B
+
+6
+Kickstart my Heart
+Motley Crue
+Hard Rock
+C C A C C A B F E
+
+7
+What can i do?
+Smokie
+Hard Rock
+F G F G A B B A S C
+
+8
+Demon Speeding
+Rob Zombie
+Industrial Metal
+F C F C S C S D G E A
+
+9
+Talk Dirty To Me
+Poison
+Shock Rock
+E D A E B B A C F E C
+
+10
+Teutonic Terror
+Accept
+Industrial Metal
+S S A S B A S D D B
