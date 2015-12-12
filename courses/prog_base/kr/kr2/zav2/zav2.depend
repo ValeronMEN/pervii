@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1449912861 source:c:\users\drlove\documents\github\pervii\courses\prog_base\self\kr2\zav2\functions.c
+
+1449914179 source:c:\users\drlove\documents\github\pervii\courses\prog_base\self\kr2\zav2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+
