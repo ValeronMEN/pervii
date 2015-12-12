@@ -1,4 +1,4 @@
-10
+11
 1
 Gods made heavy metal
 Manowar
@@ -36,26 +36,32 @@ Hard Rock
 D D E E F E D C D E S B A G
 
 7
-What can i do?
-Smokie
-Hard Rock
-S B S B S B E D C D S S B E F B S
-
-8
 Demon Speeding
 Rob Zombie
 Industrial Metal
 C D E ? ? S F B G ? ? S G B A
 
-9
+8
 Talk Dirty To Me
 Poison
 Shock Rock
 C D C ? ? D C D ? ? C D E F G ?
 
-10
+9
 Teutonic Terror
 Accept
 Industrial Metal
 C D ? ? ? D C E B E A E D S ? D C
+
+10
+Song ot boga
+My dad
+Shock Rock
+? ? 
+
+11
+hello
+Ruslan
+kitties
+G G G G A E B B S B S B ? S B B ? S B E A F B ? ? 
 

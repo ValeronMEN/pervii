@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1449912479 source:c:\users\drlove\documents\github\pervii\courses\prog_base\self\kr2\1\zav1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+
+1449910941 source:c:\users\drlove\documents\github\pervii\courses\prog_base\self\kr2\1\zav1\max.c
+
+1449912704 source:c:\users\drlove\documents\github\pervii\courses\prog_base\self\kr2\zav1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<strings.h>
+

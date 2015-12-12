@@ -56,3 +56,13 @@
 	<windows.h>
 	<conio.h>
 
+1449878529 source:c:\users\drlove\documents\github\pervii\courses\prog_base\labs\lab4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"functions.h"
+
+1449851594 c:\users\drlove\documents\github\pervii\courses\prog_base\labs\lab4\functions.h
+
