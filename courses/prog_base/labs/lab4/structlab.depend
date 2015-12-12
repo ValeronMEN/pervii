@@ -32,14 +32,14 @@
 	<windows.h>
 	<conio.h>
 
-1449865017 source:d:\Универ\ОП\лаба в4\structlab\functions.c
+1449866448 source:d:\Универ\ОП\лаба в4\structlab\functions.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<windows.h>
 	<conio.h>
 
-1449864413 source:d:\Универ\ОП\лаба в4\structlab\main.c
+1449869492 source:d:\Универ\ОП\лаба в4\structlab\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -48,4 +48,11 @@
 	"functions.h"
 
 1449851594 d:\Универ\ОП\лаба в4\structlab\functions.h
+
+1449866448 source:c:\users\drlove\documents\github\pervii\courses\prog_base\labs\lab4\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
 

@@ -3,7 +3,7 @@
 Gods made heavy metal
 Manowar
 Heavy Metal
-C C A C C A B F E
+C D ? C D E F ? C D E F G A ? B S F ? G A
 
 2
 Detroit Rock City
@@ -57,4 +57,4 @@ C D C ? ? D C D ? ? C D E F G ?
 Teutonic Terror
 Accept
 Industrial Metal
-S S A S B A S D D B
+C D ? ? ? D C E B E A E D S ? D C

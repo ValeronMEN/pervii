@@ -28,7 +28,7 @@ int main()
     FILE *fp;
     char str[100];
     char answer[100];
-    int amount, vsegda=0, i=0;
+    int amount, i=0;
 
     fp = fopen("input.txt", "r");
     fscanf(fp, "%i", &amount);
@@ -49,7 +49,7 @@ int main()
     fclose(fp);
     i=0;
 
-    printf("%s, do you want to see melody structures? (yes/no)\n>> ", name);
+    printf("%s, do you want to see list of songs? (yes/no)\n>> ", name);
     gets(answer);
     while(strcmp(answer, "no")!=0){
         if (strcmp(answer, "yes")==0) {
@@ -73,7 +73,7 @@ int main()
     }
     fclose(fp);
 
-    printf("%s, do you want to see notes structures? (yes/no)\n>> ", name);
+    printf("%s, do you want to see list of notes? (yes/no)\n>> ", name);
     gets(answer);
     while(strcmp(answer, "no")!=0){
         if (strcmp(answer, "yes")==0) {
@@ -93,10 +93,11 @@ int main()
     char stroka[100] = {"C D E F G A B S"};
 
     printf("Enter time of notes playing [1..100000]\n>> ");
-    while(vsegda==0){
-        i = scanf("%i", &length);
+    i=0;
+    while(i==0){
+        scanf("%i", &length);
         if (length>=1&&length<=100000){
-            i=0; break;
+            break;
         }
         else{
         printf("Invalid time. Try again.\n>> ");
@@ -109,7 +110,7 @@ int main()
     color_disco;
     printf("Piano Mode is on\n");
     color_default;
-    printf("Press 'a'-'k' to play a note\nPress 'e' to exit the Piano Mode\nPress '1' to record track\nPress '2' to end track\nPress '3' to check last composition\nPress any button to pause\n");
+    printf("Press 'a'-'k' to play a note\nPress 'e' to exit the Piano Mode\nPress '1' to record track\nPress '2' to end track\nPress '3' to check last composition\nPress any key to pause\n");
     SetConsoleTextAttribute(hConsole, 92);
     printf("And now you can create music!\n");
     color_default;
@@ -326,7 +327,7 @@ int main()
 
     //showstruct?
     i=0;
-    printf("\n%s, do you want to see melody structures again? (yes/no)\n>> ", name);
+    printf("\n%s, do you want to see list of songs again? (yes/no)\n>> ", name);
     gets(answer);
     while(strcmp(answer, "no")!=0){
         if (strcmp(answer, "yes")==0) {
