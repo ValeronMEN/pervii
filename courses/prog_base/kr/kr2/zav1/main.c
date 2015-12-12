@@ -7,8 +7,7 @@
 int main(){
 int arr[100];
 char str[100];
-int max, i, number=1;
-int size=0;
+int max, i, number=1, size=0;
 char *p;
 char del[] = " ";
 
@@ -22,15 +21,13 @@ if (fp == NULL){
 
 fgets(str, 100, fp);
 rewind(fp);
-printf("Input string is: %s\n", str);
+printf("Input string is:\n>> %s\n", str);
 
 p = strtok(str, del);
 while(p != NULL){
 size++;
 p = strtok(NULL, del);
 }
-
-i=0;
 
 for(i=0; i<size; i++){
     fscanf(fp, "%i", (arr+i));
@@ -46,7 +43,7 @@ for(i=0; i<size; i++){
 
 fclose(fp);
 
-printf("\nMaximum is %i", max);
+printf("\nMaximum is %i\n", max);
 return 0;
 }
 
