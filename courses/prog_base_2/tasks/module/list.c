@@ -49,7 +49,7 @@ void list_add(list_t * mylist, int xcoord, int ycoord, char* name, int index){
     mylist->size+=1;
     mylist->arr_x[index]=xcoord;
     mylist->arr_y[index]=ycoord;
-    mylist->name[index] = name;
+    strcpy(mylist->name+index, &name);
 }
 
 void list_sub(list_t * mylist, int index){
@@ -73,7 +73,7 @@ int distance(list_t * mylist, int index1, int index2){
     mylist->status = LIST_OK;
     if (index1<0||index2<0||index1>mylist->size||index2>mylist->size){
         mylist->status = LIST_BADINDEXES;
-        return;
+        return 0;
     }
     return sqrt((pow((mylist->arr_x[index1]-mylist->arr_x[index2]), 2))+(pow((mylist->arr_y[index1]-mylist->arr_y[index2]), 2)));
 }
@@ -89,6 +89,6 @@ int list_getcount(list_t * mylist){
 void view(list_t * mylist){
     int i;
     for(i=0; i<mylist->size; i++){
-        printf("%s: x: %i, y: %i\n", *(mylist->name+i), *(mylist->arr_x+i), *(mylist->arr_y+i));
+        printf("%s: x: %i, y: %i\n", mylist->name[i], mylist->arr_x[i], mylist->arr_y[i]);
     }
 }
