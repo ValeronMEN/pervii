@@ -5,26 +5,26 @@
 
 int main()
 {
-    list_t * example = newlist();
+    list_t * example = list_new();
     assert(list_getstatus(example) == LIST_OK);
     assert(list_getcount(example) == 0);
 
     list_add(example, 67, 56, "Kyiv", -8);
-    list_add(example, 45, 12, "Lvov", 1);
+    list_add(example, 45, 12, "Lvov", 89);
     list_add(example, 34, 6, "Kharkov", 1);
     assert(list_getstatus(example) == LIST_OK);
     assert(list_getcount(example) == 3);
-    view(example);
+    list_view(example);
     puts("");
 
-    printf("Distance is %i\n\n", distance(example, 0, 1));
-    int dis = distance(example, 12, 89);
+    printf("Distance is %i\n\n", list_distance(example, 0, 1));
+    list_distance(example, 12, 89);
     assert(list_getstatus(example) == LIST_BADINDEXES);
 
     list_sub(example, 1);
     assert(list_getstatus(example) == LIST_OK);
     assert(list_getcount(example) == 2);
-    view(example);
+    list_view(example);
     puts("");
 
     list_sub(example, 5);
