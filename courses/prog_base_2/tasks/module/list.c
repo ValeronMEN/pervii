@@ -2,7 +2,7 @@
 #include "list.h"
 
 #define MAX_LIST_SIZE 100
-#define MAX_NAME_SIZE 50
+#define MAX_NAME_SIZE 10
 
 struct list_s{
     int size;
@@ -30,6 +30,10 @@ void list_add(list_t * mylist, int xcoord, int ycoord, char* name, int index){
     mylist->status = LIST_OK;
     if (mylist->size==MAX_LIST_SIZE){
         mylist->status = LIST_OVERFLOW;
+        return;
+    }
+    if (strlen(name)>MAX_NAME_SIZE){
+        mylist->status = LIST_BADNAME;
         return;
     }
     if (index>mylist->size||index<0){

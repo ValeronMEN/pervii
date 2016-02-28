@@ -17,6 +17,7 @@ typedef enum list_status{
     LIST_OVERFLOW,
     LIST_UNDERFLOW,
     LIST_BADINDEXES,
+    LIST_BADNAME,
 } list_status;
 
 list_t * list_new();
