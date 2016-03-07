@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1457362506 source:c:\users\drlove\desktop\dz\lib\listtest\list.c
+	<math.h>
+	"list.h"
+
+1456621532 c:\users\drlove\desktop\dz\lib\listtest\list.h
+	<stdlib.h>
+	<string.h>
+
+1457362407 source:c:\users\drlove\desktop\dz\lib\listtest\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"list.h"
+
