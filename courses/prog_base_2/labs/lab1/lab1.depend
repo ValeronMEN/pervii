@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1457908830 source:d:\Универ\ОП Модули\lab1\lab1\heap.c
+	"heap.h"
+	"memory.h"
+
+1457908953 source:d:\Универ\ОП Модули\lab1\lab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"heap.h"
+	"memory.h"
+
+1457904202 d:\Универ\ОП Модули\lab1\lab1\heap.h
+	<stdlib.h>
+	<string.h>
+	"memory.h"
+
+1457904505 d:\Универ\ОП Модули\lab1\lab1\memory.h
+	<stdlib.h>
+	<string.h>
+
+1457908472 source:d:\Универ\ОП Модули\lab1\lab1\memory.c
+	"memory.h"
+
