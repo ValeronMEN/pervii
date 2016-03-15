@@ -8,7 +8,8 @@ typedef enum memory_status{
     MEMORY_OK,
     MEMORY_OVERFLOW,
     MEMORY_BADDATA,
-    MEMORY_EMPTY
+    MEMORY_EMPTY,
+    MEMORY_BADHEAP
 } memory_status;
 
 typedef struct memory_s memory_t;

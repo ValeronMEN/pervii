@@ -12,6 +12,7 @@ struct heap_s{
 struct memory_s{
     char * data;
     int size;
+    int id;
     memory_status status;
 };
 
@@ -41,6 +42,7 @@ memory_t * heap_newMemory(heap_t * myheap, int size){
     mymemory->data = malloc(sizeof(char) * myheap->size);
     mymemory->data = "";
     mymemory->status = MEMORY_EMPTY;
+    mymemory->id = myheap->id;
     if (size>myheap->size){
         mymemory->size = 0;
         myheap->status = HEAP_OVERFLOW;
@@ -52,6 +54,10 @@ memory_t * heap_newMemory(heap_t * myheap, int size){
 }
 
 void heap_freeMemory(memory_t * mymemory, heap_t * myheap){
+    if (myheap->id != mymemory->id){
+        mymemory->status = MEMORY_BADHEAP;
+        return;
+    }
     int size = mymemory->size;
     free(mymemory->data);
     free(mymemory);

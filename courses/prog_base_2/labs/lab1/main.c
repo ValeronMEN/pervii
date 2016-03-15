@@ -34,7 +34,11 @@ static void newMemory_overflowAndNormalSizesOfMemories_oneEmptyMemoryCount(void 
 
 static void freeMemory_oneMemory_zeroCount(void **state){
     heap_t * heap = heap_new(23452);
+    heap_t * heap2 = heap_new(1122);
     memory_t * memory = heap_newMemory(heap, 40);
+    heap_freeMemory(memory, heap2);
+    assert_int_equal(heap_getSize(heap), 60);
+    assert_int_equal(memory_getstatus(memory), MEMORY_BADHEAP);
     heap_freeMemory(memory, heap);
     assert_int_equal(heap_getSize(heap), 100);
     heap_free(heap);

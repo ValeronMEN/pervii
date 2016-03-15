@@ -3,6 +3,7 @@
 struct memory_s{
     char * data;
     int size;
+    int id;
     memory_status status;
 };
 
