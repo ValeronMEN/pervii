@@ -6,22 +6,21 @@
 
 #define color_error SetConsoleTextAttribute(hConsole, 12)
 
-typedef int (*IteratorCallback)(int, int *);
+typedef int (*IteratorCallback)(int);
 
-int overCB(int any, int * size){
-    (*size)++;
+int overCB(int any){
     printf("overCB: %i (>K)\n", any);
     return any;
 }
 
-int underCB(int any, int * size){
-    (*size)++;
+int underCB(int any){
     printf("underCB: %i (<K)\n", any);
     return any;
 }
 
 int run(IteratorCallback cb, int * size, int any){
-    return cb(any, size);
+    (*size)++;
+    return cb(any);
 }
 
 int main()
@@ -68,7 +67,7 @@ int main()
 
     printf("Press any key to exit\n");
 
-    int any, lastOver, lastUnder;
+    int any, lastOver=0, lastUnder=0;
     while(kbhit()==0){
         any = (rand() % (2*N)) - N;
         if (any>K){
