@@ -25,3 +25,29 @@
 1458070521 source:d:\Универ\ОП Модули\lab1\lab1\memory.c
 	"memory.h"
 
+1458070809 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab1\heap.c
+	"heap.h"
+	"memory.h"
+
+1457904202 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab1\heap.h
+	<stdlib.h>
+	<string.h>
+	"memory.h"
+
+1458070773 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab1\memory.h
+	<stdlib.h>
+	<string.h>
+
+1458070521 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab1\memory.c
+	"memory.h"
+
+1458314828 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"heap.h"
+	"memory.h"
+
