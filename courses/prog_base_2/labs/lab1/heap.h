@@ -1,9 +1,6 @@
 #ifndef HEAP_H_INCLUDED
 #define HEAP_H_INCLUDED
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "memory.h"
 
 typedef struct heap_s heap_t;

@@ -1,9 +1,6 @@
 #ifndef MEMORY_H_INCLUDED
 #define MEMORY_H_INCLUDED
 
-#include <stdlib.h>
-#include <string.h>
-
 typedef enum memory_status{
     MEMORY_OK,
     MEMORY_OVERFLOW,
