@@ -59,20 +59,35 @@ static void freeMemory_oneMemoryBadHeap_nothingPassed(void **state){
     heap_free(heap2);
 }
 
-static void memoryEnter_EmptyNormalOverflowAndBaddataMemories_onePassed(void **state){
+static void memoryEnter_emptyMemory_nothingPassed(void **state){
+    heap_t * heap = heap_new(45);
+    memory_t * memory = heap_newMemory(heap, 40);
+    memory_enter(memory, "");
+    assert_int_equal(memory_getstatus(memory), MEMORY_EMPTY);
+    heap_free(heap);
+}
+
+static void memoryEnter_oneNormalMemory_onePassed(void **state){
     heap_t * heap = heap_new(45);
     memory_t * memory = heap_newMemory(heap, 40);
     memory_enter(memory, "11 00 1101");
     assert_int_equal(memory_getstatus(memory), MEMORY_OK);
-    memory_enter(memory, "");
-    assert_int_equal(memory_getstatus(memory), MEMORY_EMPTY);
     heap_free(heap);
-    heap = heap_new(46);
-    memory = heap_newMemory(heap, 10);
-    memory_enter(memory, "hdjfhdh");
-    assert_int_equal(memory_getstatus(memory), MEMORY_BADDATA);
+}
+
+static void memoryEnter_overflowMemory_nothingPassed(void **state){
+    heap_t * heap = heap_new(46);
+    memory_t * memory = heap_newMemory(heap, 10);
     memory_enter(memory, "01010010101010100101");
     assert_int_equal(memory_getstatus(memory), MEMORY_OVERFLOW);
+    heap_free(heap);
+}
+
+static void memoryEnter_baddataMemory_nothingPassed(void **state){
+    heap_t * heap = heap_new(46);
+    memory_t * memory = heap_newMemory(heap, 10);
+    memory_enter(memory, "hdjfhdh");
+    assert_int_equal(memory_getstatus(memory), MEMORY_BADDATA);
     heap_free(heap);
 }
 
@@ -100,7 +115,10 @@ int main(){
         cmocka_unit_test(newMemory_heapOverflow_nothingPassed),
         cmocka_unit_test(freeMemory_oneMemory_zeroCount),
         cmocka_unit_test(freeMemory_oneMemoryBadHeap_nothingPassed),
-        cmocka_unit_test(memoryEnter_EmptyNormalOverflowAndBaddataMemories_onePassed),
+        cmocka_unit_test(memoryEnter_emptyMemory_nothingPassed),
+        cmocka_unit_test(memoryEnter_oneNormalMemory_onePassed),
+        cmocka_unit_test(memoryEnter_overflowMemory_nothingPassed),
+        cmocka_unit_test(memoryEnter_baddataMemory_nothingPassed),
         cmocka_unit_test(memoryRead_oneMemory_oneRead),
         cmocka_unit_test(memoryGetSize_oneMemory_sizePassed),
     };
