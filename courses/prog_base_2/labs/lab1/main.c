@@ -10,7 +10,7 @@
 
 static void new_void_zeroCount(void **state){
     heap_t * heap = heap_new(45);
-    assert_int_equal(heap_getSize(heap), 100);
+    assert_int_equal(heap_getSize(heap), MAX_HEAP_SIZE);
     assert_int_equal(heap_getstatus(heap), HEAP_OK);
     heap_free(heap);
 }

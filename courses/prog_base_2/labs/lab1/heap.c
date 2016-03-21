@@ -1,8 +1,6 @@
 #include "heap.h"
 #include "memory.h"
 
-#define MAX_HEAP_SIZE 100
-
 struct heap_s{
     int size;
     int id;

@@ -3,6 +3,8 @@
 
 #include "memory.h"
 
+#define MAX_HEAP_SIZE 100
+
 typedef struct heap_s heap_t;
 typedef struct memory_s memory_t;
 
