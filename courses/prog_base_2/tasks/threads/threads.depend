@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1458992612 source:c:\users\drlove\desktop\threads\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	"randomizer.h"
+	"negativewriter.h"
+
+1458992634 c:\users\drlove\desktop\threads\randomizer.h
+
+1458946859 c:\users\drlove\desktop\threads\negativewriter.h
+
+1458992915 source:c:\users\drlove\desktop\threads\module.c
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	"randomizer.h"
+	"negativewriter.h"
+
+1458980211 c:\users\drlove\desktop\threads\mutex.h
+
+1458980191 source:c:\users\drlove\desktop\threads\libthread_windows.c
+	<windows.h>
+	"thread.h"
+	"mutex.h"
+
+1458980375 c:\users\drlove\desktop\threads\thread.h
+
