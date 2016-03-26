@@ -7,7 +7,7 @@
 
 void rand_function(LPVOID args){
     shared_t * data = (shared_t *)args;
-    //всё-таки WaitForSingleObject должен быть обязательно внутри, иногда вылазят левые числа (если он снаружи)
+    //WaitForSingleObject should always be inside. Sometimes there are positive numbers, if it's outside (4 threads)
     while(1){
         WaitForSingleObject(data->mu, INFINITE);
         data->integer = rand() % 511 - 255;
