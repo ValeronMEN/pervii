@@ -27,3 +27,22 @@
 
 1458980375 c:\users\drlove\desktop\threads\thread.h
 
+1459085607 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\threads\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	"randomizer.h"
+	"negativewriter.h"
+
+1459085296 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\threads\randomizer.h
+
+1459085582 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\threads\negativewriter.h
+
+1459085342 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\threads\module.c
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	"randomizer.h"
+	"negativewriter.h"
+

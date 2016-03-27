@@ -9,16 +9,12 @@
 int main()
 {
     srand(time(NULL));
-    shared_t data;
-    data.mu = CreateMutex(
-        NULL,
-        FALSE,
-        NULL);
+    shared_t * data = module_new();
 
-    HANDLE a = rand_handle(&data);
-    HANDLE b = neg_handle(&data);
-    HANDLE c = rand_handle(&data);
-    HANDLE d = neg_handle(&data);
+    HANDLE a = rand_handle(data);
+    HANDLE b = neg_handle(data);
+    HANDLE c = rand_handle(data);
+    HANDLE d = neg_handle(data);
 
     Sleep(1000);
 
@@ -31,6 +27,7 @@ int main()
     CloseHandle(b);
     CloseHandle(c);
     CloseHandle(d);
-    CloseHandle(data.mu);
+
+    module_free(data);
     return 0;
 }

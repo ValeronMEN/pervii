@@ -5,6 +5,25 @@
 #include "randomizer.h"
 #include "negativewriter.h"
 
+struct shared_s {
+    int integer;
+    HANDLE mu;
+};
+
+shared_t * module_new(){
+    shared_t * mymodule = malloc(sizeof(struct shared_s));
+    mymodule->mu = CreateMutex(
+        NULL,
+        FALSE,
+        NULL);
+    return mymodule;
+}
+
+void module_free(shared_t * mymodule){
+    CloseHandle(mymodule->mu);
+    free(mymodule);
+}
+
 void rand_function(LPVOID args){
     shared_t * data = (shared_t *)args;
     //WaitForSingleObject should always be inside. Sometimes there are positive numbers, if it's outside (4 threads)
