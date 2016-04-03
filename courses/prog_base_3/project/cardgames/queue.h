@@ -9,13 +9,14 @@ typedef enum queue_status{
     QUEUE_OK,
     QUEUE_MAX,
     QUEUE_NULL,
+    QUEUE_OVERFLOW,
 } queue_status;
 
 queue_t * queue_new();
 void queue_free(queue_t * myqueue);
 
-void queue_add(queue_t * myqueue, struct_c card);
-struct_c queue_sub(queue_t * myqueue, int index);
+void queue_enqueue(queue_t * myqueue, struct_c card);
+struct_c queue_dequeue(queue_t * myqueue, int index);
 
 int queue_getcount(queue_t * myqueue);
 
