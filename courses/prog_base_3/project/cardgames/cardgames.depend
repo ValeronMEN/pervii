@@ -1,5 +1,17 @@
 # depslib dependency file v1.0
-1459675918 source:d:\Универ\Курсач\cardgames\main.c
+1459675976 source:d:\Универ\Курсач\cardgames\main.c
 	<stdio.h>
 	<stdlib.h>
+	"drunkard.h"
+
+1459678233 d:\Универ\Курсач\cardgames\drunkard.h
+
+1459678846 source:d:\Универ\Курсач\cardgames\drunkard.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"drunkard.h"
+	"standard.h"
+
+1459679545 d:\Универ\Курсач\cardgames\standard.h
 
