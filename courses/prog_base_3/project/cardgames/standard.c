@@ -3,7 +3,7 @@
 
 #include "standard.h"
 
-void coloda_fill_36(struct_c * result){
+void deck_fill_36(struct_c * result){
     int i, j;
     int min = 6; //minimal card in deck
 
@@ -24,9 +24,6 @@ void coloda_fill_36(struct_c * result){
     for (i=27, j=0; i<36; i++, j++){
         deck[i].suit = SPADE;
         deck[i].value = min+j;
-    }
-    for(i=0; i<36; i++){
-        printf("Val: %i, suit: %i\n", deck[i].value, deck[i].suit);
     }
 
     i=0;
@@ -50,6 +47,15 @@ void coloda_fill_36(struct_c * result){
         deck[j].value = EMPTY;
         deck[j].suit = NOSUIT;
         i++;
+    }
+    return;
+}
+
+void deck_null_36(struct_c * deck){
+    int i;
+    for (i=0; i<36; i++){
+        (deck+i)->suit = NOSUIT;
+        (deck+i)->value = EMPTY;
     }
     return;
 }

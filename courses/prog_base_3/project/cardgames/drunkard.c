@@ -3,14 +3,7 @@
 #include <time.h>
 
 #include "drunkard.h"
-#include "standard.h"
-
-/*
-void drunkard_rand(int * player, int * ai){
-    int random_card = 0;
-    return;
-}
-*/
+#include "queue.h"
 
 void drunkard(){
     puts("Drunkard is started");
@@ -19,17 +12,18 @@ void drunkard(){
     srand(time(NULL));
 
     struct_c deck[36];
-    coloda_fill_36(deck);
+    struct_c player[36];
+    struct_c ai[36];
+    int strokeman = rand() % 2;
 
-    int i;
+    deck_fill_36(deck);
+    deck_null_36(player);
+    deck_null_36(ai);
+    //drunkard_halfdistribution(player, ai);
 
-    for(i=0; i<36; i++){
-        printf("Val: %i, suit: %i\n", deck[i].value, deck[i].suit);
-    }
+    //initQueueArray(player);
 
-    //struct_c player[18];
-    //struct_c ai[18];
-    //drunkard_rand(player, ai);
+    puts("Drunkard finished");
 
     return;
 }

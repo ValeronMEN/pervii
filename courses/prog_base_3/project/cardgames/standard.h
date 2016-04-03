@@ -6,4 +6,5 @@ typedef struct card{
     suits suit;
 } struct_c;
 
-void coloda_fill_36(struct_c *);
+void deck_fill_36(struct_c *);
+void deck_null_36(struct_c *);
