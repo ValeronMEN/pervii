@@ -16,7 +16,7 @@ queue_t * queue_new();
 void queue_free(queue_t * myqueue);
 
 void queue_enqueue(queue_t * myqueue, struct_c card);
-struct_c queue_dequeue(queue_t * myqueue, int index);
+struct_c queue_dequeue(queue_t * myqueue);
 
 int queue_getcount(queue_t * myqueue);
 
