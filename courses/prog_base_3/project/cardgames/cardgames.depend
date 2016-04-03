@@ -6,12 +6,17 @@
 
 1459678233 d:\Универ\Курсач\cardgames\drunkard.h
 
-1459678846 source:d:\Универ\Курсач\cardgames\drunkard.c
+1459682819 source:d:\Универ\Курсач\cardgames\drunkard.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	"drunkard.h"
 	"standard.h"
 
-1459679545 d:\Универ\Курсач\cardgames\standard.h
+1459682905 d:\Универ\Курсач\cardgames\standard.h
+
+1459683149 source:d:\Универ\Курсач\cardgames\standard.c
+	<stdio.h>
+	<stdlib.h>
+	"standard.h"
 
