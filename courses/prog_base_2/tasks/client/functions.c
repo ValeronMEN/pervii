@@ -57,7 +57,7 @@ void function_list(char * list, char * buffer_p){
     return;
 }
 
-char * function_nameOfMax(char * list, int size, char * strmax){
+void function_nameOfMax(char * list, int size, char * strmax){
     int max=0;
     int a;
     char str[size];
