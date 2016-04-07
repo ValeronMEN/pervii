@@ -7,7 +7,7 @@ struct queue_s{
     int size;
     int head;
     int tail;
-    struct_c deck[36];
+    struct_c deck[AMOUNT_OF_CARDS];
     queue_status status;
 };
 
@@ -25,15 +25,15 @@ void queue_free(queue_t * myqueue){
 
 void queue_enqueue(queue_t * myqueue, struct_c card){
     myqueue->status = QUEUE_OK;
-    if (myqueue->size==36){
+    if (myqueue->size == AMOUNT_OF_CARDS){
         myqueue->status = QUEUE_OVERFLOW;
         return;
     }
-    if (myqueue->tail == 36){
-        myqueue->tail=0;
+    if (myqueue->tail == AMOUNT_OF_CARDS){
+        myqueue->tail = 0;
     }
     myqueue->size++;
-    if (myqueue->size==36){
+    if (myqueue->size == AMOUNT_OF_CARDS){
         myqueue->status = QUEUE_MAX;
     }
     myqueue->deck[myqueue->tail] = card;
@@ -42,10 +42,10 @@ void queue_enqueue(queue_t * myqueue, struct_c card){
 
 struct_c queue_dequeue(queue_t * myqueue){
     myqueue->status = QUEUE_OK;
-    if (myqueue->head == 0){
-        myqueue->head==35;
+    if (myqueue->size == AMOUNT_OF_CARDS){
+        myqueue->head = 0;
     }
-    if (myqueue->head==myqueue->tail&&myqueue->size==0){
+    if (myqueue->head == myqueue->tail && myqueue->size == 0){
         myqueue->status = QUEUE_NULL;
         return;
     }
@@ -66,8 +66,8 @@ int queue_getcount(queue_t * myqueue){
 void queue_view(queue_t * myqueue){
     int i=0, j=myqueue->head;
     while(i<myqueue->size){
-        if (j==36){
-            j=j-36;
+        if (j == AMOUNT_OF_CARDS){
+            j = j - AMOUNT_OF_CARDS;
         }
         printf("%i-%i ", myqueue->deck[j].value, myqueue->deck[j].suit);
         j++; i++;

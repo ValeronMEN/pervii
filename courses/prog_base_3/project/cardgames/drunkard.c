@@ -14,23 +14,34 @@ void drunkard(){
     srand(time(NULL));
 
     struct_c deck[36];
-    int strokeman = rand() % 2;
-
     deck_fill_36(deck);
-
     queue_t * player = queue_new();
     queue_t * ai = queue_new();
 
+    //first stroke
+    int strokeman = rand() % 2;
+    queue_t * firstplayer = ai;
+    queue_t * secondplayer = player;
+    printf("Result of strokeman is %i\n", strokeman);
+    if (strokeman == 0){
+        firstplayer = player;
+        secondplayer = ai;
+    }
+
     i=0;
     while(i<36){
-        queue_enqueue(player, deck[i]);
+        queue_enqueue(firstplayer, deck[i]);
         i++;
-        queue_enqueue(ai, deck[i]);
+        queue_enqueue(secondplayer, deck[i]);
         i++;
     }
 
-    queue_view(player);
-    queue_view(ai);
+    queue_view(firstplayer);
+    queue_view(secondplayer);
+
+    //while(queue->status(firstplayer)||queue->status(secondplayer)){
+        //
+    //}
 
     puts("Drunkard finished");
 

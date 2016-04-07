@@ -6,7 +6,7 @@
 
 1459678233 d:\Универ\Курсач\cardgames\drunkard.h
 
-1459713057 source:d:\Универ\Курсач\cardgames\drunkard.c
+1460059569 source:d:\Универ\Курсач\cardgames\drunkard.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -21,10 +21,10 @@
 	<stdlib.h>
 	"standard.h"
 
-1459709842 d:\Универ\Курсач\cardgames\queue.h
+1460059373 d:\Универ\Курсач\cardgames\queue.h
 	"standard.h"
 
-1459712372 source:d:\Универ\Курсач\cardgames\queue.c
+1460059436 source:d:\Универ\Курсач\cardgames\queue.c
 	<stdio.h>
 	<stdlib.h>
 	"queue.h"

@@ -2,6 +2,7 @@
 #define QUEUE_H_INCLUDED
 
 #include "standard.h"
+#define AMOUNT_OF_CARDS 36
 
 typedef struct queue_s queue_t;
 
