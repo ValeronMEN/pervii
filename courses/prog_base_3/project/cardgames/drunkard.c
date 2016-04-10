@@ -5,7 +5,6 @@
 #include <windows.h>
 
 #include "drunkard.h"
-#include "queue.h"
 
 void check(queue_t * firstplayer, queue_t * secondplayer){
     queue_view(firstplayer);

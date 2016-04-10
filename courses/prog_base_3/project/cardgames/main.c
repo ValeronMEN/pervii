@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "drunkard.h"
+#include "witch.h"
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
            break;
         case '2':
            //Witch
+           witch();
            break;
         case '3':
            //Chicken

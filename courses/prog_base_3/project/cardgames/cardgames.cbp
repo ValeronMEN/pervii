@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="drunkard.h" />
+		<Unit filename="list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="list.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,6 +50,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="standard.h" />
+		<Unit filename="witch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="witch.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
