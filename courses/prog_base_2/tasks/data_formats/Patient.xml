@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patients>
+   <patient name="Misha" surname="Ivanov">
+      <treatment>proceeds</treatment>
+      <birthday>1998-11-14</birthday>
+      <importance>6.7</importance>
+      <roomnumber>441</roomnumber>
+      <diagnosis>
+         <name>schizophrenia</name>
+         <risk>9999</risk>
+      </diagnosis>
+   </patient>
+   <patient name="Denis" surname="Medvedsky">
+      <treatment>died</treatment>
+      <birthday>1998-03-06</birthday>
+      <importance>0.1</importance>
+      <roomnumber>1</roomnumber>
+      <diagnosis>
+         <name>addiction</name>
+         <risk>110992</risk>
+      </diagnosis>
+   </patient>
+   <patient name="Kolya" surname="Sherstiuk">
+      <treatment>proceeds</treatment>
+      <birthday>1999-04-28</birthday>
+      <importance>2.5</importance>
+      <roomnumber>343</roomnumber>
+      <diagnosis>
+         <name>lepra</name>
+         <risk>334</risk>
+      </diagnosis>
+   </patient>
+</patients>

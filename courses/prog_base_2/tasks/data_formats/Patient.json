@@ -1,0 +1,38 @@
+[
+    {
+         "name" : "Misha",
+         "surname" : "Ivanov",
+         "treatment" : "proceeds",
+         "birthday" : "1998-11-14",
+         "importance" : 6.7,
+         "roomnumber" : 441,
+         "diagnosis" : {
+            "name" : "schizophrenia",
+            "risk" : 9999
+         }
+    },
+    {
+         "name" : "Denis",
+         "surname" : "Medvedsky",
+         "treatment" : "died",
+         "birthday" : "1998-03-06",
+         "importance" : 0.1,
+         "roomnumber" : 1,
+         "diagnosis" : {
+            "name" : "addiction",
+            "risk" : 110992
+         }
+    },
+    {
+         "name" : "Kolya",
+         "surname" : "Sherstiuk",
+         "treatment" : "proceeds",
+         "birthday" : "1999-04-28",
+         "importance" : 2.5,
+         "roomnumber" : 343,
+         "diagnosis" : {
+            "name" : "lepra",
+            "risk" : 334
+         }
+    }  
+]
