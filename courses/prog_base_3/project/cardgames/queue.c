@@ -50,6 +50,8 @@ struct_c queue_dequeue(queue_t * myqueue){
         return;
     }
     struct_c card = myqueue->deck[myqueue->head];
+    myqueue->deck[myqueue->head].suit = 0;
+    myqueue->deck[myqueue->head].value = 0;
     myqueue->head++;
     myqueue->size--;
     return card;
@@ -59,7 +61,7 @@ queue_status queue_getstatus(queue_t * myqueue){
     return myqueue->status;
 }
 
-int queue_getcount(queue_t * myqueue){
+int queue_getsize(queue_t * myqueue){
     return myqueue->size;
 }
 

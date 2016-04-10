@@ -19,8 +19,9 @@ void queue_free(queue_t * myqueue);
 void queue_enqueue(queue_t * myqueue, struct_c card);
 struct_c queue_dequeue(queue_t * myqueue);
 
-int queue_getcount(queue_t * myqueue);
+int queue_getsize(queue_t * myqueue);
 
 void queue_view(queue_t * myqueue);
+queue_status queue_getstatus(queue_t * myqueue);
 
 #endif // QUEUE_H_INCLUDED

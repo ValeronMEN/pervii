@@ -39,9 +39,63 @@ void drunkard(){
     queue_view(firstplayer);
     queue_view(secondplayer);
 
-    //while(queue->status(firstplayer)||queue->status(secondplayer)){
-        //
-    //}
+    struct_c card1f, card1s, card2f, card2s, card3f, card3s;
+    queue_t * temp;
+
+    while(kbhit()==0){
+        card1f = queue_dequeue(firstplayer);
+        card1s = queue_dequeue(secondplayer);
+        printf("\nCards\n");
+        if (card1f.value>card1s.value){
+            queue_enqueue(firstplayer, card1f);
+            queue_enqueue(firstplayer, card1s);
+        }
+        if (card1f.value<card1s.value){
+            queue_enqueue(secondplayer, card1f);
+            queue_enqueue(secondplayer, card1s);
+        }
+        else{
+            card2f = queue_dequeue(firstplayer);
+            card2s = queue_dequeue(secondplayer);
+            card3f = queue_dequeue(firstplayer);
+            card3s = queue_dequeue(secondplayer);
+            if (card3f.value>card3s.value){
+                queue_enqueue(firstplayer, card1f);
+                queue_enqueue(firstplayer, card1s);
+                queue_enqueue(firstplayer, card2f);
+                queue_enqueue(firstplayer, card2s);
+                queue_enqueue(firstplayer, card3f);
+                queue_enqueue(firstplayer, card3s);
+            }
+            if (card3f.value<card3s.value){
+                queue_enqueue(secondplayer, card1f);
+                queue_enqueue(secondplayer, card1s);
+                queue_enqueue(secondplayer, card2f);
+                queue_enqueue(secondplayer, card2s);
+                queue_enqueue(secondplayer, card3f);
+                queue_enqueue(secondplayer, card3s);
+            }
+            else{
+                queue_enqueue(firstplayer, card1f);
+                queue_enqueue(firstplayer, card1s);
+                queue_enqueue(firstplayer, card2f);
+                queue_enqueue(firstplayer, card2s);
+                queue_enqueue(firstplayer, card3f);
+                queue_enqueue(firstplayer, card3s);
+            }
+        }
+        temp = firstplayer;
+        firstplayer = secondplayer;
+        secondplayer = temp;
+
+        if (queue_getsize(firstplayer)==36||queue_getsize(secondplayer)==36){
+            break;
+        }
+    }
+
+    queue_view(firstplayer);
+    puts("");
+    queue_view(secondplayer);
 
     puts("Drunkard finished");
 
