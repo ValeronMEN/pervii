@@ -42,7 +42,7 @@ void queue_enqueue(queue_t * myqueue, struct_c card){
 
 struct_c queue_dequeue(queue_t * myqueue){
     myqueue->status = QUEUE_OK;
-    if (myqueue->size == AMOUNT_OF_CARDS){
+    if (myqueue->head == AMOUNT_OF_CARDS){
         myqueue->head = 0;
     }
     if (myqueue->head == myqueue->tail && myqueue->size == 0){
@@ -50,8 +50,8 @@ struct_c queue_dequeue(queue_t * myqueue){
         return;
     }
     struct_c card = myqueue->deck[myqueue->head];
-    myqueue->deck[myqueue->head].suit = 0;
-    myqueue->deck[myqueue->head].value = 0;
+    //myqueue->deck[myqueue->head].suit = 0;
+    //myqueue->deck[myqueue->head].value = 0;
     myqueue->head++;
     myqueue->size--;
     return card;

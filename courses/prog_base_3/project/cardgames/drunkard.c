@@ -2,11 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <assert.h>
+#include <windows.h>
 
 #include "drunkard.h"
 #include "queue.h"
 
+#define color_default SetConsoleTextAttribute(hConsole, 7)
+#define color_disco SetConsoleTextAttribute(hConsole, 13)
+
 void drunkard(){
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     int i;
     puts("Drunkard is started");
 
@@ -45,20 +50,34 @@ void drunkard(){
     while(kbhit()==0){
         card1f = queue_dequeue(firstplayer);
         card1s = queue_dequeue(secondplayer);
-        printf("\nCards\n");
+        color_disco;
+        printf("\nCards 1. %i-%i, 2. %i-%i\n", card1f.value, card1f.suit, card1s.value, card1s.suit);
+        color_default;
         if (card1f.value>card1s.value){
             queue_enqueue(firstplayer, card1f);
             queue_enqueue(firstplayer, card1s);
+
+            queue_view(firstplayer);
+            puts("");
+            queue_view(secondplayer);
         }
         if (card1f.value<card1s.value){
             queue_enqueue(secondplayer, card1f);
             queue_enqueue(secondplayer, card1s);
+
+            queue_view(firstplayer);
+            puts("");
+            queue_view(secondplayer);
         }
-        else{
+        if (card1f.value==card1s.value){
             card2f = queue_dequeue(firstplayer);
             card2s = queue_dequeue(secondplayer);
+            color_disco;
+            printf("\nCards 1. %i-%i, 2. %i-%i", card2f.value, card2f.suit, card2s.value, card2s.suit);
             card3f = queue_dequeue(firstplayer);
             card3s = queue_dequeue(secondplayer);
+            printf("\nCards 1. %i-%i, 2. %i-%i\n", card3f.value, card3f.suit, card3s.value, card3s.suit);
+            color_default;
             if (card3f.value>card3s.value){
                 queue_enqueue(firstplayer, card1f);
                 queue_enqueue(firstplayer, card1s);
@@ -66,6 +85,10 @@ void drunkard(){
                 queue_enqueue(firstplayer, card2s);
                 queue_enqueue(firstplayer, card3f);
                 queue_enqueue(firstplayer, card3s);
+
+                queue_view(firstplayer);
+                puts("");
+                queue_view(secondplayer);
             }
             if (card3f.value<card3s.value){
                 queue_enqueue(secondplayer, card1f);
@@ -74,14 +97,22 @@ void drunkard(){
                 queue_enqueue(secondplayer, card2s);
                 queue_enqueue(secondplayer, card3f);
                 queue_enqueue(secondplayer, card3s);
+
+                queue_view(firstplayer);
+                puts("");
+                queue_view(secondplayer);
             }
-            else{
+            if (card3f.value==card3s.value){
                 queue_enqueue(firstplayer, card1f);
                 queue_enqueue(firstplayer, card1s);
                 queue_enqueue(firstplayer, card2f);
                 queue_enqueue(firstplayer, card2s);
                 queue_enqueue(firstplayer, card3f);
                 queue_enqueue(firstplayer, card3s);
+
+                queue_view(firstplayer);
+                puts("");
+                queue_view(secondplayer);
             }
         }
         temp = firstplayer;
@@ -91,11 +122,19 @@ void drunkard(){
         if (queue_getsize(firstplayer)==36||queue_getsize(secondplayer)==36){
             break;
         }
+        //system("pause");
     }
 
     queue_view(firstplayer);
     puts("");
     queue_view(secondplayer);
+
+    if(queue_getsize(player)==36){
+        printf("You win!\n");
+    }
+    else{
+        printf("You lose\n");
+    }
 
     puts("Drunkard finished");
 
