@@ -32,6 +32,9 @@ void queue_enqueue(queue_t * myqueue, struct_c card){
     if (myqueue->tail == AMOUNT_OF_CARDS){
         myqueue->tail = 0;
     }
+    if (card.value == 0 && card.suit == 0){
+        return;
+    }
     myqueue->size++;
     if (myqueue->size == AMOUNT_OF_CARDS){
         myqueue->status = QUEUE_MAX;
@@ -45,13 +48,14 @@ struct_c queue_dequeue(queue_t * myqueue){
     if (myqueue->head == AMOUNT_OF_CARDS){
         myqueue->head = 0;
     }
-    if (myqueue->head == myqueue->tail && myqueue->size == 0){
+    struct_c card;
+    card.value = 0;
+    card.suit = 0;
+    if (myqueue->size == 0){
         myqueue->status = QUEUE_NULL;
-        return;
+        return card;
     }
-    struct_c card = myqueue->deck[myqueue->head];
-    //myqueue->deck[myqueue->head].suit = 0;
-    //myqueue->deck[myqueue->head].value = 0;
+    card = myqueue->deck[myqueue->head];
     myqueue->head++;
     myqueue->size--;
     return card;

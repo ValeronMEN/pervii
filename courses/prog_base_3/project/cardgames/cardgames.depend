@@ -4,9 +4,9 @@
 	<stdlib.h>
 	"drunkard.h"
 
-1459678233 d:\Универ\Курсач\cardgames\drunkard.h
+1460287300 d:\Универ\Курсач\cardgames\drunkard.h
 
-1460282963 source:d:\Универ\Курсач\cardgames\drunkard.c
+1460287472 source:d:\Универ\Курсач\cardgames\drunkard.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -25,7 +25,7 @@
 1460277640 d:\Универ\Курсач\cardgames\queue.h
 	"standard.h"
 
-1460282143 source:d:\Универ\Курсач\cardgames\queue.c
+1460287586 source:d:\Универ\Курсач\cardgames\queue.c
 	<stdio.h>
 	<stdlib.h>
 	"queue.h"
