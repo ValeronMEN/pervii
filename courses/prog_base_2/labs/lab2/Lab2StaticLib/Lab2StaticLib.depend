@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1460060826 source:c:\users\drlove\desktop\lab2\lab2staticlib\main.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+
+1460407312 c:\users\drlove\desktop\lab2\lab2staticlib\queue.h
+
+1460407320 source:c:\users\drlove\desktop\lab2\lab2staticlib\queue.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+
