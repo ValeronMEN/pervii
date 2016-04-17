@@ -3,14 +3,17 @@
 
 #include "list.h"
 
-struct list_s{
-    int size;
-    struct_c deck[MAX_LIST_SIZE];
-    list_status status;
-};
-
 list_t * list_new(){
     list_t * mylist = malloc(sizeof(struct list_s));
+    mylist->ai = 0; //false
+    mylist->size = 0;
+    mylist->status = LIST_OK;
+    return mylist;
+}
+
+list_t * list_new_ai(){
+    list_t * mylist = malloc(sizeof(struct list_s));
+    mylist->ai = 1; //true
     mylist->size = 0;
     mylist->status = LIST_OK;
     return mylist;

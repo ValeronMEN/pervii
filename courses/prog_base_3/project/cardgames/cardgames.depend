@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1460293864 source:d:\Универ\Курсач\cardgames\main.c
+1460914770 source:d:\Универ\Курсач\cardgames\main.c
 	<stdio.h>
 	<stdlib.h>
+	<conio.h>
 	"drunkard.h"
 	"witch.h"
 
 1460290119 d:\Универ\Курсач\cardgames\drunkard.h
 	"queue.h"
 
-1460290112 source:d:\Универ\Курсач\cardgames\drunkard.c
+1460366978 source:d:\Универ\Курсач\cardgames\drunkard.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -34,17 +35,19 @@
 1460292686 d:\Универ\Курсач\cardgames\witch.h
 	"list.h"
 
-1460293973 d:\Универ\Курсач\cardgames\list.h
+1460915445 d:\Универ\Курсач\cardgames\list.h
 	"drunkard.h"
 
-1460293594 source:d:\Универ\Курсач\cardgames\list.c
+1460915394 source:d:\Универ\Курсач\cardgames\list.c
 	<stdio.h>
 	<stdlib.h>
 	"list.h"
 
-1460292707 source:d:\Универ\Курсач\cardgames\witch.c
+1460916278 source:d:\Универ\Курсач\cardgames\witch.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	<conio.h>
+	<windows.h>
 	"witch.h"
 
