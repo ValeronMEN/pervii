@@ -7,10 +7,11 @@
 #include "witch.h"
 
 void witch(){
-    puts("Witch is started");
+    puts("Witch is started\n");
+    int Xval = QUEEN;
+    int Xsuit = SPADE;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    int i;
     srand(time(NULL));
 
     //for 2 players
@@ -19,10 +20,8 @@ void witch(){
 
     list_t * player = list_new();
     list_t * ai = list_new_ai();
-
     list_t * firstplayer = ai;
     list_t * secondplayer = player;
-
     int strokeman = rand() % 2;
     if (strokeman==1){
         firstplayer = player;
@@ -30,7 +29,7 @@ void witch(){
     }
     printf("Result of strokeman is %i\n", strokeman);
 
-    i = 0;
+    int i = 0;
     while(i<36){
         list_add(firstplayer, deck[i], 0);
         i++;
@@ -51,41 +50,48 @@ void witch(){
         //2 cards to out from ai
         for(i=0; i<ai->size; i++){
             for(j=0; j<ai->size; j++){
-                if (i==j){
-                    continue;
-                }
-                if(ai->deck[i].value==ai->deck[j].value){
+                if(ai->deck[i].value==ai->deck[j].value&&i!=j&&ai->deck[i].value!=Xval&&ai->deck[i].suit!=Xsuit&&ai->deck[j].value!=Xval&&ai->deck[j].suit!=Xsuit){
+                    if (j>i){
+                        j--;
+                    }
                     deck[n] = list_sub(ai, i);
                     n++;
                     deck[n] = list_sub(ai, j);
                     n++;
-                    break;
+                    goto metka; //output of 2 loops
                 }
             }
         }
+        metka:
         //2 cards to out from player
         color_disco;
         puts("");
         list_view(player);
         while(1){
-            color_disco;
-            printf("\nPrint 2 indexes of ecvivalent values of cards\n");
+            printf("\nPrint 2 indexes of ecvivalent values of cards or -1 to exit\n");
             scanf("%i", &i);
             scanf("%i", &j);
-            color_default;
-            if (i==j){
-                printf("Bad indexes!");
-                continue;
+            if (i==-1||j==-1){
+                break;
             }
-            if(player->deck[i].value==player->deck[j].value){
+            if(player->deck[i].value==player->deck[j].value&&i!=j&&player->deck[i].value!=Xval&&player->deck[i].suit!=Xsuit&&player->deck[j].value!=Xval&&player->deck[j].suit!=Xsuit){
+                if (j>i){
+                    j--;
+                }
                 deck[n] = list_sub(player, i);
                 n++;
                 deck[n] = list_sub(player, j);
                 n++;
                 break;
             }
+            else {
+                printf("Failed indexes!\n");
+            }
         }
         color_default;
+        list_view(player);
+        puts("\n*******");
+        list_view(ai);
         //ai 1
         if(firstplayer->ai==1){
             choice = rand() % list_getcount(secondplayer);
@@ -111,7 +117,17 @@ void witch(){
         secondplayer = temp;
 
         list_view(player);
+        puts("\n*******");
         list_view(ai);
+
+        if (ai->size==0){
+            printf("You lose\n");
+            break;
+        }
+        if (player->size==0){
+            printf("You win!\n");
+            break;
+        }
     }
 
     puts("\nWitch finished");

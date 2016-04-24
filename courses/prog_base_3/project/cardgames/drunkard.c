@@ -3,6 +3,7 @@
 #include <time.h>
 #include <assert.h>
 #include <windows.h>
+#include <conio.h>
 
 #include "drunkard.h"
 

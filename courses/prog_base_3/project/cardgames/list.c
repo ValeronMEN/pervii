@@ -53,12 +53,12 @@ struct_c list_sub(list_t * mylist, int index){
         mylist->status = LIST_UNDERFLOW;
         return card;
     }
-    if (index>=(mylist->size)&&index<0){
+    if (index>=(mylist->size)||index<0){
         return card;
     }
     card = mylist->deck[index];
         for(i=index; i<mylist->size; i++){
-            mylist->deck[i] = mylist->deck[i-1];
+            mylist->deck[i] = mylist->deck[i+1];
         }
     mylist->size-=1;
     return card;
