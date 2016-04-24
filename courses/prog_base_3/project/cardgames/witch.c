@@ -50,7 +50,10 @@ void witch(){
         //2 cards to out from ai
         for(i=0; i<ai->size; i++){
             for(j=0; j<ai->size; j++){
-                if(ai->deck[i].value==ai->deck[j].value&&i!=j&&ai->deck[i].value!=Xval&&ai->deck[i].suit!=Xsuit&&ai->deck[j].value!=Xval&&ai->deck[j].suit!=Xsuit){
+                if(ai->deck[i].value==ai->deck[j].value&&i!=j){
+                    if ((ai->deck[i].value==Xval&&ai->deck[i].suit==Xsuit)||(ai->deck[j].value==Xval&&ai->deck[j].suit==Xsuit)){
+                        continue;
+                    }
                     if (j>i){
                         j--;
                     }
@@ -74,7 +77,10 @@ void witch(){
             if (i==-1||j==-1){
                 break;
             }
-            if(player->deck[i].value==player->deck[j].value&&i!=j&&player->deck[i].value!=Xval&&player->deck[i].suit!=Xsuit&&player->deck[j].value!=Xval&&player->deck[j].suit!=Xsuit){
+            if(player->deck[i].value==player->deck[j].value&&i!=j){
+                if ((player->deck[i].value==Xval&&player->deck[i].suit==Xsuit)||(player->deck[j].value==Xval&&player->deck[j].suit==Xsuit)){
+                    continue;
+                }
                 if (j>i){
                     j--;
                 }
@@ -92,6 +98,17 @@ void witch(){
         list_view(player);
         puts("\n*******");
         list_view(ai);
+
+        //finish check
+        if (ai->size==0){
+            printf("You lose\n");
+            break;
+        }
+        if (player->size==0){
+            printf("You win!\n");
+            break;
+        }
+
         //ai 1
         if(firstplayer->ai==1){
             choice = rand() % list_getcount(secondplayer);
@@ -119,15 +136,6 @@ void witch(){
         list_view(player);
         puts("\n*******");
         list_view(ai);
-
-        if (ai->size==0){
-            printf("You lose\n");
-            break;
-        }
-        if (player->size==0){
-            printf("You win!\n");
-            break;
-        }
     }
 
     puts("\nWitch finished");
