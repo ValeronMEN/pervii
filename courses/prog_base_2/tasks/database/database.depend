@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1461515158 source:c:\users\drlove\desktop\database\dbmodule.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\database\sqlite3.h"
+	"dbModule.h"
+	"director.h"
+
+1450774966 c:\users\drlove\desktop\database\sqlite3.h
+	<stdarg.h>
+
+1461511242 c:\users\drlove\desktop\database\dbmodule.h
+	"director.h"
+
+1461511523 c:\users\drlove\desktop\database\director.h
+
+1461515171 source:c:\users\drlove\desktop\database\director.c
+	<stdio.h>
+	"director.h"
+
+1461515159 source:c:\users\drlove\desktop\database\main.c
+	<stdio.h>
+	<stdlib.h>
+	"director.h"
+	"dbModule.h"
+
+1461521300 source:c:\users\drlove\desktop\database2\director.c
+	<stdio.h>
+	"director.h"
+
+1461511523 c:\users\drlove\desktop\database2\director.h
+
+1461533493 source:c:\users\drlove\desktop\database2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+
+1461511242 c:\users\drlove\desktop\database2\dbmodule.h
+	"director.h"
+
+1461521100 source:c:\users\drlove\desktop\database2\dbmodule.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\database2\sqlite3.h"
+	"dbModule.h"
+	"director.h"
+
+1450774966 c:\users\drlove\desktop\database2\sqlite3.h
+	<stdarg.h>
+
+1461533239 source:c:\users\drlove\desktop\database2\module.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\database2\sqlite3.h"
+	"module.h"
+
+1461527597 c:\users\drlove\desktop\database2\module.h
+	"patient.h"
+
+1461528506 c:\users\drlove\desktop\database2\patient.h
+
+1461532379 source:c:\users\drlove\desktop\database2\patient.c
+	<stdio.h>
+	<stdlib.h>
+	"patient.h"
+
