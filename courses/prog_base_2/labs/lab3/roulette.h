@@ -4,15 +4,16 @@
 #define MAX_SUBSCRIBERS_SIZE 10
 #define MAX_NAME_SIZE 100
 
-#include "reaction.h"
-
-typedef struct roulette_c roulette_t;
-
 typedef void (*MyCallback)(const char *, const char *);
+
+typedef struct roulette_s roulette_t;
+typedef struct user_s user_t;
 
 //methods
 
 roulette_t * roulette_new();
+
+void roulette_free(roulette_t * self);
 
 void administrator_new(roulette_t * self, const char * name);
 void player_new(roulette_t * self, const char * name);

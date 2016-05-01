@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1462101525 source:c:\users\drlove\desktop\lab3\main.c
+1462106842 source:c:\users\drlove\desktop\lab3\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -8,8 +8,7 @@
 
 1462097403 c:\users\drlove\desktop\lab3\reaction.h
 
-1462097607 c:\users\drlove\desktop\lab3\roulette.h
-	"reaction.h"
+1462106724 c:\users\drlove\desktop\lab3\roulette.h
 
 1462095595 source:c:\users\drlove\desktop\lab3\reaction.c
 	<stdlib.h>
@@ -18,7 +17,7 @@
 	"reaction.h"
 	"roulette.h"
 
-1462101897 source:c:\users\drlove\desktop\lab3\roulette.c
+1462106598 source:c:\users\drlove\desktop\lab3\roulette.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>

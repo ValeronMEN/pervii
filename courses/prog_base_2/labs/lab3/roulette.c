@@ -4,7 +4,7 @@
 
 #include "roulette.h"
 
-struct roulette_c{
+struct roulette_s{
     int first;
     int second;
     int third;
@@ -14,12 +14,16 @@ struct roulette_c{
 };
 
 roulette_t * roulette_new(){
-    roulette_t * self = malloc(sizeof(struct roulette_c));
+    roulette_t * self = malloc(sizeof(struct roulette_s));
     self->first = 0;
     self->second = 0;
     self->third = 0;
     self->size = 0;
     return self;
+}
+
+void roulette_free(roulette_t * self){
+    free(self);
 }
 
 void administrator_new(roulette_t * self, const char * name){
