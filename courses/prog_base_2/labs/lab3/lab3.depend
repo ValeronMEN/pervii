@@ -23,3 +23,23 @@
 	<string.h>
 	"roulette.h"
 
+1462127041 source:d:\Универ\ОП Модули\лабы\lab3\roulette.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"roulette.h"
+
+1462123452 d:\Универ\ОП Модули\лабы\lab3\roulette.h
+
+1462126972 source:d:\Универ\ОП Модули\лабы\lab3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"roulette.h"
+
+1426175038 e:\program files (x86)\cmocka\include\cmocka.h
+

@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-//#include <time.h>
-//#include <conio.h>
+
+#include <stdlib.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <setjmp.h>
+
 #include <cmocka.h>
 
 #include "roulette.h"
@@ -24,7 +28,7 @@ static void subsPlayers_11players_overflow(void **state){
 
 static void randomizer_void_empty(void **state){
     roulette_t * myroulette = roulette_new();
-    roulette_randomizer(myroulette, 0, 0, 0, NULL);
+    roulette_randomizer(myroulette, 0, 0, 0, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_EMPTY);
     roulette_free(myroulette);
 }
@@ -32,7 +36,7 @@ static void randomizer_void_empty(void **state){
 static void randomizer03_3differentValues_03status(void **state){
     roulette_t * myroulette = roulette_new();
     player_new(myroulette, "Player");
-    roulette_randomizer(myroulette, 1, 2, 3, NULL);
+    roulette_randomizer(myroulette, 1, 2, 3, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_03);
     roulette_free(myroulette);
 }
@@ -40,7 +44,7 @@ static void randomizer03_3differentValues_03status(void **state){
 static void randomizer23_2sameValues_23status(void **state){
     roulette_t * myroulette = roulette_new();
     player_new(myroulette, "Player");
-    roulette_randomizer(myroulette, 1, 1, 3, NULL);
+    roulette_randomizer(myroulette, 1, 1, 3, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_23);
     roulette_free(myroulette);
 }
@@ -48,7 +52,7 @@ static void randomizer23_2sameValues_23status(void **state){
 static void randomizer33_3sameValues_33status(void **state){
     roulette_t * myroulette = roulette_new();
     player_new(myroulette, "Player");
-    roulette_randomizer(myroulette, 1, 1, 1, NULL);
+    roulette_randomizer(myroulette, 1, 1, 1, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_33);
     roulette_free(myroulette);
 }
@@ -56,7 +60,7 @@ static void randomizer33_3sameValues_33status(void **state){
 static void randomizerJackpot_3valuesOf7_jackpotStatus(void **state){
     roulette_t * myroulette = roulette_new();
     player_new(myroulette, "Player");
-    roulette_randomizer(myroulette, 7, 7, 7, NULL);
+    roulette_randomizer(myroulette, 7, 7, 7, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_JACKPOT);
     roulette_free(myroulette);
 }

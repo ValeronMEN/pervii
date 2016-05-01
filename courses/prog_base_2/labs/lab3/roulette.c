@@ -37,22 +37,22 @@ void player(const char * message, const char * name, roulette_t * self){
     printf("%s, you have %s\n", name, message);
     if (strcmp(message, "0 / 3")==0){
         printf("I'm sorry, but you're not a winner :(\n");
-        self->status = ROULETTE_03;
+        self->status = ROULETTE_PLAYER_03;
         return;
     }
     if (strcmp(message, "2 / 3")==0){
         printf("You're not a winner, but close to victory! :)\n");
-        self->status = ROULETTE_23;
+        self->status = ROULETTE_PLAYER_23;
         return;
     }
     if (strcmp(message, "3 / 3")==0){
         printf("You're a winner! :D\n");
-        self->status = ROULETTE_33;
+        self->status = ROULETTE_PLAYER_33;
         return;
     }
     if (strcmp(message, "Jackpot!")==0){
         printf("You're a super winner! :D\n");
-        self->status = ROULETTE_JACKPOT;
+        self->status = ROULETTE_PLAYER_JACKPOT;
         return;
     }
 }
