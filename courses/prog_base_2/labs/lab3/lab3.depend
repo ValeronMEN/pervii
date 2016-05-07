@@ -43,3 +43,21 @@
 
 1426175038 e:\program files (x86)\cmocka\include\cmocka.h
 
+1462126972 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"roulette.h"
+
+1462123452 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab3\roulette.h
+
+1462127041 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab3\roulette.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"roulette.h"
+
