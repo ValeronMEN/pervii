@@ -3,8 +3,8 @@
 Card::Card(){
     this->posX = 200;
     this->posY = 200;
-    this->width = 50;
-    this->height = 50;
+    this->width = 91;
+    this->height = 128;
     this->visible = true;
 }
 
@@ -15,7 +15,6 @@ bool Card::isClicked(int x, int y){
     return false;
 }
 
-//?
 short int Card::getValueIdentifier(){
 	return valueIdentifier;
 }

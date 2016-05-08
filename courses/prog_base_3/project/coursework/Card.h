@@ -5,8 +5,7 @@
 
 using namespace sf;
 
-class Card
-{
+class Card{
 	private:
 		short int valueIdentifier;
 		short int colorIdentifier;
@@ -14,21 +13,23 @@ class Card
 
 	public:
 	    Card();
+
 	    bool isClicked(int x, int y);
 		short int getValueIdentifier();
 		std::string getImagePath();
+		short int getColorIdentifier();
 		void setValueIdentifier(short int valueInput);
 		void setImagePath(std::string pathInput);
-		void drawOnScreen();
-		short int getColorIdentifier();
+		void setTexture();
 		void setColorIdentifier(short int id);
-		Sprite sprite;
+		void drawOnScreen();
+
 		int posX;
 		int posY;
 		int width;
 		int height;
 		bool visible;
-		void setTexture();
+		Sprite sprite;
 		Texture texture;
 };
 

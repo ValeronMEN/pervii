@@ -41,6 +41,14 @@
 		</Compiler>
 		<Unit filename="Card.cpp" />
 		<Unit filename="Card.h" />
+		<Unit filename="ContinueButton.cpp" />
+		<Unit filename="ContinueButton.h" />
+		<Unit filename="Deck.cpp" />
+		<Unit filename="Deck.h" />
+		<Unit filename="Drunkard.cpp" />
+		<Unit filename="Drunkard.h" />
+		<Unit filename="StartButton.cpp" />
+		<Unit filename="StartButton.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
