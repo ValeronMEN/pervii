@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "StartButton.h"
 #include "Drunkard.h"
+#include "Jack.h"
 
 using namespace sf;
 
@@ -37,7 +38,10 @@ int main(){
                     window.close();
                 }
                 if (jackButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
-                    window.close();
+                    window.setVisible(0);
+                    Jack * jack = new Jack();
+                    jack->start();
+                    window.setVisible(1);
                 }
             }
         }
@@ -52,45 +56,3 @@ int main(){
 
     return 0;
 }
-
-    /*
-    sf::Texture cardTexture;
-    Sprite background;
-    Texture backTexture;
-    backTexture.loadFromFile("textures/startbuttons.png");
-    background.setTexture(backTexture);
-    background.setPosition(0, 0);
-    window.draw(background);
-    window.display();
-    */
-    //background.setScale((float)1648/400, (float)900/ 300);
-
-
-    /*
-     while (this->win->isOpen())
-    {
-        Event event;
-        while (this->win->pollEvent(event))
-        {
-            if (event.type == Event::Closed)
-                this->win->close();
-            else if (event.type == sf::Event::MouseButtonPressed)
-            {
-                if (event.mouseButton.button == sf::Mouse::Left)
-                {
-                    if (callButton->isPressed(event.mouseButton.x, event.mouseButton.y))
-                    {
-                        this->callButton->called(0, bet);
-                        this->nextRound();
-                    }
-                    if (foldButton->isPressed(event.mouseButton.x, event.mouseButton.y))
-                    {
-                        this->nextDistribution();
-                    }
-
-                }
-            }
-
-
-        }
-        */

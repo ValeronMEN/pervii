@@ -41,7 +41,7 @@ void Card::setColorIdentifier(short int id){
 }
 
 void Card::setTexture(){
-    this->texture.loadFromFile("textures/CardsBig2.png");
+    this->texture.loadFromFile("textures/CardsBig.png");
     this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
     this->sprite.setTextureRect(sf::IntRect((float)(1+139*(this->valueIdentifier)), (float)(1+193 * (this->colorIdentifier)), (float)138, (float)192 ));

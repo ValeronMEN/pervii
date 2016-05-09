@@ -47,6 +47,8 @@
 		<Unit filename="Deck.h" />
 		<Unit filename="Drunkard.cpp" />
 		<Unit filename="Drunkard.h" />
+		<Unit filename="Jack.cpp" />
+		<Unit filename="Jack.h" />
 		<Unit filename="Standard.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />

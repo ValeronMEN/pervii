@@ -1,6 +1,7 @@
 #include "Drunkard.h"
 #include <queue>
 #include <windows.h>
+#include "WinLose.h"
 
 using namespace sf;
 
@@ -54,6 +55,20 @@ void Drunkard::start()
     Card * card3f = new Card();
     Card * card3s = new Card();
 
+    bool visible2fs = false;
+    bool visible3fs = false;
+
+    sf:Font myfont;
+    myfont.loadFromFile("fonts/MIDDST__.TTF");
+    sf::Text mySize;
+    sf::Text aiSize;
+    mySize.setPosition(590 , 840);
+    aiSize.setPosition(590 , 95);
+    mySize.setFont(myfont);
+    aiSize.setFont(myfont);
+
+    //WinLose * winlose = new WinLose();
+
     while(drunkardWindow.isOpen())
     {
         if(myQueue.empty())
@@ -77,6 +92,15 @@ void Drunkard::start()
             {
                 if (continueBtn->isPressed(event.mouseButton.x, event.mouseButton.y))
                 {
+                    char * textSize;
+                    itoa(myQueue.size(),textSize,10);
+                    mySize.setString(textSize);
+                    itoa(aiQueue.size(),textSize,10);
+                    aiSize.setString(textSize);
+
+                    visible2fs = false;
+                    visible3fs = false;
+
                     *card1f = firstQueue->front();
                     card1f->setTexture();
                     *card1s = secondQueue->front();
@@ -93,12 +117,12 @@ void Drunkard::start()
                         card1s->sprite.setPosition(266, 549);
                         card1f->sprite.setPosition(598, 229);
                     }
-                    if(card1f->valueIdentifier>card1s->valueIdentifier)
+                    if(card1f->valueIdentifier>card1s->valueIdentifier||secondQueue->empty())
                     {
                         firstQueue->push(*card1f);
                         firstQueue->push(*card1s);
                     }
-                    if(card1f->valueIdentifier<card1s->valueIdentifier)
+                    if(card1f->valueIdentifier<card1s->valueIdentifier||firstQueue->empty())
                     {
                         secondQueue->push(*card1f);
                         secondQueue->push(*card1s);
@@ -109,43 +133,59 @@ void Drunkard::start()
                         *card2s = secondQueue->front();
                         firstQueue->pop();
                         secondQueue->pop();
-                        *card3f = firstQueue->front();
-                        *card3s = secondQueue->front();
-                        firstQueue->pop();
-                        secondQueue->pop();
+                        visible2fs = true;
+
                         backCardSpr2f.setTexture(backCardTex);
                         backCardSpr2f.setPosition(312, 485);
                         backCardSpr2s.setTexture(backCardTex);
                         backCardSpr2s.setPosition(552, 293);
-                        card3f->setTexture();
-                        card3s->setTexture();
-                        if (firstQueue == &myQueue)
-                        {
-                            card3f->sprite.setPosition(358, 421);
-                            card3s->sprite.setPosition(506, 357);
-                        }
-                        else
-                        {
-                            card3s->sprite.setPosition(358, 421);
-                            card3f->sprite.setPosition(506, 357);
-                        }
-                        if (card1f->valueIdentifier>=card1s->valueIdentifier)
+
+                        if(firstQueue->empty()||secondQueue->empty())
                         {
                             firstQueue->push(*card1f);
                             firstQueue->push(*card1s);
                             firstQueue->push(*card2f);
                             firstQueue->push(*card2s);
-                            firstQueue->push(*card3f);
-                            firstQueue->push(*card3s);
                         }
                         else
                         {
-                            secondQueue->push(*card1f);
-                            secondQueue->push(*card1s);
-                            secondQueue->push(*card2f);
-                            secondQueue->push(*card2s);
-                            secondQueue->push(*card3f);
-                            secondQueue->push(*card3s);
+                            *card3f = firstQueue->front();
+                            *card3s = secondQueue->front();
+                            firstQueue->pop();
+                            secondQueue->pop();
+                            visible3fs = true;
+
+                            card3f->setTexture();
+                            card3s->setTexture();
+
+                            if (firstQueue == &myQueue)
+                            {
+                                card3f->sprite.setPosition(358, 421);
+                                card3s->sprite.setPosition(506, 357);
+                            }
+                            else
+                            {
+                                card3s->sprite.setPosition(358, 421);
+                                card3f->sprite.setPosition(506, 357);
+                            }
+                            if (card1f->valueIdentifier>=card1s->valueIdentifier)
+                            {
+                                firstQueue->push(*card1f);
+                                firstQueue->push(*card1s);
+                                firstQueue->push(*card2f);
+                                firstQueue->push(*card2s);
+                                firstQueue->push(*card3f);
+                                firstQueue->push(*card3s);
+                            }
+                            else
+                            {
+                                secondQueue->push(*card1f);
+                                secondQueue->push(*card1s);
+                                secondQueue->push(*card2f);
+                                secondQueue->push(*card2s);
+                                secondQueue->push(*card3f);
+                                secondQueue->push(*card3s);
+                            }
                         }
                     }
                 }
@@ -157,10 +197,18 @@ void Drunkard::start()
         drunkardWindow.draw(continueBtn->sprite);
         drunkardWindow.draw(card1f->sprite);
         drunkardWindow.draw(card1s->sprite);
-        drunkardWindow.draw(backCardSpr2f);
-        drunkardWindow.draw(backCardSpr2s);
-        drunkardWindow.draw(card3f->sprite);
-        drunkardWindow.draw(card3s->sprite);
+        if (visible2fs)
+        {
+            drunkardWindow.draw(backCardSpr2f);
+            drunkardWindow.draw(backCardSpr2s);
+        }
+        if (visible3fs)
+        {
+            drunkardWindow.draw(card3f->sprite);
+            drunkardWindow.draw(card3s->sprite);
+        }
+        drunkardWindow.draw(mySize);
+        drunkardWindow.draw(aiSize);
         drunkardWindow.display();
     }
 }
