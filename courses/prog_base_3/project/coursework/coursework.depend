@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1462743247 source:d:\Универ\Курсач\coursework\main.cpp
+1462785935 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
@@ -382,22 +382,23 @@
 	<string>
 	<vector>
 
-1462743411 source:d:\Универ\Курсач\coursework\card.cpp
+1462816710 source:d:\Универ\Курсач\coursework\card.cpp
 	"Card.h"
 
-1462708270 d:\Универ\Курсач\coursework\card.h
+1462816708 d:\Универ\Курсач\coursework\card.h
 	<string>
 	<SFML/Graphics.hpp>
 
-1462748439 source:d:\Универ\Курсач\coursework\deck.cpp
+1462819080 source:d:\Универ\Курсач\coursework\deck.cpp
 	"Deck.h"
 
-1462748287 d:\Универ\Курсач\coursework\deck.h
+1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1462748363 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1462817138 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<queue>
+	<windows.h>
 
 1462740896 source:d:\Универ\Курсач\coursework\startbutton.cpp
 	"StartButton.h"
@@ -405,7 +406,7 @@
 1462740910 d:\Универ\Курсач\coursework\startbutton.h
 	<SFML/Graphics.hpp>
 
-1462748072 d:\Универ\Курсач\coursework\drunkard.h
+1462814041 d:\Универ\Курсач\coursework\drunkard.h
 	<SFML/Graphics.hpp>
 	"Card.h"
 	"ContinueButton.h"
@@ -419,5 +420,5 @@
 1462747881 source:d:\Универ\Курсач\coursework\continuebutton.cpp
 	"ContinueButton.h"
 
-1462747819 d:\Универ\Курсач\coursework\standard.h
+1462811473 d:\Универ\Курсач\coursework\standard.h
 

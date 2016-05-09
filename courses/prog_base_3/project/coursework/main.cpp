@@ -25,8 +25,10 @@ int main(){
                     //witch->start();
                 }
                 if (drunkardButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
+                    window.setVisible(0);
                     Drunkard * drunkard = new Drunkard();
                     drunkard->start();
+                    window.setVisible(1);
                 }
                 if (pigButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
                     window.close();

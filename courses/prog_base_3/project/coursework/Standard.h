@@ -1,2 +1,2 @@
-#define D_X 1035
-#define D_Y 900
+#define D_X 1002
+#define D_Y 970

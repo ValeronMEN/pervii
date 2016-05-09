@@ -1,11 +1,12 @@
 #include "Card.h"
 
 Card::Card(){
-    this->posX = 200;
-    this->posY = 200;
+    this->posX = 0;
+    this->posY = 0;
     this->width = 91;
     this->height = 128;
     this->visible = true;
+    this->valueIdentifier = -1;
 }
 
 bool Card::isClicked(int x, int y){
@@ -40,7 +41,8 @@ void Card::setColorIdentifier(short int id){
 }
 
 void Card::setTexture(){
-    this->texture.loadFromFile("textures/CardFaces.png");
+    this->texture.loadFromFile("textures/CardsBig2.png");
+    this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
-    this->sprite.setTextureRect(sf::IntRect((float)1183/13 * (this->valueIdentifier), (float)512/4 * (this->colorIdentifier), (float)1183/13, (float)512/4 ));
+    this->sprite.setTextureRect(sf::IntRect((float)(1+139*(this->valueIdentifier)), (float)(1+193 * (this->colorIdentifier)), (float)138, (float)192 ));
 }

@@ -7,11 +7,11 @@ using namespace sf;
 
 class Card{
 	private:
-		short int valueIdentifier;
 		short int colorIdentifier;
 		std::string imagePath;
 
 	public:
+        short int valueIdentifier;
 	    Card();
 
 	    bool isClicked(int x, int y);

@@ -10,8 +10,9 @@ public:
 
 private:
     void drawDecks();
-    sf::Texture backCardTex180;
     sf::Texture backCardTex;
     sf::Sprite backCardSpr;
     sf::Sprite backCardSpr180;
+    sf::Sprite backCardSpr2f;
+    sf::Sprite backCardSpr2s;
 };
