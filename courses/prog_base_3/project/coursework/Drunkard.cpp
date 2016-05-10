@@ -1,7 +1,7 @@
 #include "Drunkard.h"
 #include <queue>
 #include <windows.h>
-#include "WinLose.h"
+//#include "WinLose.h"
 
 using namespace sf;
 
@@ -92,6 +92,9 @@ void Drunkard::start()
             {
                 if (continueBtn->isPressed(event.mouseButton.x, event.mouseButton.y))
                 {
+                    if (myQueue.empty()||aiQueue.empty()){
+                        break;
+                    }
                     char * textSize;
                     itoa(myQueue.size(),textSize,10);
                     mySize.setString(textSize);
@@ -101,12 +104,17 @@ void Drunkard::start()
                     visible2fs = false;
                     visible3fs = false;
 
+                    // first round of first and second players
+
                     *card1f = firstQueue->front();
-                    card1f->setTexture();
                     *card1s = secondQueue->front();
+                    card1f->setTexture();
                     card1s->setTexture();
                     firstQueue->pop();
                     secondQueue->pop();
+
+                    // set positions of f and s cards
+
                     if (firstQueue == &myQueue)
                     {
                         card1f->sprite.setPosition(266, 549);
@@ -114,31 +122,40 @@ void Drunkard::start()
                     }
                     else
                     {
-                        card1s->sprite.setPosition(266, 549);
                         card1f->sprite.setPosition(598, 229);
+                        card1s->sprite.setPosition(266, 549);
                     }
-                    if(card1f->valueIdentifier>card1s->valueIdentifier||secondQueue->empty())
+
+                    // compare 1f and 1s
+
+                    if((card1f->valueIdentifier > card1s->valueIdentifier)||(secondQueue->empty()))
                     {
                         firstQueue->push(*card1f);
                         firstQueue->push(*card1s);
                     }
-                    if(card1f->valueIdentifier<card1s->valueIdentifier||firstQueue->empty())
+                    if((card1f->valueIdentifier < card1s->valueIdentifier)||(firstQueue->empty()))
                     {
                         secondQueue->push(*card1f);
                         secondQueue->push(*card1s);
                     }
-                    if(card1f->valueIdentifier==card1s->valueIdentifier)
+                    if(card1f->valueIdentifier == card1s->valueIdentifier)
                     {
+                        // second round
+
                         *card2f = firstQueue->front();
                         *card2s = secondQueue->front();
                         firstQueue->pop();
                         secondQueue->pop();
                         visible2fs = true;
 
+                        // set positions of first and second cards
+
                         backCardSpr2f.setTexture(backCardTex);
                         backCardSpr2f.setPosition(312, 485);
                         backCardSpr2s.setTexture(backCardTex);
                         backCardSpr2s.setPosition(552, 293);
+
+                        // isEmpty
 
                         if(firstQueue->empty()||secondQueue->empty())
                         {

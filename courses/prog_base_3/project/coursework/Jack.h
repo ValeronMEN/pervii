@@ -1,9 +1,10 @@
 #include <SFML/Graphics.hpp>
-#include "Card.h"
+#include "JackCard.h"
 #include "Standard.h"
-#include "Deck.h"
+#include "JackDeck.h"
 
 class Jack{
 public:
     void start();
+    void game(RenderWindow * win);
 };

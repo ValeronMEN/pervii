@@ -49,6 +49,10 @@
 		<Unit filename="Drunkard.h" />
 		<Unit filename="Jack.cpp" />
 		<Unit filename="Jack.h" />
+		<Unit filename="JackCard.cpp" />
+		<Unit filename="JackCard.h" />
+		<Unit filename="JackDeck.cpp" />
+		<Unit filename="JackDeck.h" />
 		<Unit filename="Standard.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />
