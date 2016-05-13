@@ -6,19 +6,33 @@ JackDeck::JackDeck(){
 	int colorID = 0;
 	int valueID = 0;
 
-	for (int  i = 0; i < 52; i++)
-	{
+	for (int i = 0; i < 52; i++){
 		this->card[i].setColorIdentifier(colorID);
 		this->card[i].setValueIdentifier(valueID);
 
 		colorID++;
 
-		if (colorID > 3)
-		{
+		if (colorID > 3){
 			colorID = 0;
 			valueID++;
 		}
 	}
+
+	this->card[0].setPoints(14);
+	this->card[1].setPoints(14);
+	this->card[2].setPoints(14);
+	this->card[3].setPoints(14);
+
+
+	int p = 2, i=5;
+	while(i<52){
+        for(int j=0; j<4; j++){
+            this->card[i].setPoints(p);
+            i++;
+        }
+        p++;
+	}
+
 }
 
 JackCard JackDeck::getCard(){

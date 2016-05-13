@@ -8,21 +8,21 @@ using namespace sf;
 class JackCard{
 	private:
 		short int colorIdentifier;
-		std::string imagePath;
+		short int valueIdentifier;
 
 	public:
-        short int valueIdentifier;
+	    int points;
 	    JackCard();
 
 	    bool isClicked(int x, int y);
 		short int getValueIdentifier();
-		std::string getImagePath();
 		short int getColorIdentifier();
 		void setValueIdentifier(short int valueInput);
-		void setImagePath(std::string pathInput);
 		void setTexture();
 		void setColorIdentifier(short int id);
 		void drawOnScreen();
+		void setPoints(int p);
+		int getPoints();
 
 		int posX;
 		int posY;

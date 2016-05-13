@@ -5,7 +5,7 @@
 
 class JackDeck{
 	private:
-		JackCard card[36];
+		JackCard card[52];
 		int pos;
 
 	public:

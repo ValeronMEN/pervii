@@ -3,6 +3,7 @@
 #include "ContinueButton.h"
 #include "Standard.h"
 #include "Deck.h"
+//#include "WinLose.h"
 
 class Drunkard{
 public:

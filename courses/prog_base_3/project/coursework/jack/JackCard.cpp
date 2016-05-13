@@ -6,7 +6,6 @@ JackCard::JackCard(){
     this->width = 139;
     this->height = 216;
     this->visible = true;
-    this->valueIdentifier = -1;
 }
 
 bool JackCard::isClicked(int x, int y){
@@ -20,20 +19,12 @@ short int JackCard::getValueIdentifier(){
 	return valueIdentifier;
 }
 
-std::string JackCard::getImagePath(){
-	return imagePath;
-}
-
 short int JackCard::getColorIdentifier(){
 	return colorIdentifier;
 }
 
 void JackCard::setValueIdentifier(short int valueInput){
 	valueIdentifier = valueInput;
-}
-
-void JackCard::setImagePath(std::string pathInput){
-	imagePath = pathInput;
 }
 
 void JackCard::setColorIdentifier(short int id){
@@ -45,4 +36,12 @@ void JackCard::setTexture(){
     this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
     this->sprite.setTextureRect(sf::IntRect((float)(139*(this->valueIdentifier)), (float)(216 * (this->colorIdentifier)), (float)139, (float)216));
+}
+
+void JackCard::setPoints(int p){
+	this->points = p;
+}
+
+int JackCard::getPoints(){
+	return this->points;
 }

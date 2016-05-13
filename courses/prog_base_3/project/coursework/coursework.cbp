@@ -49,13 +49,27 @@
 		<Unit filename="Drunkard.h" />
 		<Unit filename="Jack.cpp" />
 		<Unit filename="Jack.h" />
-		<Unit filename="JackCard.cpp" />
-		<Unit filename="JackCard.h" />
-		<Unit filename="JackDeck.cpp" />
-		<Unit filename="JackDeck.h" />
 		<Unit filename="Standard.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />
+		<Unit filename="jack/JackBackCard.cpp" />
+		<Unit filename="jack/JackBackCard.h" />
+		<Unit filename="jack/JackBet.cpp" />
+		<Unit filename="jack/JackBet.h" />
+		<Unit filename="jack/JackCard.cpp" />
+		<Unit filename="jack/JackCard.h" />
+		<Unit filename="jack/JackDeck.cpp" />
+		<Unit filename="jack/JackDeck.h" />
+		<Unit filename="jack/JackLaunch.cpp" />
+		<Unit filename="jack/JackLaunch.h" />
+		<Unit filename="jack/JackMoney.cpp" />
+		<Unit filename="jack/JackMoney.h" />
+		<Unit filename="jack/JackMore.cpp" />
+		<Unit filename="jack/JackMore.h" />
+		<Unit filename="jack/JackOpen.cpp" />
+		<Unit filename="jack/JackOpen.h" />
+		<Unit filename="jack/JackRate.cpp" />
+		<Unit filename="jack/JackRate.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

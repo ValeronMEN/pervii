@@ -390,13 +390,13 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1462819080 source:d:\Универ\Курсач\coursework\deck.cpp
+1463070876 source:d:\Универ\Курсач\coursework\deck.cpp
 	"Deck.h"
 
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1462875499 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1463152124 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<queue>
 	<windows.h>
@@ -407,7 +407,7 @@
 1462740910 d:\Универ\Курсач\coursework\startbutton.h
 	<SFML/Graphics.hpp>
 
-1462814041 d:\Универ\Курсач\coursework\drunkard.h
+1463152131 d:\Универ\Курсач\coursework\drunkard.h
 	<SFML/Graphics.hpp>
 	"Card.h"
 	"ContinueButton.h"
@@ -421,19 +421,26 @@
 1462747881 source:d:\Универ\Курсач\coursework\continuebutton.cpp
 	"ContinueButton.h"
 
-1462913766 d:\Универ\Курсач\coursework\standard.h
+1463149198 d:\Универ\Курсач\coursework\standard.h
 
 1462825368 d:\Универ\Курсач\coursework\winlose.h
 	<SFML/Graphics.hpp>
 
-1462913684 source:d:\Универ\Курсач\coursework\jack.cpp
+1463159386 source:d:\Универ\Курсач\coursework\jack.cpp
 	"Jack.h"
 
-1462913750 d:\Универ\Курсач\coursework\jack.h
+1463152727 d:\Универ\Курсач\coursework\jack.h
 	<SFML/Graphics.hpp>
-	"JackCard.h"
+	"jack/JackCard.h"
 	"Standard.h"
-	"JackDeck.h"
+	"jack/JackDeck.h"
+	"jack/JackBet.h"
+	"jack/JackMoney.h"
+	"jack/JackRate.h"
+	"jack/JackLaunch.h"
+	"jack/JackMore.h"
+	"jack/JackOpen.h"
+	"jack/JackBackCard.h"
 
 1462912984 source:d:\Универ\Курсач\coursework\jackcard.cpp
 	"JackCard.h"
@@ -442,9 +449,65 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1462913151 source:d:\Универ\Курсач\coursework\jackdeck.cpp
+1463071588 source:d:\Универ\Курсач\coursework\jackdeck.cpp
 	"JackDeck.h"
 
 1462913082 d:\Универ\Курсач\coursework\jackdeck.h
 	"JackCard.h"
+
+1463158440 d:\Универ\Курсач\coursework\jack\jackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463159128 d:\Универ\Курсач\coursework\jack\jackdeck.h
+	"JackCard.h"
+
+1463158885 source:d:\Универ\Курсач\coursework\jack\jackcard.cpp
+	"JackCard.h"
+
+1463151746 source:d:\Универ\Курсач\coursework\jack\jackdeck.cpp
+	"JackDeck.h"
+
+1463142956 d:\Универ\Курсач\coursework\jack\jackbet.h
+	<SFML/Graphics.hpp>
+
+1463142951 source:d:\Универ\Курсач\coursework\jack\jackbet.cpp
+	"JackBet.h"
+
+1463145745 d:\Универ\Курсач\coursework\jack\jackmoney.h
+	<SFML/Graphics.hpp>
+
+1463145812 source:d:\Универ\Курсач\coursework\jack\jackmoney.cpp
+	"JackMoney.h"
+
+1463145932 d:\Универ\Курсач\coursework\jack\jackrate.h
+	<SFML/Graphics.hpp>
+
+1463145925 source:d:\Универ\Курсач\coursework\jack\jackrate.cpp
+	"JackRate.h"
+
+1463146291 d:\Универ\Курсач\coursework\jack\jacklaunch.h
+	<SFML/Graphics.hpp>
+
+1463146282 source:d:\Универ\Курсач\coursework\jack\jacklaunch.cpp
+	"JackLaunch.h"
+
+1463146935 d:\Универ\Курсач\coursework\jack\jackmore.h
+	<SFML/Graphics.hpp>
+
+1463147091 d:\Универ\Курсач\coursework\jack\jackopen.h
+	<SFML/Graphics.hpp>
+
+1463146922 source:d:\Универ\Курсач\coursework\jack\jackmore.cpp
+	"JackMore.h"
+
+1463147086 source:d:\Универ\Курсач\coursework\jack\jackopen.cpp
+	"JackOpen.h"
+
+1463152977 d:\Универ\Курсач\coursework\jack\jackbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463152986 source:d:\Универ\Курсач\coursework\jack\jackbackcard.cpp
+	"JackBackCard.h"
 
