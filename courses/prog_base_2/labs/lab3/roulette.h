@@ -4,10 +4,12 @@
 #define MAX_SUBSCRIBERS_SIZE 10
 #define MAX_NAME_SIZE 100
 
+typedef enum events{JACKPOT=0, WIN=1, ALMOST_WIN=2, LOSE=3} events;
+
 typedef struct roulette_s roulette_t;
 typedef struct user_s user_t;
 
-typedef void (*MyCallback)(const char *, const char *, roulette_t *);
+typedef void (*MyCallback)(events, const char *, roulette_t *);
 
 typedef enum roulette_status{
     ROULETTE_OK,
@@ -29,6 +31,10 @@ roulette_t * roulette_new();
 void roulette_free(roulette_t * self);
 void roulette_randomizer(roulette_t * self, int, int, int, const char *);
 roulette_status roulette_getstatus(roulette_t *);
+
+void press(events ev, const char * name, roulette_t * self);
+void player(events ev, const char * name, roulette_t * self);
+void administrator(events ev, const char * name, roulette_t * self);
 
 void administrator_new(roulette_t * self, const char * name);
 void player_new(roulette_t * self, const char * name);

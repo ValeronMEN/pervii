@@ -4,10 +4,7 @@
 
 #include "roulette.h"
 
-void player(const char * message, const char * name, roulette_t * self);
-void administrator(const char * message, const char * name, roulette_t * self);
-void press(const char * message, const char * name, roulette_t * self);
-void roulette_subs(roulette_t * self, void (*excb)(const char *, const char *, roulette_t *), const char *);
+void roulette_subs(roulette_t * self, void (*excb)(events, const char *, roulette_t *), const char *);
 
 struct roulette_s{
     int first;
@@ -33,32 +30,32 @@ void roulette_free(roulette_t * self){
     free(self);
 }
 
-void player(const char * message, const char * name, roulette_t * self){
-    printf("%s, you have %s\n", name, message);
-    if (strcmp(message, "0 / 3")==0){
+void player(events ev, const char * name, roulette_t * self){
+    printf("%s, you have 0 / 3\n", name);
+    if (ev==LOSE){
         printf("I'm sorry, but you're not a winner :(\n");
         self->status = ROULETTE_PLAYER_03;
         return;
     }
-    if (strcmp(message, "2 / 3")==0){
+    if (ev==ALMOST_WIN){
         printf("You're not a winner, but close to victory! :)\n");
         self->status = ROULETTE_PLAYER_23;
         return;
     }
-    if (strcmp(message, "3 / 3")==0){
+    if (ev==WIN){
         printf("You're a winner! :D\n");
         self->status = ROULETTE_PLAYER_33;
         return;
     }
-    if (strcmp(message, "Jackpot!")==0){
+    if (ev==JACKPOT){
         printf("You're a super winner! :D\n");
         self->status = ROULETTE_PLAYER_JACKPOT;
         return;
     }
 }
 
-void administrator(const char * message, const char * name, roulette_t * self){
-    if (strcmp(message, "Jackpot!")==0){
+void administrator(events ev, const char * name, roulette_t * self){
+    if (ev==JACKPOT){
         printf("Administrator %s informed. He will come soon\n", name);
         self->status = ROULETTE_ADMINISTRATOR_INCLUDED;
         return;
@@ -68,8 +65,8 @@ void administrator(const char * message, const char * name, roulette_t * self){
     }
 }
 
-void press(const char * message, const char * name, roulette_t * self){
-    if (strcmp(message, "Jackpot!")==0){
+void press(events ev, const char * name, roulette_t * self){
+    if (ev==JACKPOT){
         printf("Press '%s' informed. They will come soon\n", name);
         self->status = ROULETTE_PRESS_INCLUDED;
         return;
@@ -127,7 +124,7 @@ void roulette_randomizer(roulette_t * self, int a, int b, int c, const char * bl
             return;
         }
         for (i=0; i<self->size; i++){
-            self->cb[i]("Jackpot!", self->names[i], self);
+            self->cb[i](JACKPOT, self->names[i], self);
         }
         return;
     }
@@ -137,7 +134,7 @@ void roulette_randomizer(roulette_t * self, int a, int b, int c, const char * bl
             return;
         }
         for (i=0; i<self->size; i++){
-            self->cb[i]("3 / 3", self->names[i], self);
+            self->cb[i](WIN, self->names[i], self);
         }
         return;
     }
@@ -147,7 +144,7 @@ void roulette_randomizer(roulette_t * self, int a, int b, int c, const char * bl
             return;
         }
         for (i=0; i<self->size; i++){
-            self->cb[i]("2 / 3", self->names[i], self);
+            self->cb[i](ALMOST_WIN, self->names[i], self);
         }
         return;
     }
@@ -157,7 +154,7 @@ void roulette_randomizer(roulette_t * self, int a, int b, int c, const char * bl
             return;
         }
         for (i=0; i<self->size; i++){
-            self->cb[i]("0 / 3", self->names[i], self);
+            self->cb[i](LOSE, self->names[i], self);
         }
     }
     return;

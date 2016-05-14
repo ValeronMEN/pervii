@@ -20,7 +20,9 @@ static void subsPlayers_11players_overflow(void **state){
     roulette_t * myroulette = roulette_new();
     int i;
     for(i=0; i<11; i++){
-        player_new(myroulette, "Player");
+        //player_new(myroulette, "Player");
+        void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+        roulette_subs(myroulette, cb1, "Player");
     }
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_OVERFLOW);
     roulette_free(myroulette);
@@ -35,7 +37,9 @@ static void randomizer_void_empty(void **state){
 
 static void randomizer03_3differentValues_03status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 1, 2, 3, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_03);
     roulette_free(myroulette);
@@ -43,7 +47,9 @@ static void randomizer03_3differentValues_03status(void **state){
 
 static void randomizer23_2sameValues_23status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 1, 1, 3, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_23);
     roulette_free(myroulette);
@@ -51,7 +57,9 @@ static void randomizer23_2sameValues_23status(void **state){
 
 static void randomizer33_3sameValues_33status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 1, 1, 1, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_33);
     roulette_free(myroulette);
@@ -59,7 +67,9 @@ static void randomizer33_3sameValues_33status(void **state){
 
 static void randomizerJackpot_3valuesOf7_jackpotStatus(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 7, 7, 7, " ");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_JACKPOT);
     roulette_free(myroulette);
@@ -67,7 +77,9 @@ static void randomizerJackpot_3valuesOf7_jackpotStatus(void **state){
 
 static void randomizer03_3differentValues_playerIncluded03status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 1, 2, 3, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_PLAYER_03);
     roulette_free(myroulette);
@@ -75,8 +87,11 @@ static void randomizer03_3differentValues_playerIncluded03status(void **state){
 
 static void randomizer23_2sameValues_playerIncluded23status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
+    //player_new(myroulette, "Player");
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 1, 1, 3, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_PLAYER_23);
     roulette_free(myroulette);
@@ -84,8 +99,12 @@ static void randomizer23_2sameValues_playerIncluded23status(void **state){
 
 static void randomizer33_3sameValues_playerIncluded33status(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
-    administrator_new(myroulette, "Vadim");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
+    //administrator_new(myroulette, "Vadim");
+    void (*cb2)(const char * message, const char * name, roulette_t * self) = administrator;
+    roulette_subs(myroulette, cb2, "Vadim");
     roulette_randomizer(myroulette, 1, 1, 1, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_PLAYER_33);
     roulette_free(myroulette);
@@ -93,7 +112,9 @@ static void randomizer33_3sameValues_playerIncluded33status(void **state){
 
 static void randomizerJackpot_3valuesOf7_playerIncludedjackpotStatus(void **state){
     roulette_t * myroulette = roulette_new();
-    player_new(myroulette, "Player");
+    //player_new(myroulette, "Player");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = player;
+    roulette_subs(myroulette, cb1, "Player");
     roulette_randomizer(myroulette, 7, 7, 7, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_PLAYER_JACKPOT);
     roulette_free(myroulette);
@@ -101,7 +122,9 @@ static void randomizerJackpot_3valuesOf7_playerIncludedjackpotStatus(void **stat
 
 static void randomizerJackpot_3valuesOf7_pressIncludedjackpotStatus(void **state){
     roulette_t * myroulette = roulette_new();
-    press_new(myroulette, "Times");
+    //press_new(myroulette, "Times");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = press;
+    roulette_subs(myroulette, cb1, "Times");
     roulette_randomizer(myroulette, 7, 7, 7, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_PRESS_INCLUDED);
     roulette_free(myroulette);
@@ -109,7 +132,9 @@ static void randomizerJackpot_3valuesOf7_pressIncludedjackpotStatus(void **state
 
 static void randomizerJackpot_3valuesOf7_administratorIncludedjackpotStatus(void **state){
     roulette_t * myroulette = roulette_new();
-    administrator_new(myroulette, "Vadim");
+    //administrator_new(myroulette, "Vadim");
+    void (*cb1)(const char * message, const char * name, roulette_t * self) = administrator;
+    roulette_subs(myroulette, cb1, "Vadim");
     roulette_randomizer(myroulette, 7, 7, 7, "Unlock");
     assert_int_equal(roulette_getstatus(myroulette), ROULETTE_ADMINISTRATOR_INCLUDED);
     roulette_free(myroulette);
@@ -144,20 +169,27 @@ int main(){
         getch();
         roulette_t * myroulette = roulette_new();
 
-        player_new(myroulette, "Player");
-        administrator_new(myroulette, "Vadim");
-        press_new(myroulette, "Times");
+        //player_new(myroulette, "Player");
+        //administrator_new(myroulette, "Vadim");
+        //press_new(myroulette, "Times");
+
+        void (*cb1)(const char * message, const char * name, roulette_t * self) = press;
+        roulette_subs(myroulette, cb1, "Times");
+        void (*cb2)(const char * message, const char * name, roulette_t * self) = administrator;
+        roulette_subs(myroulette, cb2, "Andrey");
+        void (*cb3)(const char * message, const char * name, roulette_t * self) = player;
+        roulette_subs(myroulette, cb3, "Player");
 
         roulette_randomizer(myroulette, 0, 0, 0, "Unlock");
         puts("");
 
-        roulette_randomizer(myroulette, 2, 1, 7);
+        roulette_randomizer(myroulette, 2, 1, 7, "Unlock");
         puts("");
-        roulette_randomizer(myroulette, 5, 6, 6);
+        roulette_randomizer(myroulette, 5, 6, 6, "Unlock");
         puts("");
-        roulette_randomizer(myroulette, 4, 4, 4);
+        roulette_randomizer(myroulette, 4, 4, 4, "Unlock");
         puts("");
-        roulette_randomizer(myroulette, 7, 7, 7);
+        roulette_randomizer(myroulette, 7, 7, 7, "Unlock");
         puts("");
 
         roulette_free(myroulette);
@@ -166,3 +198,4 @@ int main(){
     return 0;
 }
 */
+
