@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
-#include "Card.h"
-#include "ContinueButton.h"
-#include "Standard.h"
-#include "Deck.h"
-//#include "WinLose.h"
+#include "drunkard/Card.h"
+#include "drunkard/ContinueButton.h"
+#include "drunkard/DrunkardStandard.h"
+#include "drunkard/Deck.h"
+#include "drunkard/DrunkardReturn.h"
 
 class Drunkard{
 public:

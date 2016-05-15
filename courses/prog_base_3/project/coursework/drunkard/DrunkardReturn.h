@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
+#include "DrunkardStandard.h"
 
-class JackMore{
+class DrunkardReturn{
 public:
     bool isPressed(float x, float y);
-    void enemypoints();
-    JackMore();
+    DrunkardReturn();
     sf::Sprite sprite;
     sf::Texture texture;
 

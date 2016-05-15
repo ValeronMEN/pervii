@@ -16,3 +16,9 @@ bool JackMore::isPressed(float x, float y){
     else
         return false;
 }
+
+void JackMore::enemypoints(){
+    this->texture.loadFromFile("textures/jackenemypoints.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}

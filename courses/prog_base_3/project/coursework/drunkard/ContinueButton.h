@@ -1,10 +1,12 @@
 #include <SFML/Graphics.hpp>
+#include "DrunkardStandard.h"
 
-class JackMore{
+class ContinueButton{
 public:
     bool isPressed(float x, float y);
-    void enemypoints();
-    JackMore();
+    void win();
+    void lose();
+    ContinueButton();
     sf::Sprite sprite;
     sf::Texture texture;
 

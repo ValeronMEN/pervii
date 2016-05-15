@@ -18,13 +18,20 @@ JackDeck::JackDeck(){
 		}
 	}
 
-	this->card[0].setPoints(14);
-	this->card[1].setPoints(14);
-	this->card[2].setPoints(14);
-	this->card[3].setPoints(14);
+	for(int i=0; i<4; i++){
+        this->card[i].setPoints(11);
+	}
 
+	int p = 2, i=4;
+	while(i<40){
+        for(int j=0; j<4; j++){
+            this->card[i].setPoints(p);
+            i++;
+        }
+        p++;
+	}
 
-	int p = 2, i=5;
+	p=2;
 	while(i<52){
         for(int j=0; j<4; j++){
             this->card[i].setPoints(p);

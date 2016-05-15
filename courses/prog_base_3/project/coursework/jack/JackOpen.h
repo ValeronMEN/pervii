@@ -3,6 +3,7 @@
 class JackOpen{
 public:
     bool isPressed(float x, float y);
+    void exit();
     JackOpen();
     sf::Sprite sprite;
     sf::Texture texture;

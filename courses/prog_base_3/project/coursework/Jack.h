@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "jack/JackCard.h"
-#include "Standard.h"
+#include "jack/JackStandard.h"
 #include "jack/JackDeck.h"
 #include "jack/JackBet.h"
 #include "jack/JackMoney.h"
@@ -9,9 +9,11 @@
 #include "jack/JackMore.h"
 #include "jack/JackOpen.h"
 #include "jack/JackBackCard.h"
+#include "jack/JackPoints.h"
+#include "jack/JackMessage.h"
 
 class Jack{
 public:
     void start();
-    void game(RenderWindow * win, int bank, int oneRate);
+    int game(RenderWindow * win, int oneRate);
 };

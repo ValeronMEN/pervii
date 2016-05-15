@@ -1,10 +1,14 @@
 #include <SFML/Graphics.hpp>
-#include "Standard.h"
+#include "JackStandard.h"
 
-class ContinueButton{
+class JackMessage{
 public:
     bool isPressed(float x, float y);
-    ContinueButton();
+    void win();
+    void lose();
+    void overflow();
+    void draw();
+    JackMessage();
     sf::Sprite sprite;
     sf::Texture texture;
 

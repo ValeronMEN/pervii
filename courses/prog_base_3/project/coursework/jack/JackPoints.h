@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 
-class WinLose{
+class JackPoints{
 public:
     bool isPressed(float x, float y);
-    WinLose();
+    JackPoints();
     sf::Sprite sprite;
     sf::Texture texture;
 

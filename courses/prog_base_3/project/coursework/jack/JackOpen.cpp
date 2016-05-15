@@ -17,3 +17,8 @@ bool JackOpen::isPressed(float x, float y){
         return false;
 }
 
+void JackOpen::exit(){
+    this->texture.loadFromFile("textures/jackexit.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}
