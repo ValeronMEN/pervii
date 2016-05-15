@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1462826434 source:d:\Универ\Курсач\coursework\main.cpp
+1463319476 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
 	"Jack.h"
+	"Witch.h"
 
 1429780453 e:\sfml\sfml-2.3.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -396,7 +397,7 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1463309094 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1463338250 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<queue>
 	<windows.h>
@@ -427,7 +428,7 @@
 1462825368 d:\Универ\Курсач\coursework\winlose.h
 	<SFML/Graphics.hpp>
 
-1463317540 source:d:\Универ\Курсач\coursework\jack.cpp
+1463318119 source:d:\Универ\Курсач\coursework\jack.cpp
 	"Jack.h"
 	<windows.h>
 
@@ -558,4 +559,36 @@
 
 1463316102 source:d:\Универ\Курсач\coursework\jack\jackmessage.cpp
 	"JackMessage.h"
+
+1463335816 d:\Универ\Курсач\coursework\witch.h
+	<SFML/Graphics.hpp>
+	"witch/WitchStandard.h"
+	"witch/WitchDeck.h"
+	"witch/WitchList.h"
+
+1463322393 d:\Универ\Курсач\coursework\witch\witchstandard.h
+
+1463342453 d:\Универ\Курсач\coursework\witch\witchcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
+	"WitchCard.h"
+
+1463342734 source:d:\Универ\Курсач\coursework\witch.cpp
+	<SFML/Graphics.hpp>
+	"Witch.h"
+	<windows.h>
+
+1463322828 source:d:\Универ\Курсач\coursework\witch\witchdeck.cpp
+	"WitchDeck.h"
+
+1463342213 source:d:\Универ\Курсач\coursework\witch\witchcard.cpp
+	"WitchCard.h"
+
+1463335795 d:\Универ\Курсач\coursework\witch\witchlist.h
+	"WitchCard.h"
+
+1463336880 source:d:\Универ\Курсач\coursework\witch\witchlist.cpp
+	"WitchList.h"
 

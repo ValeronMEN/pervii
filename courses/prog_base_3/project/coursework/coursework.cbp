@@ -45,6 +45,8 @@
 		<Unit filename="Jack.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />
+		<Unit filename="Witch.cpp" />
+		<Unit filename="Witch.h" />
 		<Unit filename="drunkard/Card.cpp" />
 		<Unit filename="drunkard/Card.h" />
 		<Unit filename="drunkard/ContinueButton.cpp" />
@@ -78,6 +80,13 @@
 		<Unit filename="jack/JackRate.h" />
 		<Unit filename="jack/JackStandard.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="witch/WitchCard.cpp" />
+		<Unit filename="witch/WitchCard.h" />
+		<Unit filename="witch/WitchDeck.cpp" />
+		<Unit filename="witch/WitchDeck.h" />
+		<Unit filename="witch/WitchList.cpp" />
+		<Unit filename="witch/WitchList.h" />
+		<Unit filename="witch/WitchStandard.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -2,6 +2,7 @@
 #include "StartButton.h"
 #include "Drunkard.h"
 #include "Jack.h"
+#include "Witch.h"
 
 using namespace sf;
 
@@ -22,8 +23,10 @@ int main(){
             }
             if ((event.type == sf::Event::MouseButtonPressed)&&(event.mouseButton.button == sf::Mouse::Left)){
                 if (witchButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
-                    //Witch * witch = new Witch();
-                    //witch->start();
+                    window.setVisible(0);
+                    Witch * witch = new Witch();
+                    witch->start();
+                    window.setVisible(1);
                 }
                 if (drunkardButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
                     window.setVisible(0);
