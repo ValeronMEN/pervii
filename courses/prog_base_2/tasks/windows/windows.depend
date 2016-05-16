@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1463356732 source:d:\Универ\ОП Модули\windows\main.c
+	<windows.h>
+	<CommCtrl.h>
+	"patient.h"
+
+1463348525 d:\Универ\ОП Модули\windows\patient.h
+
+1463348499 source:d:\Универ\ОП Модули\windows\patient.c
+	<stdlib.h>
+	<string.h>
+	"patient.h"
+
+1463357206 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\windows\main.c
+	<windows.h>
+	<CommCtrl.h>
+	"patient.h"
+
+1463348525 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\windows\patient.h
+
+1463348499 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\windows\patient.c
+	<stdlib.h>
+	<string.h>
+	"patient.h"
+
