@@ -228,7 +228,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         case LIST_ID:
         {
              LRESULT res = SendMessage(hList, LB_GETCURSEL, 0, 0);
-            SendMessage(hList, LB_DELETESTRING, res, 0);
+            SendMessageA(hList, LB_DELETESTRING, 0, res);
             SetWindowText(hStaticName, "Iana");
             SetWindowText(hStaticDays, "6");
             SetWindowText(hStaticSurname, "Petrovna");

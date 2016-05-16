@@ -560,22 +560,23 @@
 1463316102 source:d:\Универ\Курсач\coursework\jack\jackmessage.cpp
 	"JackMessage.h"
 
-1463335816 d:\Универ\Курсач\coursework\witch.h
+1463391437 d:\Универ\Курсач\coursework\witch.h
 	<SFML/Graphics.hpp>
 	"witch/WitchStandard.h"
 	"witch/WitchDeck.h"
 	"witch/WitchList.h"
+	"witch/WitchBackCard.h"
 
 1463322393 d:\Универ\Курсач\coursework\witch\witchstandard.h
 
-1463342453 d:\Универ\Курсач\coursework\witch\witchcard.h
+1463392399 d:\Универ\Курсач\coursework\witch\witchcard.h
 	<string>
 	<SFML/Graphics.hpp>
 
 1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
 	"WitchCard.h"
 
-1463342734 source:d:\Универ\Курсач\coursework\witch.cpp
+1463413981 source:d:\Универ\Курсач\coursework\witch.cpp
 	<SFML/Graphics.hpp>
 	"Witch.h"
 	<windows.h>
@@ -583,7 +584,7 @@
 1463322828 source:d:\Универ\Курсач\coursework\witch\witchdeck.cpp
 	"WitchDeck.h"
 
-1463342213 source:d:\Универ\Курсач\coursework\witch\witchcard.cpp
+1463392455 source:d:\Универ\Курсач\coursework\witch\witchcard.cpp
 	"WitchCard.h"
 
 1463335795 d:\Универ\Курсач\coursework\witch\witchlist.h
@@ -591,4 +592,11 @@
 
 1463336880 source:d:\Универ\Курсач\coursework\witch\witchlist.cpp
 	"WitchList.h"
+
+1463392292 d:\Универ\Курсач\coursework\witch\witchbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463395981 source:d:\Универ\Курсач\coursework\witch\witchbackcard.cpp
+	"WitchBackCard.h"
 

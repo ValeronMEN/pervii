@@ -14,6 +14,7 @@ class WitchCard{
 		int posY;
 		int width;
 		int height;
+		bool highlighted;
 
 	public:
 	    int points;
@@ -21,6 +22,7 @@ class WitchCard{
 
 	    bool isClicked(int x, int y);
 	    bool isClickedCurr(int x, int y);
+	    void setHighlighted(bool b);
 		short int getValueIdentifier();
 		short int getColorIdentifier();
 		void setValueIdentifier(short int valueInput);
@@ -30,11 +32,9 @@ class WitchCard{
 		void setCurrTexture();
 		void setCurrCutTexture();
 		void setCoordinates(int x, int y);
-		void drawOnScreen();
 		void setPoints(int p);
 		int getPoints();
 
-		bool visible;
 		Sprite sprite;
 		Texture texture;
 };

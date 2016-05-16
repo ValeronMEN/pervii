@@ -11,7 +11,7 @@
 	<string.h>
 	"patient.h"
 
-1463357206 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\windows\main.c
+1463389902 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\windows\main.c
 	<windows.h>
 	<CommCtrl.h>
 	"patient.h"

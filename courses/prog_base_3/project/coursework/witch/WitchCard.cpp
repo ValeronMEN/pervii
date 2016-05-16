@@ -4,7 +4,11 @@ WitchCard::WitchCard(){
     this->width = 139;
     this->currwidth = 23;
     this->height = 216;
-    this->visible = true;
+    this->highlighted = false;
+}
+
+void WitchCard::setHighlighted(bool b){
+    this->highlighted = b;
 }
 
 bool WitchCard::isClicked(int x, int y){

@@ -80,6 +80,8 @@
 		<Unit filename="jack/JackRate.h" />
 		<Unit filename="jack/JackStandard.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="witch/WitchBackCard.cpp" />
+		<Unit filename="witch/WitchBackCard.h" />
 		<Unit filename="witch/WitchCard.cpp" />
 		<Unit filename="witch/WitchCard.h" />
 		<Unit filename="witch/WitchDeck.cpp" />
