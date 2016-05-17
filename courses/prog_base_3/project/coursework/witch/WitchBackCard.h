@@ -27,6 +27,7 @@ class WitchBackCard{
 		void setCurrTexture();
 		void setCurrCutTexture();
 		void setCoordinates(int x, int y);
+		bool getHighlighted();
 
 		Sprite sprite;
 		Texture texture;

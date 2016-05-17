@@ -11,6 +11,10 @@ void WitchBackCard::setHighlighted(bool b){
     this->highlighted = b;
 }
 
+bool WitchBackCard::getHighlighted(){
+    return this->highlighted;
+}
+
 bool WitchBackCard::isClicked(int x, int y){
     if ((this->posX < x) && (this->posX + this->width >= x) && (this->posY + this->height > y) && (this->posY < y)){
         return true;

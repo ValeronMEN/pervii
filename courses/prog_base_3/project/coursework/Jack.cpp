@@ -85,7 +85,7 @@ int Jack::game(RenderWindow * win, int oneRate)
             {
                 if ((openbtn->isPressed(event.mouseButton.x, event.mouseButton.y))&&(finish==true))
                 {
-                    if ((playeroverflow == true)||((player_points < casino_points)&&(casino_points < 21))){
+                    if ((playeroverflow == true)||((player_points < casino_points)&&(casino_points <= 21))){
                         return 0;
                     }
                     if ((player_points > casino_points)||(casino_points > 21))
@@ -184,7 +184,7 @@ int Jack::game(RenderWindow * win, int oneRate)
                     {
                         message->win();
                     }
-                    if ((player_points < casino_points)&&(casino_points < 21))
+                    if ((player_points < casino_points)&&(casino_points <= 21))
                     {
                         message->lose();
                     }

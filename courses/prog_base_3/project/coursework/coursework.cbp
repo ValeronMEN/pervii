@@ -88,7 +88,11 @@
 		<Unit filename="witch/WitchDeck.h" />
 		<Unit filename="witch/WitchList.cpp" />
 		<Unit filename="witch/WitchList.h" />
+		<Unit filename="witch/WitchNext.cpp" />
+		<Unit filename="witch/WitchNext.h" />
 		<Unit filename="witch/WitchStandard.h" />
+		<Unit filename="witch/WitchThrow.cpp" />
+		<Unit filename="witch/WitchThrow.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

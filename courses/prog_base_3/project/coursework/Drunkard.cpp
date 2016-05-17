@@ -86,16 +86,15 @@ void Drunkard::start()
                 }
                 if ((continueBtn->isPressed(event.mouseButton.x, event.mouseButton.y))&&(finish==false))
                 {
+                    //set text of size of decks, set false visible to 2f, 2s, 3f, 3s cards
                     itoa(myQueue.size(),textSize,10);
                     mySize.setString(textSize);
                     itoa(aiQueue.size(),textSize,10);
                     aiSize.setString(textSize);
-
                     visible2fs = false;
                     visible3fs = false;
 
                     // first round of first and second players
-
                     *card1f = firstQueue->front();
                     *card1s = secondQueue->front();
                     card1f->setTexture();
@@ -103,9 +102,7 @@ void Drunkard::start()
                     firstQueue->pop();
                     secondQueue->pop();
 
-                    // set positions of f and s cards
-
-                    if (firstQueue == &myQueue)
+                    if (firstQueue == &myQueue) // set positions of 1f and 1s cards
                     {
                         card1f->sprite.setPosition(266, 549);
                         card1s->sprite.setPosition(598, 229);
@@ -115,88 +112,123 @@ void Drunkard::start()
                         card1f->sprite.setPosition(598, 229);
                         card1s->sprite.setPosition(266, 549);
                     }
-
-                    // compare 1f and 1s
-
-                    if((card1f->valueIdentifier > card1s->valueIdentifier)||(secondQueue->empty()))
+                    if ((card1f->getValueIdentifier()==0)&&(card1s->getValueIdentifier()==8)) // compare 1f and 1s with T and 6 vales
                     {
                         firstQueue->push(*card1f);
                         firstQueue->push(*card1s);
                         break;
                     }
-                    if((card1f->valueIdentifier < card1s->valueIdentifier)||(firstQueue->empty()))
+                    if ((card1f->getValueIdentifier()==8)&&(card1s->getValueIdentifier()==0)) // compare 1f and 1s with T and 6 vales
                     {
                         secondQueue->push(*card1f);
                         secondQueue->push(*card1s);
                         break;
                     }
-                    if(card1f->valueIdentifier == card1s->valueIdentifier)
+                    if((card1f->valueIdentifier > card1s->valueIdentifier)) // compare 1f and 1s
                     {
-                        // second round
-
-                        *card2f = firstQueue->front();
-                        *card2s = secondQueue->front();
-                        firstQueue->pop();
-                        secondQueue->pop();
-                        visible2fs = true;
-
-                        // set positions of first and second cards
-
-                        backCardSpr2f.setTexture(backCardTex);
-                        backCardSpr2f.setPosition(312, 485);
-                        backCardSpr2s.setTexture(backCardTex);
-                        backCardSpr2s.setPosition(552, 293);
-
-                        // isEmpty
-
-                        if(firstQueue->empty()||secondQueue->empty())
+                        firstQueue->push(*card1f);
+                        firstQueue->push(*card1s);
+                        break;
+                    }
+                    if((card1f->valueIdentifier < card1s->valueIdentifier)) // compare 1f and 1s
+                    {
+                        secondQueue->push(*card1f);
+                        secondQueue->push(*card1s);
+                        break;
+                    }
+                    if(card1f->valueIdentifier == card1s->valueIdentifier) // compare 1f and 1s
+                    {
+                        if(firstQueue->size()==1||secondQueue->size()==1) //check to empty card2f and card2s
                         {
                             firstQueue->push(*card1f);
                             firstQueue->push(*card1s);
-                            firstQueue->push(*card2f);
-                            firstQueue->push(*card2s);
                             break;
                         }
                         else
                         {
-                            *card3f = firstQueue->front();
-                            *card3s = secondQueue->front();
+                            // second round of first and second players
+                            *card2f = firstQueue->front();
+                            *card2s = secondQueue->front();
                             firstQueue->pop();
                             secondQueue->pop();
-                            visible3fs = true;
+                            visible2fs = true;
 
-                            card3f->setTexture();
-                            card3s->setTexture();
+                            // set positions of 2f and 2s cards
+                            backCardSpr2f.setTexture(backCardTex);
+                            backCardSpr2f.setPosition(312, 485);
+                            backCardSpr2s.setTexture(backCardTex);
+                            backCardSpr2s.setPosition(552, 293);
 
-                            if (firstQueue == &myQueue)
-                            {
-                                card3f->sprite.setPosition(358, 421);
-                                card3s->sprite.setPosition(506, 357);
-                            }
-                            else
-                            {
-                                card3s->sprite.setPosition(358, 421);
-                                card3f->sprite.setPosition(506, 357);
-                            }
-                            if (card1f->valueIdentifier>=card1s->valueIdentifier)
+                            if(firstQueue->size()==2||secondQueue->size()==2) //check to empty card3f and card3s
                             {
                                 firstQueue->push(*card1f);
                                 firstQueue->push(*card1s);
                                 firstQueue->push(*card2f);
                                 firstQueue->push(*card2s);
-                                firstQueue->push(*card3f);
-                                firstQueue->push(*card3s);
                                 break;
                             }
                             else
                             {
-                                secondQueue->push(*card1f);
-                                secondQueue->push(*card1s);
-                                secondQueue->push(*card2f);
-                                secondQueue->push(*card2s);
-                                secondQueue->push(*card3f);
-                                secondQueue->push(*card3s);
-                                break;
+                                // third round of first and second players
+                                *card3f = firstQueue->front();
+                                *card3s = secondQueue->front();
+                                firstQueue->pop();
+                                secondQueue->pop();
+                                card3f->setTexture();
+                                card3s->setTexture();
+                                visible3fs = true;
+
+                                if (firstQueue == &myQueue) // set positions of 3f and 3s cards
+                                {
+                                    card3f->sprite.setPosition(358, 421);
+                                    card3s->sprite.setPosition(506, 357);
+                                }
+                                else
+                                {
+                                    card3s->sprite.setPosition(358, 421);
+                                    card3f->sprite.setPosition(506, 357);
+                                }
+
+                                if ((card3f->getValueIdentifier()==0)&&(card3s->getValueIdentifier()==8)) // compare 3f and 3s with T and 6 vales
+                                {
+                                    firstQueue->push(*card1f);
+                                    firstQueue->push(*card1s);
+                                    firstQueue->push(*card2f);
+                                    firstQueue->push(*card2s);
+                                    firstQueue->push(*card3f);
+                                    firstQueue->push(*card3s);
+                                    break;
+                                }
+                                if ((card3f->getValueIdentifier()==8)&&(card3s->getValueIdentifier()==0)) // compare 3f and 3s with T and 6 vales
+                                {
+                                    secondQueue->push(*card1f);
+                                    secondQueue->push(*card1s);
+                                    secondQueue->push(*card2f);
+                                    secondQueue->push(*card2s);
+                                    secondQueue->push(*card3f);
+                                    secondQueue->push(*card3s);
+                                    break;
+                                }
+                                if (card3f->valueIdentifier>=card3s->valueIdentifier) // compare 3f and 3s
+                                {
+                                    firstQueue->push(*card1f);
+                                    firstQueue->push(*card1s);
+                                    firstQueue->push(*card2f);
+                                    firstQueue->push(*card2s);
+                                    firstQueue->push(*card3f);
+                                    firstQueue->push(*card3s);
+                                    break;
+                                }
+                                else
+                                {
+                                    secondQueue->push(*card1f);
+                                    secondQueue->push(*card1s);
+                                    secondQueue->push(*card2f);
+                                    secondQueue->push(*card2s);
+                                    secondQueue->push(*card3f);
+                                    secondQueue->push(*card3s);
+                                    break;
+                                }
                             }
                         }
                     }

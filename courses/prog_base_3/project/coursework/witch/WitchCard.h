@@ -34,6 +34,7 @@ class WitchCard{
 		void setCoordinates(int x, int y);
 		void setPoints(int p);
 		int getPoints();
+		bool getHighlighted();
 
 		Sprite sprite;
 		Texture texture;

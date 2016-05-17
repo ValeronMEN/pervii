@@ -19,6 +19,10 @@ void WitchList::addIndex(int index, WitchCard myCard){
 
 WitchCard WitchList::deleteIndex(int index){
     WitchCard toDelete = card[index];
+    if ((index+1)==this->size){
+        this->size--;
+        return toDelete;
+    }
     for (int i=index; i<this->size; i++){
         card[i] = card[(i+1)];
     }
