@@ -16,6 +16,7 @@ class WitchList{
         WitchCard getIndex(int index);
         bool isEmpty();
         int getSize();
+        void addLast(WitchCard myCard);
 
 };
 

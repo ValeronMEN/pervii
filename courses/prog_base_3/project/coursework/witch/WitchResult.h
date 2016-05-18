@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 
-class WitchMessage{
+class WitchResult{
 public:
     bool isPressed(float x, float y);
-    WitchMessage();
+    WitchResult();
     sf::Sprite sprite;
     sf::Texture texture;
-    void selectcard();
+    void win();
+    void lose();
 
 private:
     float posX;
