@@ -19,3 +19,15 @@ void WitchMessage::selectcard(){
     this->sprite.setTexture(this->texture);
     this->sprite.setPosition(posX, posY);
 }
+
+void WitchMessage::selecttwoidentical(){
+    this->texture.loadFromFile("textures/witchmtwosame.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}
+
+void WitchMessage::witch(){
+    this->texture.loadFromFile("textures/witchwitch.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}

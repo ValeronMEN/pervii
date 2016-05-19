@@ -5,6 +5,7 @@ WitchCard::WitchCard(){
     this->currwidth = 23;
     this->height = 216;
     this->highlighted = false;
+    this->queenofspades = false;
 }
 
 void WitchCard::setHighlighted(bool b){
@@ -84,4 +85,12 @@ void WitchCard::setCurrCutTexture(){
     this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
     this->sprite.setTextureRect(sf::IntRect((float)(139*(this->valueIdentifier)), (float)(216 * (this->colorIdentifier)), (float)23, (float)216));
+}
+
+void WitchCard::setQueenOfSpades(){
+    this->queenofspades = true;
+}
+
+bool WitchCard::getQueenOfSpades(){
+    return this->queenofspades;
 }

@@ -15,6 +15,7 @@ class WitchCard{
 		int width;
 		int height;
 		bool highlighted;
+		bool queenofspades;
 
 	public:
 	    int points;
@@ -35,6 +36,8 @@ class WitchCard{
 		void setPoints(int p);
 		int getPoints();
 		bool getHighlighted();
+		bool getQueenOfSpades();
+		void setQueenOfSpades();
 
 		Sprite sprite;
 		Texture texture;

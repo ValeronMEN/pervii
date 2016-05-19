@@ -43,6 +43,8 @@
 		<Unit filename="Drunkard.h" />
 		<Unit filename="Jack.cpp" />
 		<Unit filename="Jack.h" />
+		<Unit filename="Pig.cpp" />
+		<Unit filename="Pig.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />
 		<Unit filename="Witch.cpp" />
@@ -95,6 +97,8 @@
 		<Unit filename="witch/WitchResult.cpp" />
 		<Unit filename="witch/WitchResult.h" />
 		<Unit filename="witch/WitchStandard.h" />
+		<Unit filename="witch/WitchStroke.cpp" />
+		<Unit filename="witch/WitchStroke.h" />
 		<Unit filename="witch/WitchThrow.cpp" />
 		<Unit filename="witch/WitchThrow.h" />
 		<Extensions>

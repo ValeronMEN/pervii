@@ -10,6 +10,10 @@ WitchDeck::WitchDeck(){
 		this->card52[i].setColorIdentifier(colorID);
 		this->card52[i].setValueIdentifier(valueID);
 
+		if(valueID==11&&colorID==3){
+            this->card52[i].setQueenOfSpades();
+		}
+
 		colorID++;
 
 		if (colorID > 3){

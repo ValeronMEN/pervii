@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1463319476 source:d:\Универ\Курсач\coursework\main.cpp
+1463693500 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
 	"Jack.h"
 	"Witch.h"
+	"Pig.h"
 
 1429780453 e:\sfml\sfml-2.3.2\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -560,7 +561,7 @@
 1463316102 source:d:\Универ\Курсач\coursework\jack\jackmessage.cpp
 	"JackMessage.h"
 
-1463595529 d:\Универ\Курсач\coursework\witch.h
+1463691793 d:\Универ\Курсач\coursework\witch.h
 	<SFML/Graphics.hpp>
 	"witch/WitchStandard.h"
 	"witch/WitchDeck.h"
@@ -570,25 +571,25 @@
 	"witch/WitchThrow.h"
 	"witch/WitchMessage.h"
 	"witch/WitchResult.h"
+	"witch/WitchStroke.h"
 
 1463525213 d:\Универ\Курсач\coursework\witch\witchstandard.h
 
-1463516100 d:\Универ\Курсач\coursework\witch\witchcard.h
+1463686334 d:\Универ\Курсач\coursework\witch\witchcard.h
 	<string>
 	<SFML/Graphics.hpp>
 
 1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
 	"WitchCard.h"
 
-1463599225 source:d:\Универ\Курсач\coursework\witch.cpp
+1463693437 source:d:\Универ\Курсач\coursework\witch.cpp
 	<SFML/Graphics.hpp>
 	"Witch.h"
-	<windows.h>
 
-1463322828 source:d:\Универ\Курсач\coursework\witch\witchdeck.cpp
+1463688941 source:d:\Универ\Курсач\coursework\witch\witchdeck.cpp
 	"WitchDeck.h"
 
-1463516110 source:d:\Универ\Курсач\coursework\witch\witchcard.cpp
+1463686398 source:d:\Универ\Курсач\coursework\witch\witchcard.cpp
 	"WitchCard.h"
 
 1463596854 d:\Универ\Курсач\coursework\witch\witchlist.h
@@ -616,15 +617,25 @@
 1463511360 source:d:\Универ\Курсач\coursework\witch\witchthrow.cpp
 	"WitchThrow.h"
 
-1463596434 d:\Универ\Курсач\coursework\witch\witchmessage.h
+1463691979 d:\Универ\Курсач\coursework\witch\witchmessage.h
 	<SFML/Graphics.hpp>
 
 1463595744 d:\Универ\Курсач\coursework\witch\witchresult.h
 	<SFML/Graphics.hpp>
 
-1463596421 source:d:\Универ\Курсач\coursework\witch\witchmessage.cpp
+1463691957 source:d:\Универ\Курсач\coursework\witch\witchmessage.cpp
 	"WitchMessage.h"
 
 1463595780 source:d:\Универ\Курсач\coursework\witch\witchresult.cpp
 	"WitchResult.h"
+
+1463691841 d:\Универ\Курсач\coursework\witch\witchstroke.h
+	<SFML/Graphics.hpp>
+	"WitchStandard.h"
+
+1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
+	"WitchStroke.h"
+
+1463693472 d:\Универ\Курсач\coursework\pig.h
+	<SFML/Graphics.hpp>
 

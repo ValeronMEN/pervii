@@ -1,43 +1,50 @@
 #include <SFML/Graphics.hpp>
 #include "Witch.h"
-#include <windows.h>
 
 using namespace sf;
 
 void Witch::start()
 {
     sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Witch");
-    WitchResult * resultBtn = new WitchResult();
+    WitchResult * resultBtn = new WitchResult(); //loading window
     window.clear(sf::Color(0,115,0));
     window.draw(resultBtn->sprite);
     window.display();
 
-    WitchDeck * deck = new WitchDeck();
-    deck->randomize();
-    int player_x = 10;
-    int casino_x = W_X-(139+10);
-    short int twoHighlighted = 0;
-    short int toChoose = 0;
-    WitchList * myList = new WitchList();
-    WitchList * aiList = new WitchList();
-    WitchCard card[36];
+    WitchDeck * deck = new WitchDeck(); // core deck
+    deck->randomize();// to random the deck
+    int player_x = 10; //pos x for my cards
+    int casino_x = W_X-(139+10); // pos x for ai cards
+    short int twoHighlighted = 0;//for opportunity  to block choosing more than 2 cards
+    short int toChoose = 0; //for opportunity to choose cards from ai
+    WitchList * myList = new WitchList(); // list of my cards
+    WitchList * aiList = new WitchList(); // list of ai cards
+    WitchCard card[36]; // an array of my cards
     WitchCard tempCard;
-    WitchBackCard * backcard[36];
-    WitchBackCard * retreat = new WitchBackCard();
+    WitchBackCard * backcard[36]; //textures of ai cards
+    WitchBackCard * retreat = new WitchBackCard(); // retreat texture
     for (int i=0; i<36; i++)
     {
         backcard[i] = new WitchBackCard();
     }
     int strokeman = rand() % 2; //0 - player, 1 - ai
-    bool messageIncluded = false;
-    bool throwOpportunity = false;
+    bool messageIncluded = false;// to include upper small message about bad status of game
+    bool throwOpportunity = false; //for opportunity to throw cards to retreat
+    bool finish = false; //to finish game; to block whole buttons
     if (strokeman==PLAYER)
     {
         throwOpportunity = true;
     }
-    WitchThrow * throwBtn = new WitchThrow();
-    WitchNext * nextBtn = new WitchNext();
-    WitchMessage * message = new WitchMessage();
+    WitchThrow * throwBtn = new WitchThrow(); // throw button
+    WitchNext * nextBtn = new WitchNext(); // next button
+    WitchMessage * message = new WitchMessage(); // upper message block
+    WitchStroke * strokeBtn = new WitchStroke();
+    if (strokeman==PLAYER){
+        strokeBtn->mystroke();
+    }
+    else{
+        strokeBtn->aistroke();
+    }
 
     //set texture of retreat
     retreat->setTexture();
@@ -87,7 +94,7 @@ void Witch::start()
             }
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                if((event.mouseButton.button == sf::Mouse::Left))
+                if((event.mouseButton.button == sf::Mouse::Left)&&(finish==false))
                 {
                     if ((toChoose==0)&&(strokeman==PLAYER)) // only one card to get from ai
                     {
@@ -133,24 +140,32 @@ void Witch::start()
 
                     if ((throwBtn->isPressed(event.mouseButton.x, event.mouseButton.y))&&(twoHighlighted == 2)&&(throwOpportunity==true))
                     {
+                        messageIncluded = false;
+                        // check to truth of throwing cards
                         for(int i=0; i<myList->getSize(); i++)
                         {
                             for (int j=0; j<myList->getSize(); j++)
                             {
-                                if ((card[i].getHighlighted()==true)&&(card[j].getHighlighted()==true)&&(i!=j)&&(card[i].getValueIdentifier()!=card[j].getValueIdentifier()))
+                                if ((card[i].getHighlighted()==true)&&(card[j].getHighlighted()==true)&&(i!=j))
                                 {
-                                    throwOpportunity = false;
+                                    if ((card[i].getQueenOfSpades()==true)||(card[j].getQueenOfSpades()==true)){
+                                        message->witch();
+                                        messageIncluded = true;
+                                        goto toexit;
+                                    }
+                                    if (card[i].getValueIdentifier()!=card[j].getValueIdentifier()){
+                                        message->selecttwoidentical();
+                                        messageIncluded = true;
+                                        goto toexit;
+                                    }
+                                    goto tostart;
                                 }
                             }
                         }
-                        if (throwOpportunity == false)
-                        {
-                            throwOpportunity = true;
-                            break;
-                        }
 
+                        // start of throwing
+                        tostart:
                         player_x=10;
-
                         for(int i=0; i<=myList->getSize(); i++)
                         {
                             if (card[i].getHighlighted()==true)
@@ -167,7 +182,6 @@ void Witch::start()
                                 }
                             }
                         }
-
                         for (int i=0; i<myList->getSize(); i++)
                         {
                             card[i] = myList->getIndex(i);
@@ -183,6 +197,7 @@ void Witch::start()
                             }
                             player_x += 23;
                         }
+                        //end of throwing
                         throwOpportunity = false;
                         break;
                     }
@@ -231,10 +246,12 @@ void Witch::start()
                                         casino_x -= 23;
                                     }
                                     strokeman = AI;
+                                    strokeBtn->aistroke();
                                     break;
                                 }
                             }
                             message->selectcard();
+                            toexit:
                             break;
                         }
                         else  // stroke of ai
@@ -242,7 +259,7 @@ void Witch::start()
                             //ai throws cards
                             for (int i=0; i<aiList->getSize(); i++){
                                 for (int j=0; j<aiList->getSize(); j++){
-                                    if ((i!=j)&&(aiList->getIndex(i).getValueIdentifier()==aiList->getIndex(j).getValueIdentifier())){
+                                    if ((i!=j)&&(aiList->getIndex(i).getValueIdentifier()==aiList->getIndex(j).getValueIdentifier())&&(aiList->getIndex(i).getQueenOfSpades()==false)&&(aiList->getIndex(j).getQueenOfSpades()==false)){
                                         if (j>i){
                                             aiList->deleteIndex(j);
                                             aiList->deleteIndex(i);
@@ -256,9 +273,14 @@ void Witch::start()
                                 }
                             }
                             nextaistep:
+                            //check to empty
+                            if (aiList->isEmpty()){
+                                break;
+                            }
                             //ai choose my card
-                            int ai_rand = rand() % (myList->getSize());
-                            aiList->addLast(myList->deleteIndex(ai_rand));
+                            int ai_rand_toChoose = rand() % (myList->getSize());
+                            int ai_rand_toPut = rand() % (aiList->getSize());
+                            aiList->addIndex(ai_rand_toPut, myList->deleteIndex(ai_rand_toChoose));
 
                             player_x = 10;
                             casino_x = W_X-(139+10);
@@ -287,12 +309,13 @@ void Witch::start()
                                 casino_x -= 23;
                             }
                             strokeman = PLAYER;
+                            strokeBtn->mystroke();
                             throwOpportunity = true;
                             break;
                         }
                     }
                 }
-                if((event.mouseButton.button == sf::Mouse::Right))
+                if((event.mouseButton.button == sf::Mouse::Right)&&(finish==false))
                 {
                     if (toChoose==1) // only one card to get from ai
                     {
@@ -361,6 +384,18 @@ void Witch::start()
             window.draw(message->sprite);
         }
         window.draw(nextBtn->sprite);
+        window.draw(strokeBtn->sprite);
+        if (myList->getSize()==0){ //check to win
+            resultBtn->win();
+            finish = true;
+        }
+        if (aiList->getSize()==0){ //check to lose
+            resultBtn->lose();
+            finish = true;
+        }
+        if (finish){
+            window.draw(resultBtn->sprite);
+        }
         window.display();
     } // first loop
 }

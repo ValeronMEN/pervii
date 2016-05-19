@@ -3,6 +3,7 @@
 #include "Drunkard.h"
 #include "Jack.h"
 #include "Witch.h"
+#include "Pig.h"
 
 using namespace sf;
 
@@ -35,7 +36,10 @@ int main(){
                     window.setVisible(1);
                 }
                 if (pigButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
-                    window.close();
+                    window.setVisible(0);
+                    Pig * pig = new Pig();
+                    pig->start();
+                    window.setVisible(1);
                 }
                 if (chickenButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
                     window.close();

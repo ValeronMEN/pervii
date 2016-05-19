@@ -7,6 +7,7 @@
 #include "witch/WitchThrow.h"
 #include "witch/WitchMessage.h"
 #include "witch/WitchResult.h"
+#include "witch/WitchStroke.h"
 
 class Witch{
 public:

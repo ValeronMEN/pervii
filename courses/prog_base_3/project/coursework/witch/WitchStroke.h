@@ -1,14 +1,14 @@
 #include <SFML/Graphics.hpp>
+#include "WitchStandard.h"
 
-class WitchMessage{
+class WitchStroke{
 public:
     bool isPressed(float x, float y);
-    WitchMessage();
+    WitchStroke();
     sf::Sprite sprite;
     sf::Texture texture;
-    void selectcard();
-    void selecttwoidentical();
-    void witch();
+    void mystroke();
+    void aistroke();
 
 private:
     float posX;
