@@ -1,3 +1,11 @@
 # depslib dependency file v1.0
 1385320480 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\main.c
 
+1463822122 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\library.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"library.h"
+
+1463821727 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\library.h
+

@@ -1,5 +1,12 @@
 # depslib dependency file v1.0
-1385320478 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\cmokatests\main.c
+1463820020 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\cmokatests\main.c
 	<stdio.h>
 	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<setjmp.h>
+	<cmocka.h>
+	"../liblibrary/library.h"
+
+1463821727 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\library.h
 

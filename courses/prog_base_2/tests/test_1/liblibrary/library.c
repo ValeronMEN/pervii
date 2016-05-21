@@ -4,6 +4,29 @@
 
 #include "library.h"
 
+struct library_s{
+    int size;
+    book_t * arr[MAX_LIBRARY_SIZE];
+    library_status status;
+};
+
+struct user_s{
+    char * name;
+};
+
+struct book_s{
+    char * title;
+    char * author;
+    char * user;
+    int size;
+    int subs_size;
+    int user_size;
+    time_t time;
+    book_status status;
+    MyCallback cb[MAX_SUBSCRIBERS_SIZE];
+    char users[MAX_NAME_SIZE][MAX_TAKERS_SIZE];
+};
+
 char* user(events ev, const char * name){
     printf("%s, you have 0 / 3\n", name);
     if (ev==NOTUSING){
@@ -13,19 +36,17 @@ char* user(events ev, const char * name){
     return NULL;
 }
 
-struct library_s{
-    int size;
-    book_t * arr[MAX_LIBRARY_SIZE];
-    library_status status;
-};
-
 book_t * book_new(char * author, char * title, int size){
     book_t * myBook = malloc(sizeof(struct book_s));
     myBook->title = malloc(MAX_NAME_SIZE * sizeof(char));
     myBook->author = malloc(MAX_NAME_SIZE * sizeof(char));
+    myBook->user = malloc(MAX_NAME_SIZE * sizeof(char));
+    myBook->status = NOTUSING;
     strcpy(myBook->title, title);
     strcpy(myBook->author, author);
     myBook->size = size;
+    myBook->subs_size = 0;
+    myBook->user_size = 0;
     return myBook;
 }
 
@@ -33,7 +54,11 @@ book_t * book_new_prototype(){
     book_t * myBook = malloc(sizeof(struct book_s));
     myBook->title = malloc(MAX_NAME_SIZE * sizeof(char));
     myBook->author = malloc(MAX_NAME_SIZE * sizeof(char));
+    myBook->user = malloc(MAX_NAME_SIZE * sizeof(char));
     myBook->size = 0;
+    myBook->subs_size = 0;
+    myBook->user_size = 0;
+    myBook->status = BOOK_PROTOTYPE;
     return myBook;
 }
 
@@ -123,17 +148,57 @@ void book_subs(book_t * myBook, MyCallback excb){
         return;
     }
     myBook->cb[myBook->subs_size] = excb;
-    //strcpy(myBook->names[myBook->subs_size], name);
     myBook->subs_size++;
+}
+
+void book_taking(book_t * myBook, user_t * user){
+    if (myBook->user!=NULL){
+        if (myBook->user_size == MAX_TAKERS_SIZE){
+            myBook->user_size = 0;
+        }
+        strcpy(myBook->users[myBook->user_size], myBook->user);
+        myBook->user_size++;
+    }
+    strcpy(myBook->user, user->name);
+    myBook->status = USING;
+}
+
+void book_puting(book_t * myBook, user_t * user){
+    if (myBook->user!=NULL){
+        if (myBook->user_size==MAX_TAKERS_SIZE){
+            myBook->user_size = 0;
+        }
+        strcpy(myBook->users[myBook->user_size], myBook->user);
+        myBook->user_size++;
+    }
+    strcpy(myBook->user, "");
+    myBook->status = NOTUSING;
 }
 
 void books_isUsing(library_t * mylib){
     int i;
     for(i=0; i<mylib->size; i++){
-        if (mylib->arr[i]->user!=NULL){
+        if (mylib->arr[i]->status==USING){
+            printf("There are books that are using now:\n");
             book_print(mylib->arr[i]);
         }
     }
+}
+
+void books_isNotUsing(library_t * mylib){
+    int i;
+    for(i=0; i<mylib->size; i++){
+        if (mylib->arr[i]->status==NOTUSING){
+            printf("There are books that aren't using:\n");
+            book_print(mylib->arr[i]);
+        }
+    }
+}
+
+user_t * user_new(char * name){
+    user_t * myUser = malloc(sizeof(struct user_s));
+    myUser->name = malloc(MAX_NAME_SIZE * sizeof(char));
+    return myUser;
 }
 
 

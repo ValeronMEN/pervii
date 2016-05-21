@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1463819060 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\core\main.c
+1463821340 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\core\main.c
 	<stdio.h>
 	<stdlib.h>
 	"../liblibrary/library.h"
 
-1463818813 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\library.h
+1463821727 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_1\liblibrary\library.h
 
