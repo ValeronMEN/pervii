@@ -20,3 +20,25 @@
 1463962425 c:\users\drlove\desktop\nlp\nlp\module.h
 	"list.h"
 
+1463772039 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\nlp\list.c
+	<stdlib.h>
+	"list.h"
+
+1463771351 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\nlp\list.h
+	<stdlib.h>
+
+1463964160 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\nlp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"module.h"
+
+1463964195 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\nlp\module.h
+	"list.h"
+
+1463964218 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\nlp\module.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+

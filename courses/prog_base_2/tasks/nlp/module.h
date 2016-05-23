@@ -4,6 +4,7 @@
 #define MAX_TEXT_SIZE 20000
 #define MAX_SENTENCE_SIZE 500
 #define MAX_WORD_SIZE 30
+#define MAX_BUFFER_SIZE 1000
 
 #include "list.h"
 

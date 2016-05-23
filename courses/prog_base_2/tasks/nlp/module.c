@@ -41,7 +41,7 @@ sentence_t * sentence_new(char * value){
     char del[] = ", ?!;:&";
     p = strtok(mySentence->sentence, del);
     int j=0, i;
-    char * p_copy[1000];
+    char * p_copy[MAX_BUFFER_SIZE];
     while(p != NULL){
         p_copy[j] = p;
         p = strtok(NULL, del);
@@ -65,7 +65,7 @@ text_t * text_new(char * value){
     char del[] = ".";
     p = strtok(myText->text, del);
     int j=0, i;
-    char * p_copy[1000];
+    char * p_copy[MAX_BUFFER_SIZE];
     while(p != NULL){
         p_copy[j] = p;
         p = strtok(NULL, del);
@@ -91,7 +91,7 @@ stopwords_t * stopwords_new(){
     char del[] = "\n";
     p = strtok(text, del);
     int j=0, i;
-    char * p_copy[1000];
+    char * p_copy[MAX_BUFFER_SIZE];
     while(p != NULL){
         p_copy[j] = p;
         p = strtok(NULL, del);
@@ -114,10 +114,10 @@ void sentence_deleteStopWord(sentence_t * mySentence, stopwords_t * myStopwords,
         for (j=0; j<list_getSize(myStopwords->stopwords); j++){
             word_t * myStopword = list_get(myStopwords->stopwords, j);
             if(strcmp(myWord->word, myStopword->word)==0){
-                puts(myWord->word);
-                puts(myStopword->word);
+                //puts(myWord->word);
+                //puts(myStopword->word);
                 truth=0;
-                i++;
+                i--;
                 break;
             }
         }

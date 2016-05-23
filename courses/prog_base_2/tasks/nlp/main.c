@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "module.h"
 
@@ -12,6 +13,7 @@ int main()
 
 	text_t * myText = text_new(text);
 	text_deleteStopWords(myText);
+	puts("Stopwords were deleting...");
 
 	text_free(myText);
 
