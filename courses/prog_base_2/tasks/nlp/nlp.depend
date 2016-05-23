@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1463962913 source:c:\users\drlove\desktop\nlp\nlp\module.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+
+1463962408 source:c:\users\drlove\desktop\nlp\nlp\main.c
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+
+1463772039 source:c:\users\drlove\desktop\nlp\nlp\list.c
+	<stdlib.h>
+	"list.h"
+
+1463771351 c:\users\drlove\desktop\nlp\nlp\list.h
+	<stdlib.h>
+
+1463962425 c:\users\drlove\desktop\nlp\nlp\module.h
+	"list.h"
+
