@@ -1,10 +1,23 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Witch.h"
 
 using namespace sf;
 
 void Witch::start()
 {
+    sf::Music music;
+    if (!music.openFromFile("music/vf.ogg"))
+    {
+        return; // error
+    }
+    music.play();
+
+    sf::Texture background;
+    background.loadFromFile("textures/witchcity.png");
+    sf::Sprite backgroundspr;
+    backgroundspr.setTexture(background);
+
     sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Witch");
     WitchResult * resultBtn = new WitchResult(); //loading window
     window.clear(sf::Color(0,115,0));
@@ -31,6 +44,8 @@ void Witch::start()
     bool messageIncluded = false;// to include upper small message about bad status of game
     bool throwOpportunity = false; //for opportunity to throw cards to retreat
     bool finish = false; //to finish game; to block whole buttons
+    bool playerTakeOpportunity = false; //for opportunity to take a card from ai
+    bool aiTakeOpportunity = false;
     if (strokeman==PLAYER)
     {
         throwOpportunity = true;
@@ -39,11 +54,17 @@ void Witch::start()
     WitchNext * nextBtn = new WitchNext(); // next button
     WitchMessage * message = new WitchMessage(); // upper message block
     WitchStroke * strokeBtn = new WitchStroke();
-    if (strokeman==PLAYER){
+
+    if (strokeman==PLAYER)
+    {
         strokeBtn->mystroke();
+        nextBtn->take();
+        playerTakeOpportunity = true;
     }
-    else{
+    else
+    {
         strokeBtn->aistroke();
+        nextBtn->next();
     }
 
     //set texture of retreat
@@ -96,7 +117,7 @@ void Witch::start()
             {
                 if((event.mouseButton.button == sf::Mouse::Left)&&(finish==false))
                 {
-                    if ((toChoose==0)&&(strokeman==PLAYER)) // only one card to get from ai
+                    if ((toChoose==0)&&(strokeman==PLAYER)&&(playerTakeOpportunity==true)) // only one card to get from ai
                     {
                         for(int i=0; i<(aiList->getSize()-1); i++)
                         {
@@ -148,12 +169,14 @@ void Witch::start()
                             {
                                 if ((card[i].getHighlighted()==true)&&(card[j].getHighlighted()==true)&&(i!=j))
                                 {
-                                    if ((card[i].getQueenOfSpades()==true)||(card[j].getQueenOfSpades()==true)){
+                                    if ((card[i].getQueenOfSpades()==true)||(card[j].getQueenOfSpades()==true))
+                                    {
                                         message->witch();
                                         messageIncluded = true;
                                         goto toexit;
                                     }
-                                    if (card[i].getValueIdentifier()!=card[j].getValueIdentifier()){
+                                    if (card[i].getValueIdentifier()!=card[j].getValueIdentifier())
+                                    {
                                         message->selecttwoidentical();
                                         messageIncluded = true;
                                         goto toexit;
@@ -164,7 +187,7 @@ void Witch::start()
                         }
 
                         // start of throwing
-                        tostart:
+tostart:
                         player_x=10;
                         for(int i=0; i<=myList->getSize(); i++)
                         {
@@ -205,85 +228,144 @@ void Witch::start()
                     {
                         if (strokeman == PLAYER)
                         {
-                            messageIncluded = true;
-                            for(int i=0; i<=aiList->getSize(); i++)
+                            if (playerTakeOpportunity==true)
                             {
-                                if (backcard[i]->getHighlighted()==true)
+                                messageIncluded = true;
+                                for(int i=0; i<=aiList->getSize(); i++)
                                 {
-                                    for(int j=0; j<myList->getSize(); j++){
-                                        card[j].setHighlighted(false);
-                                    }
-                                    messageIncluded = false;
-                                    twoHighlighted = 0;
-                                    toChoose = 0;
-                                    backcard[i]->setHighlighted(false);
-                                    myList->addLast(aiList->deleteIndex(i));
-
-                                    player_x = 10;
-                                    casino_x = W_X-(139+10);
-
-                                    for (int i=0; i<myList->getSize(); i++)
+                                    if (backcard[i]->getHighlighted()==true)
                                     {
-                                        card[i] = myList->getIndex(i);
-                                        card[i].sprite.setPosition(player_x, W_Y-10-216);
-                                        card[i].setCoordinates(player_x, W_Y-10-216);
-                                        if((myList->getSize()-1)==i)
-                                        {
-                                            card[i].setTexture();
-                                        }
-                                        else
-                                        {
-                                            card[i].setCutTexture();
-                                        }
-                                        player_x += 23;
-                                    }
+                                        messageIncluded = false;
+                                        toChoose = 0;
+                                        backcard[i]->setHighlighted(false);
+                                        myList->addLast(aiList->deleteIndex(i));
 
-                                    for (int i=0; i<aiList->getSize(); i++)
-                                    {
-                                        backcard[i]->sprite.setPosition(casino_x, 10);
-                                        backcard[i]->setCoordinates(casino_x, 10);
-                                        backcard[i]->setTexture();
-                                        casino_x -= 23;
+                                        player_x = 10;
+                                        casino_x = W_X-(139+10);
+
+                                        for (int i=0; i<myList->getSize(); i++)
+                                        {
+                                            card[i] = myList->getIndex(i);
+                                            card[i].sprite.setPosition(player_x, W_Y-10-216);
+                                            card[i].setCoordinates(player_x, W_Y-10-216);
+                                            if((myList->getSize()-1)==i)
+                                            {
+                                                card[i].setTexture();
+                                            }
+                                            else
+                                            {
+                                                card[i].setCutTexture();
+                                            }
+                                            player_x += 23;
+                                        }
+
+                                        for (int i=0; i<aiList->getSize(); i++)
+                                        {
+                                            backcard[i]->sprite.setPosition(casino_x, 10);
+                                            backcard[i]->setCoordinates(casino_x, 10);
+                                            backcard[i]->setTexture();
+                                            casino_x -= 23;
+                                        }
+                                        playerTakeOpportunity = false;
+                                        nextBtn->finish();
+                                        break;
                                     }
-                                    strokeman = AI;
-                                    strokeBtn->aistroke();
-                                    break;
                                 }
+                                message->selectcard();
+toexit:
+                                break;
                             }
-                            message->selectcard();
-                            toexit:
-                            break;
+                            else
+                            {
+
+                                for(int j=0; j<myList->getSize(); j++)
+                                {
+                                    card[j].setHighlighted(false);
+                                }
+                                twoHighlighted = 0;
+                                player_x = 10;
+                                for (int i=0; i<myList->getSize(); i++)
+                                {
+                                    card[i] = myList->getIndex(i);
+                                    card[i].sprite.setPosition(player_x, W_Y-10-216);
+                                    card[i].setCoordinates(player_x, W_Y-10-216);
+                                    if((myList->getSize()-1)==i)
+                                    {
+                                        card[i].setTexture();
+                                    }
+                                    else
+                                    {
+                                        card[i].setCutTexture();
+                                    }
+                                    player_x += 23;
+                                }
+
+                                strokeman = AI;
+                                strokeBtn->aistroke();
+                                nextBtn->next();
+                            }
                         }
                         else  // stroke of ai
                         {
                             //ai throws cards
-                            for (int i=0; i<aiList->getSize(); i++){
-                                for (int j=0; j<aiList->getSize(); j++){
-                                    if ((i!=j)&&(aiList->getIndex(i).getValueIdentifier()==aiList->getIndex(j).getValueIdentifier())&&(aiList->getIndex(i).getQueenOfSpades()==false)&&(aiList->getIndex(j).getQueenOfSpades()==false)){
-                                        if (j>i){
+                            aiTakeOpportunity = true;
+                            for (int i=0; i<aiList->getSize(); i++)
+                            {
+                                for (int j=0; j<aiList->getSize(); j++)
+                                {
+                                    if ((i!=j)&&(aiList->getIndex(i).getValueIdentifier()==aiList->getIndex(j).getValueIdentifier())&&(aiList->getIndex(i).getQueenOfSpades()==false)&&(aiList->getIndex(j).getQueenOfSpades()==false))
+                                    {
+                                        if (j>i)
+                                        {
                                             aiList->deleteIndex(j);
                                             aiList->deleteIndex(i);
                                         }
-                                        else{
+                                        else
+                                        {
                                             aiList->deleteIndex(i);
                                             aiList->deleteIndex(j);
                                         }
-                                        goto nextaistep;
+                                        aiTakeOpportunity = false;
+                                        goto ai_take;
                                     }
                                 }
                             }
-                            nextaistep:
-                            //check to empty
-                            if (aiList->isEmpty()){
+ai_take:
+                            if (aiList->isEmpty()) //check to empty
+                            {
                                 break;
                             }
                             //ai choose my card
                             int ai_rand_toChoose = rand() % (myList->getSize());
                             int ai_rand_toPut = rand() % (aiList->getSize());
                             aiList->addIndex(ai_rand_toPut, myList->deleteIndex(ai_rand_toChoose));
-
-                            player_x = 10;
-                            casino_x = W_X-(139+10);
+                            if (aiTakeOpportunity==true)
+                            {
+                                //ai throws cards second time
+                                for (int i=0; i<aiList->getSize(); i++)
+                                {
+                                    for (int j=0; j<aiList->getSize(); j++)
+                                    {
+                                        if ((i!=j)&&(aiList->getIndex(i).getValueIdentifier()==aiList->getIndex(j).getValueIdentifier())&&(aiList->getIndex(i).getQueenOfSpades()==false)&&(aiList->getIndex(j).getQueenOfSpades()==false))
+                                        {
+                                            if (j>i)
+                                            {
+                                                aiList->deleteIndex(j);
+                                                aiList->deleteIndex(i);
+                                            }
+                                            else
+                                            {
+                                                aiList->deleteIndex(i);
+                                                aiList->deleteIndex(j);
+                                            }
+                                            goto ai_draw;
+                                        }
+                                    }
+                                }
+                            }
+ai_draw:
+                            player_x = 10; //default position of player of x coordinate
+                            casino_x = W_X-(139+10); //default position of casino of x coordinate
 
                             for (int i=0; i<myList->getSize(); i++)
                             {
@@ -311,6 +393,8 @@ void Witch::start()
                             strokeman = PLAYER;
                             strokeBtn->mystroke();
                             throwOpportunity = true;
+                            playerTakeOpportunity = true;
+                            nextBtn->take();
                             break;
                         }
                     }
@@ -363,6 +447,7 @@ void Witch::start()
             } // mouse button pressed
         } // second loop
         window.clear(sf::Color(0,115,0));
+        window.draw(backgroundspr);
         for (int i=0; i<myList->getSize(); i++)
         {
             window.draw(card[i].sprite);
@@ -385,15 +470,18 @@ void Witch::start()
         }
         window.draw(nextBtn->sprite);
         window.draw(strokeBtn->sprite);
-        if (myList->getSize()==0){ //check to win
+        if (myList->getSize()==0)  //check to win
+        {
             resultBtn->win();
             finish = true;
         }
-        if (aiList->getSize()==0){ //check to lose
+        if (aiList->getSize()==0)  //check to lose
+        {
             resultBtn->lose();
             finish = true;
         }
-        if (finish){
+        if (finish)
+        {
             window.draw(resultBtn->sprite);
         }
         window.display();

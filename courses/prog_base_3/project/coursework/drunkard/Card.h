@@ -3,8 +3,6 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
-using namespace sf;
-
 class Card{
 	private:
 		short int colorIdentifier;
@@ -29,8 +27,8 @@ class Card{
 		int width;
 		int height;
 		bool visible;
-		Sprite sprite;
-		Texture texture;
+		sf::Sprite sprite;
+		sf::Texture texture;
 };
 
 #endif

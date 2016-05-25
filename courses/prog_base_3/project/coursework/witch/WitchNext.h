@@ -6,6 +6,9 @@ public:
     WitchNext();
     sf::Sprite sprite;
     sf::Texture texture;
+    void next();
+    void take();
+    void finish();
 
 private:
     float posX;

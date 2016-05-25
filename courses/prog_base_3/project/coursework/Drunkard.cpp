@@ -1,8 +1,7 @@
 #include "Drunkard.h"
+#include <SFML/Audio.hpp>
 #include <queue>
 #include <windows.h>
-
-using namespace sf;
 
 void Drunkard::drawDecks()
 {
@@ -18,6 +17,17 @@ void Drunkard::drawDecks()
 
 void Drunkard::start()
 {
+    sf::Music music;
+    if (!music.openFromFile("music/model.ogg")){
+        return; // error
+    }
+    music.play();
+
+    sf::Texture background;
+    background.loadFromFile("textures/drunkardpalm.png");
+    sf::Sprite backgroundspr;
+    backgroundspr.setTexture(background);
+
     sf::RenderWindow drunkardWindow(sf::VideoMode(D_X, D_Y), "Drunkard");
     ContinueButton * continueBtn = new ContinueButton();
     DrunkardReturn * returnBtn = new DrunkardReturn();
@@ -159,7 +169,7 @@ void Drunkard::start()
                             backCardSpr2s.setTexture(backCardTex);
                             backCardSpr2s.setPosition(552, 293);
 
-                            if(firstQueue->size()==2||secondQueue->size()==2) //check to empty card3f and card3s
+                            if(firstQueue->size()==1||secondQueue->size()==1) //check to empty card3f and card3s
                             {
                                 firstQueue->push(*card1f);
                                 firstQueue->push(*card1s);
@@ -247,6 +257,7 @@ void Drunkard::start()
             finish = true;
         }
         drunkardWindow.clear(sf::Color(0,115,0));
+        drunkardWindow.draw(backgroundspr);
         drunkardWindow.draw(backCardSpr);
         drunkardWindow.draw(backCardSpr180);
         drunkardWindow.draw(continueBtn->sprite);

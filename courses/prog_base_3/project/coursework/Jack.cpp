@@ -1,3 +1,4 @@
+#include <SFML/Audio.hpp>
 #include "Jack.h"
 #include <windows.h>
 
@@ -246,6 +247,12 @@ int Jack::game(RenderWindow * win, int oneRate)
 
 void Jack::start()
 {
+    sf::Music music;
+    if (!music.openFromFile("music/music1.ogg")){
+        return; // error
+    }
+    music.play();
+
     sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points");
 
     // set buttons

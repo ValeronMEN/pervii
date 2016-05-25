@@ -398,8 +398,9 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1463506833 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1463778166 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
+	<SFML/Audio.hpp>
 	<queue>
 	<windows.h>
 
@@ -429,7 +430,8 @@
 1462825368 d:\Универ\Курсач\coursework\winlose.h
 	<SFML/Graphics.hpp>
 
-1463505932 source:d:\Универ\Курсач\coursework\jack.cpp
+1463777278 source:d:\Универ\Курсач\coursework\jack.cpp
+	<SFML/Audio.hpp>
 	"Jack.h"
 	<windows.h>
 
@@ -534,7 +536,7 @@
 
 1463305524 d:\Универ\Курсач\coursework\jack\jackstandard.h
 
-1462816708 d:\Универ\Курсач\coursework\drunkard\card.h
+1463738890 d:\Универ\Курсач\coursework\drunkard\card.h
 	<string>
 	<SFML/Graphics.hpp>
 
@@ -573,7 +575,7 @@
 	"witch/WitchResult.h"
 	"witch/WitchStroke.h"
 
-1463525213 d:\Универ\Курсач\coursework\witch\witchstandard.h
+1464163818 d:\Универ\Курсач\coursework\witch\witchstandard.h
 
 1463686334 d:\Универ\Курсач\coursework\witch\witchcard.h
 	<string>
@@ -582,8 +584,9 @@
 1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
 	"WitchCard.h"
 
-1463693437 source:d:\Универ\Курсач\coursework\witch.cpp
+1464166011 source:d:\Универ\Курсач\coursework\witch.cpp
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"Witch.h"
 
 1463688941 source:d:\Универ\Курсач\coursework\witch\witchdeck.cpp
@@ -605,13 +608,13 @@
 1463516114 source:d:\Универ\Курсач\coursework\witch\witchbackcard.cpp
 	"WitchBackCard.h"
 
-1463511124 d:\Универ\Курсач\coursework\witch\witchnext.h
+1464165409 d:\Универ\Курсач\coursework\witch\witchnext.h
 	<SFML/Graphics.hpp>
 
 1463511084 d:\Универ\Курсач\coursework\witch\witchthrow.h
 	<SFML/Graphics.hpp>
 
-1463511366 source:d:\Универ\Курсач\coursework\witch\witchnext.cpp
+1464165395 source:d:\Универ\Курсач\coursework\witch\witchnext.cpp
 	"WitchNext.h"
 
 1463511360 source:d:\Универ\Курсач\coursework\witch\witchthrow.cpp
@@ -638,4 +641,112 @@
 
 1463693472 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
+
+1463738713 source:d:\Универ\Курсач\coursework\pig.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"Pig.h"
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/OutputSoundFile.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundFileFactory.hpp>
+	<SFML/Audio/SoundFileReader.hpp>
+	<SFML/Audio/SoundFileWriter.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\inputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\export.hpp
+	<SFML/Config.hpp>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\listener.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/Vector3.hpp>
+
+1436034025 e:\sfml\sfml-2.3.2\include\sfml\audio\music.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundStream.hpp>
+	<SFML/Audio/InputSoundFile.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundstream.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Mutex.hpp>
+	<cstdlib>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundsource.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Vector3.hpp>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\alresource.hpp
+	<SFML/Audio/Export.hpp>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\outputsoundfile.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\sound.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundSource.hpp>
+	<SFML/System/Time.hpp>
+	<cstdlib>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundbuffer.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Time.hpp>
+	<string>
+	<vector>
+	<set>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundbufferrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1436034025 e:\sfml\sfml-2.3.2\include\sfml\audio\soundrecorder.hpp
+	<SFML/Audio/Export.hpp>
+	<SFML/Audio/AlResource.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<string>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundfilefactory.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+	<vector>
+	<SFML/Audio/SoundFileFactory.inl>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundfilefactory.inl
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundfilereader.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
+
+1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundfilewriter.hpp
+	<SFML/Audio/Export.hpp>
+	<string>
 

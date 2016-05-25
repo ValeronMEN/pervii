@@ -5,9 +5,6 @@ WitchNext::WitchNext(){
     this->width = 139;
     this->posX = 10;
     this->posY = 10+216+82+80,5;
-    this->texture.loadFromFile("textures/witchnext.png");
-    this->sprite.setTexture(this->texture);
-    this->sprite.setPosition(posX, posY);
 }
 
 bool WitchNext::isPressed(float x, float y){
@@ -15,4 +12,22 @@ bool WitchNext::isPressed(float x, float y){
         return true;
     else
         return false;
+}
+
+void WitchNext::next(){
+    this->texture.loadFromFile("textures/witchnext.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}
+
+void WitchNext::take(){
+    this->texture.loadFromFile("textures/witchtake.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}
+
+void WitchNext::finish(){
+    this->texture.loadFromFile("textures/witchfinish.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
 }
