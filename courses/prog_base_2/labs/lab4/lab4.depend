@@ -1,0 +1,98 @@
+# depslib dependency file v1.0
+1464391494 source:c:\users\drlove\desktop\lab4\lab4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1463764081 source:c:\users\drlove\desktop\lab4\lab4\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1463763977 c:\users\drlove\desktop\lab4\lab4\socket.h
+
+1464370249 c:\users\drlove\desktop\lab4\lab4\cjson.h
+
+1464381171 c:\users\drlove\desktop\lab4\lab4\server.h
+	"socket.h"
+	"ScrumMaster.h"
+	"http.h"
+
+1464370551 c:\users\drlove\desktop\lab4\lab4\scrummaster.h
+	"cJSON.h"
+
+1464386957 c:\users\drlove\desktop\lab4\lab4\http.h
+
+1464370206 source:c:\users\drlove\desktop\lab4\lab4\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464390911 source:c:\users\drlove\desktop\lab4\lab4\http.c
+	<stddef.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"http.h"
+
+1464380597 source:c:\users\drlove\desktop\lab4\lab4\scrummaster.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"ScrumMaster.h"
+
+1464381150 source:c:\users\drlove\desktop\lab4\lab4\server.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"server.h"
+
+1464370206 source:c:\users\drlove\desktop\lab4\lab4\cjson\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464370249 c:\users\drlove\desktop\lab4\lab4\cjson\cjson.h
+
+1464391686 source:c:\users\drlove\desktop\lab4\lab4\patient.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"patient.h"
+
+1464384953 c:\users\drlove\desktop\lab4\lab4\patient.h
+	"cJSON/cJSON.h"
+
+1464392456 source:c:\users\drlove\desktop\lab4\lab4\web.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"web.h"
+
+1464392406 c:\users\drlove\desktop\lab4\lab4\web.h
+	"patient.h"
+	"socket.h"
+	"http.h"
+
+1464390019 source:c:\users\drlove\desktop\lab4\lab4\analysis.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464389937 c:\users\drlove\desktop\lab4\lab4\analysis.h
+	"cJSON/cJSON.h"
+	"web.h"
+
