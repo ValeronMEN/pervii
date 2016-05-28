@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1459695350 source:c:\users\drlove\desktop\client\main.c
+	<winsock2.h>
+	<windows.h>
+	<strings.h>
+	"functions.h"
+
+1459695595 source:c:\users\drlove\desktop\client\functions.c
+	<winsock2.h>
+	<windows.h>
+
+1459695289 c:\users\drlove\desktop\client\functions.h
+
+1459696404 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\client\functions.c
+	<winsock2.h>
+	<windows.h>
+
+1459695350 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\client\main.c
+	<winsock2.h>
+	<windows.h>
+	<strings.h>
+	"functions.h"
+
+1459696414 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tasks\client\functions.h
+

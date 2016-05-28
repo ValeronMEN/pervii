@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1464423227 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\analysis.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464389937 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\analysis.h
+	"cJSON/cJSON.h"
+	"web.h"
+
+1464370249 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\cjson\cjson.h
+
+1464422586 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\web.h
+	"patient.h"
+	"socket.h"
+	"http.h"
+
+1464422935 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\patient.h
+	"cJSON/cJSON.h"
+
+1463763977 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\socket.h
+
+1464386957 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\http.h
+
+1464370206 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\cjson\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1463772039 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\list.c
+	<stdlib.h>
+	"list.h"
+
+1463771351 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\list.h
+	<stdlib.h>
+
+1464422831 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464423118 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\patient.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"patient.h"
+
+1463764081 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464423472 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\web.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"web.h"
+
+1464390911 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\httpserv\http.c
+	<stddef.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"http.h"
+
+1464423227 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464389937 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.h
+	"cJSON/cJSON.h"
+	"web.h"
+
+1464370249 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\cjson\cjson.h
+
+1464424199 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.h
+	"patient.h"
+	"socket.h"
+	"http.h"
+
+1464422935 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\patient.h
+	"cJSON/cJSON.h"
+
+1463763977 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\socket.h
+
+1464386957 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\http.h
+
+1464370206 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\cjson\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464390911 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\http.c
+	<stddef.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"http.h"
+
+1464422831 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464423560 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\patient.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"patient.h"
+
+1463764081 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464424417 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"web.h"
+
