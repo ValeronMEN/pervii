@@ -33,8 +33,7 @@ static char * html_bufferInit(char * text){
 void server_home(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText =
-        "<h1>Zdrastie, Ruslan Anatolievich!</h1>"
-        "<a href=\"http://127.0.0.1:5000/Patients\">All Patients</a>";
+        "<h1>Zdrastie, Ruslan Anatolievich!</h1>";
 
     char * text = html_bufferInit(pageText);
     strcat(buffer, text);
@@ -56,9 +55,7 @@ void server_pageNotFound(socket_t * client){
     socket_close(client);
 }
 
-
-
-void server_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void server_studentID(socket_t * client, http_request_t * req, student_t ** Students, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0){
@@ -68,7 +65,7 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
 
         if(0 <= index && index < (*size)){
             char pageText[SMALL_BUFFER_SIZE] = "";
-            char * jSm = patient_json(Patients[index], 0);
+            char * jSm = student_json(Students[index], 0);
             strcat(pageText, jSm);
             char * textHTML = json_bufferInit(pageText);
             strcat(buffer, textHTML);
@@ -91,7 +88,7 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
         {
             for(int i = index; i < (*size) - 1; i++)
             {
-                patient_swap(Patients[i], Patients[i + 1]);
+                student_swap(Students[i], Students[i + 1]);
             }
 
             (*size)--;

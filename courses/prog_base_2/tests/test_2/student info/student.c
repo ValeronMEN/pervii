@@ -2,46 +2,46 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "patient.h"
+#include "student.h"
 
-struct patient_s{
+struct student_s{
     char name[MAX_PATIENT_STR_SIZE];
-    char surname[MAX_PATIENT_STR_SIZE];
-    int roomnumber;
+    char group[MAX_PATIENT_STR_SIZE];
+    int variant;
 };
 
-patient_t * patient_new(void){
-    return malloc(sizeof(struct patient_s));
+student_t * student_new(void){
+    return malloc(sizeof(struct student_s));
 }
 
-void patient_free(patient_t * self){
+void student_free(student_t * self){
     free(self);
 }
 
-void patient_init(patient_t * self, char * name, char * surname, int roomnumber){
+void student_init(student_t * self, char * name, char * group, int variant){
     strcpy(self->name, name);
-    strcpy(self->surname, surname);
-    self->roomnumber = roomnumber;
+    strcpy(self->group, group);
+    self->variant = variant;
 }
 
-void patient_swap(patient_t * self, patient_t * selfSwap){
+void student_swap(student_t * self, student_t * selfSwap){
     strcpy(self->name, selfSwap->name);
-    strcpy(self->surname, selfSwap->surname);
-    self->roomnumber = selfSwap->roomnumber;
+    strcpy(self->group, selfSwap->group);
+    self->variant = selfSwap->variant;
 }
 
-char * patient_json(patient_t * self, int check){
+char * student_json(student_t * self, int check){
     cJSON * SM = cJSON_CreateObject();
 
     cJSON_AddItemToObject(SM, "student", cJSON_CreateString(self->name));
-    cJSON_AddItemToObject(SM, "group", cJSON_CreateString(self->surname));
-    cJSON_AddItemToObject(SM, "variant", cJSON_CreateNumber(self->roomnumber));
+    cJSON_AddItemToObject(SM, "group", cJSON_CreateString(self->group));
+    cJSON_AddItemToObject(SM, "variant", cJSON_CreateNumber(self->variant));
 
     char * jsonSM = cJSON_Print(SM);
     return jsonSM;
 }
 
-char * patient_html(patient_t * self, int ID){
+char * student_html(student_t * self, int ID){
     char * text = malloc(sizeof(char) * BIG_BUFFER_SIZE);
     char pageText[SMALL_BUFFER_SIZE] = "";
 
@@ -57,7 +57,7 @@ char * patient_html(patient_t * self, int ID){
             "</p>"
             "</body>"
             "</html>",
-            self->name, self->surname, self->roomnumber);
+            self->name, self->group, self->variant);
 
     strcat(text, pageText);
 
@@ -78,10 +78,10 @@ char * patient_html(patient_t * self, int ID){
     return text;
 }
 
-char * patient_getName(patient_t * self){
+char * student_getName(student_t * self){
     return self->name;
 }
 
-char * patient_getSurname(patient_t * self){
-    return self->surname;
+char * student_getGroup(student_t * self){
+    return self->group;
 }

@@ -3,7 +3,12 @@
 	<ActiveTarget name="Debug" />
 	<File name="web.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="263" topLine="0" />
+			<Cursor1 position="284" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="student.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="687" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="socket_win.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -13,17 +18,17 @@
 	</File>
 	<File name="web.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="100" topLine="0" />
+			<Cursor1 position="2913" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1522" topLine="0" />
+			<Cursor1 position="1422" topLine="26" />
 		</Cursor>
 	</File>
-	<File name="patient.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="student.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2229" topLine="0" />
+			<Cursor1 position="2291" topLine="55" />
 		</Cursor>
 	</File>
 	<File name="http.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -33,17 +38,12 @@
 	</File>
 	<File name="analysis.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="852" topLine="0" />
+			<Cursor1 position="922" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="analysis.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="patient.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="426" topLine="0" />
+			<Cursor1 position="141" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

@@ -6,4 +6,4 @@
 #define MY_PORT 5000
 #define MAX_STRING_SIZE 100
 
-void analysis(patient_t ** Patients);
+void analysis(student_t ** Students);

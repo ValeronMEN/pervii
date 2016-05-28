@@ -1,7 +1,7 @@
 #ifndef WEB_H_INCLUDED
 #define WEB_H_INCLUDED
 
-#include "patient.h"
+#include "student.h"
 #include "socket.h"
 #include "http.h"
 
@@ -10,6 +10,6 @@
 
 void server_home(socket_t * client);
 void server_pageNotFound(socket_t * client);
-void server_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void server_studentID(socket_t * client, http_request_t * req, student_t ** Students, int * size);
 
 #endif // WEB_H_INCLUDED

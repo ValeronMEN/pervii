@@ -4,8 +4,8 @@
 
 #include "analysis.h"
 
-void analysis(patient_t ** Patients){
-    FILE * file = fopen("Patient.json", "r");
+void analysis(student_t ** Students){
+    FILE * file = fopen("Student.json", "r");
     char myText[MAX_BUFFER_SIZE];
     char myStr[MAX_STRING_SIZE];
 
@@ -23,10 +23,10 @@ void analysis(patient_t ** Patients){
     for (int i = 0; i < cJSON_GetArraySize(jList); i++){ // parse fields of .json
         cJSON * jItem = cJSON_GetArrayItem(jList, i);
         char * name = cJSON_GetObjectItem(jItem, "student")->valuestring;
-        char * surname = cJSON_GetObjectItem(jItem, "group")->valuestring;
-        int roomnumber = cJSON_GetObjectItem(jItem, "variant")->valueint;
+        char * group = cJSON_GetObjectItem(jItem, "group")->valuestring;
+        int variant = cJSON_GetObjectItem(jItem, "variant")->valueint;
 
-        patient_init(Patients[i], name, surname, roomnumber);
+        student_init(Students[i], name, group, variant);
     }
     cJSON_Delete(jList);
 }

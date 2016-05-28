@@ -12,13 +12,13 @@ int main(){
 
     char buffer[MAX_BUFFER_SIZE];
     socket_t * client = NULL;
-    patient_t * Patients[MAX_PATIENT_SIZE];
+    student_t * Students[MAX_PATIENT_SIZE];
     int size = 1;
 
     for (int i = 0; i < MAX_PATIENT_SIZE; i++){
-        Patients[i] = patient_new();
+        Students[i] = student_new();
     }
-    analysis(Patients);
+    analysis(Students);
 
     printf("Waiting for request...\n\n");
 
@@ -38,7 +38,7 @@ int main(){
             }
             else if (strncmp(request.uri, "/info", PATIENTS_API_LINE_SIZE) == 0)
             {
-                server_patientID(client, &request, Patients, &size);
+                server_studentID(client, &request, Students, &size);
             }
             else
             {
@@ -48,7 +48,7 @@ int main(){
     }
 
     for (int i = 0; i < MAX_PATIENT_SIZE; i++){
-        patient_free(Patients[i]);
+        student_free(Students[i]);
     }
 
     socket_free(client); // free socket accept

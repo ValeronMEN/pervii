@@ -70,20 +70,20 @@
 	<stdlib.h>
 	"http.h"
 
-1464423227 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.c
+1464432117 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"analysis.h"
 
-1464389937 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.h
+1464431977 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\analysis.h
 	"cJSON/cJSON.h"
 	"web.h"
 
 1464370249 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\cjson\cjson.h
 
-1464424199 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.h
-	"patient.h"
+1464431920 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.h
+	"student.h"
 	"socket.h"
 	"http.h"
 
@@ -111,7 +111,7 @@
 	<stdlib.h>
 	"http.h"
 
-1464424441 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\main.c
+1464432129 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -127,10 +127,19 @@
 	<winsock2.h>
 	"socket.h"
 
-1464425405 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.c
+1464432242 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\web.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"web.h"
+
+1464432163 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\student.h
+	"cJSON/cJSON.h"
+
+1464432156 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_2\student info\student.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"student.h"
 
