@@ -5,33 +5,6 @@
 
 #include "web.h"
 
-static int verification(char * name, char * surname, char * roomnumber){
-    int checkNum = 0;
-
-    for (int i = 0; i < strlen(roomnumber); i++){
-        if (!isdigit(roomnumber[i])){
-            checkNum++;
-        }
-    }
-
-    if (strlen(name) == 0 || strlen(surname) == 0
-            || strlen(roomnumber) == 0
-            || strlen(name) > 100 || strlen(surname) > 100
-       )
-    {
-        checkNum++;
-    }
-
-    if (checkNum == 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
 static char * json_bufferInit(char * text){
     char * buffer = malloc(sizeof(char) * BIG_BUFFER_SIZE);
 
