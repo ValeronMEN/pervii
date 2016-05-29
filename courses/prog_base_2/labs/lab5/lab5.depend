@@ -1,0 +1,78 @@
+# depslib dependency file v1.0
+1464390019 source:c:\users\drlove\desktop\lab5\analysis.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464389937 c:\users\drlove\desktop\lab5\analysis.h
+	"cJSON/cJSON.h"
+	"web.h"
+
+1464370249 c:\users\drlove\desktop\lab5\cjson\cjson.h
+
+1464392406 c:\users\drlove\desktop\lab5\web.h
+	"patient.h"
+	"socket.h"
+	"http.h"
+
+1464553016 c:\users\drlove\desktop\lab5\patient.h
+
+1463763977 c:\users\drlove\desktop\lab5\socket.h
+
+1464386957 c:\users\drlove\desktop\lab5\http.h
+
+1464370206 source:c:\users\drlove\desktop\lab5\cjson\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464390911 source:c:\users\drlove\desktop\lab5\http.c
+	<stddef.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"http.h"
+
+1464553036 source:c:\users\drlove\desktop\lab5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"web.h"
+	"db.h"
+
+1463764081 source:c:\users\drlove\desktop\lab5\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464546952 source:c:\users\drlove\desktop\lab5\web.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"web.h"
+
+1464552960 source:c:\users\drlove\desktop\lab5\patient.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"patient.h"
+
+1464552992 source:c:\users\drlove\desktop\lab5\db.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\lab5\sqlite3.h"
+	"db.h"
+
+1450774966 c:\users\drlove\desktop\lab5\sqlite3.h
+	<stdarg.h>
+
+1464544866 c:\users\drlove\desktop\lab5\db.h
+	"patient.h"
+
