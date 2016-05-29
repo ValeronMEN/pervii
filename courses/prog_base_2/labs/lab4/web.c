@@ -105,14 +105,21 @@ static char * html_bufferInit(char * text){
 void server_home(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText =
+        "<html>"
+        "<head>"
+        "</head>"
+        "<body>"
         "<h1>Zdrastie, Ruslan Anatolievich!</h1>"
-        "<a href=\"http://127.0.0.1:5000/Patients\">All Patients</a>";
+        "<a href=\"http://127.0.0.1:5000/Patients\">All Patients. Let's look at these weak-minded!</a>"
+        "</body>"
+        "</html>";
 
     char * text = html_bufferInit(pageText);
     strcat(buffer, text);
-    free(text);
 
     socket_write_string(client, pageText);
+
+    free(text);
     socket_close(client);
 }
 
@@ -134,17 +141,17 @@ void server_patients(socket_t * client, http_request_t * req, patient_t ** Patie
     if (strcmp(req->method, "GET") == 0)
     {
         char text[BIG_BUFFER_SIZE] = "";
-        char * jSm = NULL;
+        char * jsonPatient = NULL;
 
         strcat(text, "[");
         for(int i = 0; i < (*size); i++)
         {
             if(i == (*size) - 1)
-                jSm = patient_json(Patients[i], 0);
+                jsonPatient = patient_json(Patients[i]);
             else
-                jSm = patient_json(Patients[i], 1);
+                jsonPatient = patient_json(Patients[i]);
 
-            strcat(text, jSm);
+            strcat(text, jsonPatient);
             if(i !=  (*size) - 1) strcat(text, ",");
         }
         strcat(text, "]");
@@ -167,8 +174,8 @@ void server_patients(socket_t * client, http_request_t * req, patient_t ** Patie
         {
             char pageText[SMALL_BUFFER_SIZE] = "";
             patient_init(Patients[*size], name, surname, diagnosis, treatment, birthday, atof(importance), atoi(roomnumber));
-            char * jSm = patient_json(Patients[*size], 0);
-            strcat(pageText, jSm);
+            char * jsonPatient = patient_json(Patients[*size]);
+            strcat(pageText, jsonPatient);
             (*size)++;
 
             char * textHTML = json_bufferInit(pageText);
@@ -198,8 +205,8 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
 
         if(0 <= index && index < (*size)){
             char pageText[SMALL_BUFFER_SIZE] = "";
-            char * jSm = patient_json(Patients[index], 0);
-            strcat(pageText, jSm);
+            char * jsonPatient = patient_json(Patients[index]);
+            strcat(pageText, jsonPatient);
             char * textHTML = json_bufferInit(pageText);
             strcat(buffer, textHTML);
             free(textHTML);
@@ -304,6 +311,10 @@ void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t 
     if (strcmp(req->method, "GET") == 0)
     {
         char * pageText =
+            "<html>"
+            "<head>"
+            "</head>"
+            "<body>"
             "<form action=\"http://127.0.0.1:5000/Patients\" method=\"POST\">"
             "Name:<br>"
             "<input type=\"text\" name=\"name\" value='Name'><br>"
@@ -321,7 +332,9 @@ void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t 
             "<input type=\"text\" name=\"roomnumber\" value='0'><br><br>"
 
             "<input type=\"submit\" value='Submit!' />"
-            "</form>";
+            "</form>"
+            "</body>"
+            "</html>";
 
             char * textHTML = html_bufferInit(pageText);
             strcat(buffer, textHTML);

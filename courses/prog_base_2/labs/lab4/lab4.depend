@@ -96,3 +96,67 @@
 	"cJSON/cJSON.h"
 	"web.h"
 
+1464390019 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\analysis.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+
+1464389937 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\analysis.h
+	"cJSON/cJSON.h"
+	"web.h"
+
+1464370249 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\cjson\cjson.h
+
+1464392406 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\web.h
+	"patient.h"
+	"socket.h"
+	"http.h"
+
+1464532675 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\patient.h
+	"cJSON/cJSON.h"
+
+1463763977 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\socket.h
+
+1464386957 c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\http.h
+
+1464370206 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\cjson\cjson.c
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<stdlib.h>
+	<float.h>
+	<limits.h>
+	<ctype.h>
+	"cJSON.h"
+
+1464390911 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\http.c
+	<stddef.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"http.h"
+
+1464532880 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\patient.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"patient.h"
+
+1463764081 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\socket_win.c
+	<winsock2.h>
+	"socket.h"
+
+1464533304 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\web.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"web.h"
+
+1464392962 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"analysis.h"
+

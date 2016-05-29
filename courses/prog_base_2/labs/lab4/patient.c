@@ -42,25 +42,26 @@ void patient_swap(patient_t * self, patient_t * selfSwap){
     self->roomnumber = selfSwap->roomnumber;
 }
 
-char * patient_json(patient_t * self, int check){
-    cJSON * SM = cJSON_CreateObject();
+char * patient_json(patient_t * self){
+    cJSON * patientObject = cJSON_CreateObject(); // create an object
 
-    cJSON_AddItemToObject(SM, "name", cJSON_CreateString(self->name));
-    cJSON_AddItemToObject(SM, "surname", cJSON_CreateString(self->surname));
-    cJSON_AddItemToObject(SM, "diagnosis", cJSON_CreateString(self->diagnosis));
-    cJSON_AddItemToObject(SM, "treatment", cJSON_CreateString(self->treatment));
-    cJSON_AddItemToObject(SM, "birthday", cJSON_CreateString(self->birthday));
-    cJSON_AddItemToObject(SM, "importance", cJSON_CreateNumber(self->importance));
-    cJSON_AddItemToObject(SM, "roomnumber", cJSON_CreateNumber(self->roomnumber));
+    cJSON_AddItemToObject(patientObject, "name", cJSON_CreateString(self->name)); // add item to object
+    cJSON_AddItemToObject(patientObject, "surname", cJSON_CreateString(self->surname));
+    cJSON_AddItemToObject(patientObject, "diagnosis", cJSON_CreateString(self->diagnosis));
+    cJSON_AddItemToObject(patientObject, "treatment", cJSON_CreateString(self->treatment));
+    cJSON_AddItemToObject(patientObject, "birthday", cJSON_CreateString(self->birthday));
+    cJSON_AddItemToObject(patientObject, "importance", cJSON_CreateNumber(self->importance));
+    cJSON_AddItemToObject(patientObject, "roomnumber", cJSON_CreateNumber(self->roomnumber));
 
-    char * jsonSM = cJSON_Print(SM);
-    return jsonSM;
+    char * jsonPatient = cJSON_Print(patientObject); // create a text of json
+    return jsonPatient;
 }
 
 char * patient_html(patient_t * self, int ID){
     char * text = malloc(sizeof(char) * BIG_BUFFER_SIZE);
-    char pageText[SMALL_BUFFER_SIZE] = "";
+    //strcpy(text, " "); // rubbish in text defeated
 
+    char pageText[SMALL_BUFFER_SIZE] = "";
     sprintf(pageText,
             "<html>"
             "<head>"
@@ -75,25 +76,19 @@ char * patient_html(patient_t * self, int ID){
             "Importance: %.1f<br>"
             "Roomnumber: %i<br>"
             "</p>"
+            "<a href=\"#\" onclick=\"doDelete()\"/>Delete Patient<br><br></a>\n"
             "</body>"
-            "</html>",
-            self->name, self->surname, self->diagnosis, self->treatment, self->birthday, self->importance, self->roomnumber);
-
-    strcat(text, pageText);
-
-    char * pageTextLink = "<a href=\"#\" onclick=\"doDelete()\"/>Delete Patient<br><br></a>\n";
-    strcat(text, pageTextLink);
-
-    char pageTextScript[SMALL_BUFFER_SIZE];
-    sprintf(pageTextScript,
-                "<script>"
+            "<script>"
                 "function doDelete() {"
                 "var xhttp = new XMLHttpRequest();"
                 "xhttp.open(\"DELETE\", \"http://127.0.0.1:5000/Patients/%i\", true);"
                 "xhttp.send();"
                 "}"
-                "</script>", ID);
-    strcat(text, pageTextScript);
+                "</script>"
+                "</html>",
+            self->name, self->surname, self->diagnosis, self->treatment, self->birthday, self->importance, self->roomnumber, ID);
+
+    strcpy(text, pageText); // include our strings to text
 
     return text;
 }

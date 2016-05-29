@@ -16,7 +16,7 @@ void patient_free(patient_t * self); // free patient
 void patient_init(patient_t * self, char * name, char * surname, char * diagnosis, char * treatment, char * birthday, double importance, int roomnumber);
 void patient_swap(patient_t * self, patient_t * selfSwap); // swap two patients
 
-char * patient_json(patient_t * self, int check);
+char * patient_json(patient_t * self);
 char * patient_html(patient_t * self, int ID);
 char * patient_getName(patient_t * self);
 char * patient_getSurname(patient_t * self);
