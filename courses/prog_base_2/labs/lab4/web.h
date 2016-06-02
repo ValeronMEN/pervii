@@ -8,12 +8,12 @@
 #define PATIENTS_LINE_SIZE 10
 #define PATIENTS_API_LINE_SIZE 14
 
-void server_home(socket_t * client);
-void server_pageNotFound(socket_t * client);
-void server_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
-void server_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
-void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
-void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
-void server_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void web_home(socket_t * client);
+void web_pageNotFound(socket_t * client);
+void web_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void web_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void web_patientsHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void web_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
+void web_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
 
 #endif // WEB_H_INCLUDED

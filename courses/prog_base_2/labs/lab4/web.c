@@ -102,7 +102,7 @@ static char * html_bufferInit(char * text){
     return buffer;
 }
 
-void server_home(socket_t * client){
+void web_home(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText =
         "<html>"
@@ -123,7 +123,7 @@ void server_home(socket_t * client){
     socket_close(client);
 }
 
-void server_pageNotFound(socket_t * client){
+void web_pageNotFound(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText = "I'm sorry, but page not found =(";
 
@@ -135,7 +135,7 @@ void server_pageNotFound(socket_t * client){
     socket_close(client);
 }
 
-void server_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -195,7 +195,7 @@ void server_patients(socket_t * client, http_request_t * req, patient_t ** Patie
     socket_close(client);
 }
 
-void server_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0){
@@ -251,7 +251,7 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
     socket_close(client);
 }
 
-void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_patientsHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -305,7 +305,7 @@ void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** P
     socket_close(client);
 }
 
-void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -345,7 +345,7 @@ void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t 
     socket_close(client);
 }
 
-void server_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     char * point = strstr(req->uri, "/Patients/");

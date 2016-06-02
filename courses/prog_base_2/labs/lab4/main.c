@@ -34,31 +34,31 @@ int main(){
 
             if (strcmp(request.uri, "/") == 0)
             {
-                server_home(client);
+                web_home(client);
             }
             else if (strcmp(request.uri, "/api/Patients") == 0)
             {
-                server_patients(client, &request, Patients, &size);
+                web_patients(client, &request, Patients, &size);
             }
             else if (strncmp(request.uri, "/api/Patients/", PATIENTS_API_LINE_SIZE) == 0)
             {
-                server_patientID(client, &request, Patients, &size);
+                web_patientID(client, &request, Patients, &size);
             }
             else if (strcmp(request.uri, "/Patients") == 0)
             {
-                server_patientsHtml(client, &request, Patients, &size);
+                web_patientsHtml(client, &request, Patients, &size);
             }
             else if (strncmp(request.uri, "/Patients/", PATIENTS_LINE_SIZE) == 0)
             {
-                server_patientIDHtml(client, &request, Patients, &size);
+                web_patientIDHtml(client, &request, Patients, &size);
             }
             else if (strcmp(request.uri, "/new-Patient") == 0)
             {
-                server_patientsHtmlPost(client, &request, Patients, &size);
+                web_patientsHtmlPost(client, &request, Patients, &size);
             }
             else
             {
-                server_pageNotFound(client); //show message about page not found
+                web_pageNotFound(client); //show message about page not found
             }
         }
     }
