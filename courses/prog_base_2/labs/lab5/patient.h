@@ -7,22 +7,22 @@
 #define BIG_BUFFER_SIZE 10240
 #define STRING_MAX_SIZE 100
 
-struct patient_s{
+typedef struct patient_s{
     int id;
-    char name[MAX_PATIENT_STR_SIZE];
-    char surname[MAX_PATIENT_STR_SIZE];
-    char diagnosis[MAX_PATIENT_STR_SIZE];
-    char birthday[MAX_DATE_STR_SIZE];
-    double importance;
+    char name[STRING_MAX_SIZE];
+    char surname[STRING_MAX_SIZE];
+    char diagnosis[STRING_MAX_SIZE];
     double days;
-};
+    int importance;
+    char birthdate[STRING_MAX_SIZE];
+} patient_t;
 
 typedef struct patient_s patient_t;
 
 patient_t * patient_new(void); // create a patient
 void patient_free(patient_t * self); // free patient
 
-void patient_init(patient_t * self, char * name, char * surname, char * diagnosis, char * birthday, double, double, int);
+void patient_init(patient_t * self, char * name, char * surname, char * diagnosis, char * birthday, int, double, int);
 void patient_swap(patient_t * self, patient_t * selfSwap); // swap two patients
 
 char * patient_json(patient_t * self);

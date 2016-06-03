@@ -5,7 +5,7 @@
 
 #include "web.h"
 
-static int verification(char * id, char * name, char * surname, char * diagnosis, char * birthday, char * importance, char * days){
+static int verification(char * name, char * surname, char * diagnosis, char * birthday, char * importance, char * days){
     int checkNum = 0;
 
     for (int i = 0; i < 4; i++){
@@ -36,20 +36,20 @@ static int verification(char * id, char * name, char * surname, char * diagnosis
         checkNum++;
     }
 
-    for (int i = 0; i < strlen(id); i++){
-        if (!isdigit(id[i])){
+    for (int i = 0; i < strlen(importance); i++){
+        if (!isdigit(importance[i])){
             checkNum++;
         }
     }
 
     int countDot = 0;
-    for (int i = 0; i < strlen(importance); i++)
+    for (int i = 0; i < strlen(days); i++)
     {
-        if (!isdigit(importance[i]) && importance[i] != '.')
+        if (!isdigit(days[i]) && days[i] != '.')
         {
             checkNum++;
         }
-        if (importance[i] == '.')
+        if (days[i] == '.')
         {
             countDot++;
         }
@@ -60,7 +60,7 @@ static int verification(char * id, char * name, char * surname, char * diagnosis
     }
 
     if (strlen(name) == 0 || strlen(surname) == 0 || strlen(diagnosis) == 0 || strlen(birthday) != 10
-            || strlen(id) == 0 || strlen(importance) == 0
+            || strlen(days) == 0
             || strlen(name) > 20 || strlen(surname) > 20
        )
     {
@@ -77,7 +77,6 @@ static int verification(char * id, char * name, char * surname, char * diagnosis
     }
 }
 
-/*
 static char * json_bufferInit(char * text){
     char * buffer = malloc(sizeof(char) * BIG_BUFFER_SIZE);
 
@@ -90,7 +89,6 @@ static char * json_bufferInit(char * text){
 
     return buffer;
 }
-*/
 
 static char * html_bufferInit(char * text){
     char * buffer = malloc(sizeof(char) * BIG_BUFFER_SIZE);
@@ -104,7 +102,7 @@ static char * html_bufferInit(char * text){
     return buffer;
 }
 
-void server_home(socket_t * client){
+void web_home(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText =
         "<html>"
@@ -125,7 +123,7 @@ void server_home(socket_t * client){
     socket_close(client);
 }
 
-void server_pageNotFound(socket_t * client){
+void web_pageNotFound(socket_t * client){
     char buffer[SMALL_BUFFER_SIZE] = "";
     char * pageText = "I'm sorry, but page not found =(";
 
@@ -137,8 +135,7 @@ void server_pageNotFound(socket_t * client){
     socket_close(client);
 }
 
-/*
-void server_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_api_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t * db, patient_t * PatientsReal){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -165,20 +162,20 @@ void server_patients(socket_t * client, http_request_t * req, patient_t ** Patie
     }
     else if (strcmp(req->method, "POST") == 0)
     {
-        char * id = (char *)http_request_getArg(req, "id");
         char * name = (char *)http_request_getArg(req, "name");
         char * surname = (char *)http_request_getArg(req, "surname");
         char * diagnosis = (char *)http_request_getArg(req, "diagnosis");
-        char * birthday = (char *)http_request_getArg(req, "birthday");
+        char * birthday = (char *)http_request_getArg(req, "birthdate");
         char * importance = (char *)http_request_getArg(req, "importance");
         char * days = (char *)http_request_getArg(req, "days");
 
-        if(verification(id, name, surname, diagnosis, birthday, importance, days) == 1)
+        if(verification(name, surname, diagnosis, birthday, importance, days) == 1)
         {
             char pageText[SMALL_BUFFER_SIZE] = "";
-            patient_init(Patients[*size], name, surname, diagnosis, birthday, atof(importance), atof(days), atoi(id));
+            patient_init(Patients[*size], name, surname, diagnosis, birthday, atoi(importance), atof(days), 0);
             char * jsonPatient = patient_json(Patients[*size]);
             strcat(pageText, jsonPatient);
+            db_patient_insert(db, &(PatientsReal[*size-1]));
             (*size)++;
 
             char * textHTML = json_bufferInit(pageText);
@@ -198,7 +195,7 @@ void server_patients(socket_t * client, http_request_t * req, patient_t ** Patie
     socket_close(client);
 }
 
-void server_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_api_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0){
@@ -227,12 +224,12 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
         char * id = (char *)http_request_getArg(req, "id");
         int index = atoi(id);
 
-        if(0 <= index && index < (*size))
-        {
-            for(int i = index; i < (*size) - 1; i++)
-            {
+        if(0 <= index && index < (*size)){
+            for(int i = index; i < (*size) - 1; i++){
                 patient_swap(Patients[i], Patients[i + 1]);
             }
+
+            db_patient_delete(db, Patients[index]->id);
 
             (*size)--;
 
@@ -241,8 +238,7 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
             strcat(buffer, textHTML);
             free(textHTML);
         }
-        else
-        {
+        else{
             char * pageText = "{\n    \"Error\": \"ID Not Found\"\n}";
             char * textHTML = json_bufferInit(pageText);
             strcat(buffer, textHTML);
@@ -253,9 +249,8 @@ void server_patientID(socket_t * client, http_request_t * req, patient_t ** Pati
     socket_write_string(client, buffer);
     socket_close(client);
 }
-*/
 
-void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_html_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t * db, patient_t * PatientsReal){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -278,19 +273,19 @@ void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** P
     }
     else if (strcmp(req->method, "POST") == 0)
     {
-        char * id = (char *)http_request_getArg(req, "id");
         char * name = (char *)http_request_getArg(req, "name");
         char * surname = (char *)http_request_getArg(req, "surname");
         char * diagnosis = (char *)http_request_getArg(req, "diagnosis");
-        char * birthday = (char *)http_request_getArg(req, "birthday");
+        char * birthday = (char *)http_request_getArg(req, "birthdate");
         char * importance = (char *)http_request_getArg(req, "importance");
         char * days = (char *)http_request_getArg(req, "days");
 
-        if(verification(id, name, surname, diagnosis, birthday, importance, days) == 1)
+        if(verification(name, surname, diagnosis, birthday, importance, days) == 1)
         {
-            patient_init(Patients[*size], name, surname, diagnosis, birthday, atof(importance), atof(days), atoi(id));
+            patient_init(Patients[*size], name, surname, diagnosis, birthday, atoi(importance), atof(days), 0);
             char * pageText = "<h3>Success</h3>";
             (*size)++;
+            db_patient_insert(db, &(PatientsReal[*size-1]));
 
             char * textHTML = html_bufferInit(pageText);
             strcat(buffer, textHTML);
@@ -309,7 +304,7 @@ void server_patientsHtml(socket_t * client, http_request_t * req, patient_t ** P
     socket_close(client);
 }
 
-void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_html_patientsPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     if (strcmp(req->method, "GET") == 0)
@@ -320,20 +315,18 @@ void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t 
             "</head>"
             "<body>"
             "<form action=\"http://127.0.0.1:5000/Patients\" method=\"POST\">"
-            "Id:<br>"
-            "<input type=\"text\" name=\"roomnumber\" value='0'><br>"
             "Name:<br>"
             "<input type=\"text\" name=\"name\" value='Name'><br>"
             "Surname:<br>"
             "<input type=\"text\" name=\"surname\" value='Surname'><br>"
             "Diagnosis:<br>"
             "<input type=\"text\" name=\"diagnosis\" value='Diagnosis'><br>"
-            "Birthday:<br>"
-            "<input type=\"text\" name=\"birthday\" value='1900-01-01'><br>"
+            "Birthdate:<br>"
+            "<input type=\"text\" name=\"birthdate\" value='1900-01-01'><br>"
             "Importance:<br>"
-            "<input type=\"text\" name=\"importance\" value='0.0'><br>"
+            "<input type=\"text\" name=\"importance\" value='0'><br>"
             "Days:<br>"
-            "<input type=\"text\" name=\"importance\" value='0.0'><br><br>"
+            "<input type=\"text\" name=\"days\" value='0.0'><br><br>"
 
             "<input type=\"submit\" value='Submit!' />"
             "</form>"
@@ -349,7 +342,7 @@ void server_patientsHtmlPost(socket_t * client, http_request_t * req, patient_t 
     socket_close(client);
 }
 
-void server_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** Patients, int * size){
+void web_html_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     char * point = strstr(req->uri, "/Patients/");
@@ -376,6 +369,8 @@ void server_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** 
                 patient_swap(Patients[i], Patients[i + 1]);
             }
 
+            db_patient_delete(db, Patients[index]->id);
+
             (*size)--;
 
             sprintf(buffer,
@@ -383,6 +378,39 @@ void server_patientIDHtml(socket_t * client, http_request_t * req, patient_t ** 
                     "Access-Control-Allow-Origin: *\n"
                     "Access-Control-Allow-Methods: DELETE\n"
                     "\n");
+        }
+    }
+    else{
+        char * pageText = "<h4>ID Not Found!</h4>";
+        char * textHTML = html_bufferInit(pageText);
+        strcat(buffer, textHTML);
+        free(textHTML);
+    }
+
+    socket_write_string(client, buffer);
+    socket_close(client);
+}
+
+void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db){
+    /// students?score_gt=4.0&group=KP-51
+    char buffer[BIG_BUFFER_SIZE] = "";
+
+    char * point = strstr(req->uri, "/Patients?");
+    point += PATIENTS_LINE_SIZE;
+    int index = atoi(point);
+
+    if(0 <= index && index < (*size))
+    {
+        if (strcmp(req->method, "GET") == 0)
+        {
+            char pageText[SMALL_BUFFER_SIZE] = "";
+            char * text = patient_html(Patients[index], index);
+            strcat(pageText, text);
+            free(text);
+
+            char * textHTML = html_bufferInit(pageText);
+            strcat(buffer, textHTML);
+            free(textHTML);
         }
     }
     else{

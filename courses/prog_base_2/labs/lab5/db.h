@@ -11,4 +11,5 @@ void db_patient_update(db_t *, patient_t * , int);
 void db_patient_delete(db_t *, int);
 
 int db_count(db_t *);
-int db_filter(db_t *, double, char*, patient_t *, int);
+int db_filter(db_t *, double, char*, patient_t *);
+int db_init(db_t * self, patient_t * patientSet);

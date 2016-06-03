@@ -147,14 +147,14 @@
 	<winsock2.h>
 	"socket.h"
 
-1464533304 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\web.c
+1464864802 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\web.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"web.h"
 
-1464392962 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\main.c
+1464864682 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\labs\lab4\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

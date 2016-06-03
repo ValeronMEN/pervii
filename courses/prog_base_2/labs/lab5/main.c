@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "web.h"
-#include "db.h"
 
 #define MAX_BUFFER_SIZE 10000
 #define MAX_PATIENT_SIZE 10
@@ -18,22 +17,23 @@ int main(){
 
     char buffer[MAX_BUFFER_SIZE];
     socket_t * client = NULL;
+    patient_t PatientsReal[MAX_PATIENT_SIZE];
     patient_t * Patients[MAX_PATIENT_SIZE];
+
+    char * db_name = "Patient.db";
+
+    db_t * db = db_new(db_name);
+    int size = db_count(db);
+    //db_filter(db, 0.0, "lepra", *PatientsReal);
+    printf("Opening %s database...\n", db_name);
+    db_init(db, PatientsReal);
+    patient_printList(PatientsReal, size);
 
     for (int i = 0; i < MAX_PATIENT_SIZE; i++){
         Patients[i] = patient_new();
+        Patients[i] = &(PatientsReal[i]);
     }
-
-    db_t * db = db_new("Patient.db");
-    int size = db_count(db);
-
-    for(int i; i < size; i++){
-        db_init(db, Patients, size);
-    }
-
-    patient_printList(Patients, size);
-
-    //
+    puts("");
 
     printf("Waiting for request...\n\n");
 
@@ -49,33 +49,35 @@ int main(){
 
             if (strcmp(request.uri, "/") == 0)
             {
-                server_home(client);
+                web_home(client);
             }
-            /*
             else if (strcmp(request.uri, "/api/Patients") == 0)
             {
-                server_patients(client, &request, Patients, &size);
+                web_api_patients(client, &request, Patients, &size, db, PatientsReal);
             }
             else if (strncmp(request.uri, "/api/Patients/", PATIENTS_API_LINE_SIZE) == 0)
             {
-                server_patientID(client, &request, Patients, &size);
+                web_api_patientID(client, &request, Patients, &size, db);
             }
-            */
+            else if (strncmp(request.uri, "/Patients?", (PATIENTS_LINE_SIZE)) == 0)
+            {
+                web_html_patientFilter(client, &request, Patients, &size, db);
+            }
             else if (strcmp(request.uri, "/Patients") == 0)
             {
-                server_patientsHtml(client, &request, Patients, &size);
+                web_html_patients(client, &request, Patients, &size, db, PatientsReal);
             }
             else if (strncmp(request.uri, "/Patients/", PATIENTS_LINE_SIZE) == 0)
             {
-                server_patientIDHtml(client, &request, Patients, &size);
+                web_html_patientID(client, &request, Patients, &size, db);
             }
             else if (strcmp(request.uri, "/new-Patient") == 0)
             {
-                server_patientsHtmlPost(client, &request, Patients, &size);
+                web_html_patientsPost(client, &request, Patients, &size);
             }
             else
             {
-                server_pageNotFound(client); //show message about page not found
+                web_pageNotFound(client); //show message about page not found
             }
         }
     }
@@ -88,5 +90,6 @@ int main(){
     socket_free(mySocket); // free mySocket
     lib_free(); // free lib of socket
     db_delete(db);
+
     return 0;
 }

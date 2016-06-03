@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <strings.h>
 
-#include "C:\Users\DrLove\Desktop\lab5\sqlite3.h"
+#include "sqlite3.h"
 #include "db.h"
 
 #ifndef TRUE
@@ -55,7 +55,7 @@ void db_patient_insert(db_t * self, patient_t * patient){
     sqlite3_bind_text(stmt, 3, patient->diagnosis, -1, SQLITE_STATIC);
     sqlite3_bind_double(stmt, 4, patient->days);
     sqlite3_bind_int(stmt, 5, patient->importance);
-    sqlite3_bind_text(stmt, 6, patient->birthday, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 6, patient->birthdate, -1, SQLITE_STATIC);
 
     returnCode = sqlite3_step(stmt);
     errorHandler_NotEqual(returnCode, SQLITE_DONE, "Data wasn`t inserted.");
@@ -82,7 +82,7 @@ patient_t * db_patient_get(db_t * self, int id){
         strcpy(toGet->diagnosis, "EMPTY");
         toGet->days = 0.0;
         toGet->importance = 0;
-        strcpy(toGet->birthday, "EMPTY");
+        strcpy(toGet->birthdate, "EMPTY");
         return (toGet);
     }
     toGet->id = id;
@@ -91,7 +91,7 @@ patient_t * db_patient_get(db_t * self, int id){
     strcpy(toGet->diagnosis, (char *)sqlite3_column_text(stmt, 3));
     toGet->days = sqlite3_column_double(stmt, 4);
     toGet->importance = sqlite3_column_int(stmt, 5);
-    strcpy(toGet->birthday, (char *)sqlite3_column_text(stmt, 6));
+    strcpy(toGet->birthdate, (char *)sqlite3_column_text(stmt, 6));
 
     sqlite3_reset(stmt);
     return (toGet);
@@ -105,7 +105,7 @@ void db_patient_update(db_t * self, patient_t * patient, int id){
                                    "Diagnosis=?,"
                                    "Days=?,"
                                    "Importance=?,"
-                                   "Birthday=? "
+                                   "Birthdate=? "
                                    "WHERE Id=?;";
     int returnCode = 0;
 
@@ -117,7 +117,7 @@ void db_patient_update(db_t * self, patient_t * patient, int id){
     sqlite3_bind_text(stmt, 3, patient->diagnosis, -1, SQLITE_STATIC);
     sqlite3_bind_double(stmt, 4, patient->days);
     sqlite3_bind_int(stmt, 5, patient->importance);
-    sqlite3_bind_text(stmt, 6, patient->birthday, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 6, patient->birthdate, -1, SQLITE_STATIC);
     sqlite3_bind_int(stmt, 7, id);
 
     sqlite3_step(stmt);
@@ -155,10 +155,10 @@ static void db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
     int id = sqlite3_column_int(stmt, 0);
     const unsigned char *name = sqlite3_column_text(stmt, 1);
     const unsigned char *surname = sqlite3_column_text(stmt, 2);
-    int diagnosis = sqlite3_column_int(stmt, 3);
+    int diagnosis = sqlite3_column_text(stmt, 3);
     double days = sqlite3_column_double(stmt, 4);
     int importance = sqlite3_column_int(stmt, 5);
-    const unsigned char *birthday = sqlite3_column_text(stmt, 6);
+    const unsigned char *birthdate = sqlite3_column_text(stmt, 6);
 
     patient->id = id;
     strcpy(patient->name, (char *)name);
@@ -166,20 +166,19 @@ static void db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
     strcpy(patient->diagnosis, (char *)diagnosis);
     patient->days = days;
     patient->importance = importance;
-    strcpy(patient->birthday, (char *)birthday);
+    strcpy(patient->birthdate, (char *)birthdate);
 }
 
-int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet, int setMaxLen){
+int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet){
     sqlite3_stmt *stmt = NULL;
-    char *sqlCommand;
-    sprintf(sqlCommand, "SELECT * FROM Patient WHERE Days > ? AND Diagnosis LIKE ?;", diagnosis);
+    const char *sqlCommand = "SELECT * FROM Patient WHERE Days > ? AND Diagnosis LIKE ?;";
     int returnCode = 0;
     int patientSetIndex = 0;
 
     sqlite3_prepare_v2(self->db, sqlCommand, strlen(sqlCommand) + 1, &stmt, NULL);
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error preparing statement by SELECT * command.\n");
     sqlite3_bind_double(stmt, 1, days);
-    sqlite3_bind_text(stmt, 2, diagnosis, -1, SQLITE_STATIC);  // 3 - position of argument `?`
+    sqlite3_bind_text(stmt, 2, diagnosis, -1, SQLITE_STATIC);
     while(TRUE)
     {
         int returnCode2 = sqlite3_step(stmt);
@@ -203,26 +202,35 @@ int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet
     return (patientSetIndex);
 }
 
-int db_init(db_t * self, patient_t * patientSet, int setMaxLen){
+int db_init(db_t * self, patient_t * patientSet){
     sqlite3_stmt *stmt = NULL;
-    char *sqlCommand = "SELECT * FROM Patient";
+    const char *sqlCommand = "SELECT * FROM Patient;";
     int returnCode = 0;
     int patientSetIndex = 0;
 
     sqlite3_prepare_v2(self->db, sqlCommand, strlen(sqlCommand) + 1, &stmt, NULL);
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error preparing statement by SELECT * command.\n");
     //sqlite3_bind_double(stmt, 1, days);
-    //sqlite3_bind_text(stmt, 2, diagnosis, -1, SQLITE_STATIC);
-    while(patientSetIndex<setMaxLen)
+    //sqlite3_bind_int(stmt, 2, diagnosis);
+    while(TRUE)
     {
-
+        int returnCode2 = sqlite3_step(stmt);
+        if(returnCode2 == SQLITE_ERROR)
+        {
+            fprintf(stderr, "Can`t select patients.\n");
+            exit(1);
+        }
+        if(SQLITE_DONE == returnCode2)
+        {
+            break;
+        }
+        else
+        {
             db_patient_fill(stmt, &patientSet[patientSetIndex]);
             patientSetIndex++;
-
+        }
     }
     returnCode = sqlite3_finalize(stmt);
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error destroying statement.");
     return (patientSetIndex);
-    //patient_init(Patients[i], name, surname, diagnosis, birthday, atof(importance), atof(days), atoi(id));
-
 }
