@@ -16,6 +16,6 @@ void web_api_patientID(socket_t * client, http_request_t * req, patient_t ** Pat
 void web_html_patients(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t * db, patient_t *);
 void web_html_patientsPost(socket_t * client, http_request_t * req, patient_t ** Patients, int * size);
 void web_html_patientID(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db);
-void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db, patient_t *);
+void web_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db, patient_t * PatientsReal, int api);
 
 #endif // WEB_H_INCLUDED

@@ -20,21 +20,20 @@ int main(){
     patient_t PatientsReal[MAX_PATIENT_SIZE];
     patient_t * Patients[MAX_PATIENT_SIZE];
 
-    char * db_name = "Patient.db";
-
+    char * db_name = "Patient.db"; //working with database
     db_t * db = db_new(db_name);
     int size = db_count(db);
     printf("Opening %s database...\n", db_name);
     db_init(db, PatientsReal);
-    patient_printList(PatientsReal, size);
+
+    //patient_printList(PatientsReal, size);
 
     for (int i = 0; i < MAX_PATIENT_SIZE; i++){
         Patients[i] = patient_new();
         Patients[i] = &(PatientsReal[i]);
     }
-    puts("");
 
-    printf("Waiting for request...\n\n");
+    printf("\nWaiting for request...\n\n");
 
     while(1)
     {
@@ -54,13 +53,17 @@ int main(){
             {
                 web_api_patients(client, &request, Patients, &size, db, PatientsReal);
             }
+            else if (strncmp(request.uri, "/api/Patients?", PATIENTS_API_LINE_SIZE) == 0)
+            {
+                web_patientFilter(client, &request, Patients, &size, db, PatientsReal, 1);
+            }
             else if (strncmp(request.uri, "/api/Patients/", PATIENTS_API_LINE_SIZE) == 0)
             {
                 web_api_patientID(client, &request, Patients, &size, db);
             }
             else if (strncmp(request.uri, "/Patients?", (PATIENTS_LINE_SIZE)) == 0)
             {
-                web_html_patientFilter(client, &request, Patients, &size, db, PatientsReal);
+                web_patientFilter(client, &request, Patients, &size, db, PatientsReal, 0);
             }
             else if (strcmp(request.uri, "/Patients") == 0)
             {

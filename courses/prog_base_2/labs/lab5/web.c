@@ -391,13 +391,21 @@ void web_html_patientID(socket_t * client, http_request_t * req, patient_t ** Pa
     socket_close(client);
 }
 
-void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db, patient_t * PatientsReal){
+void web_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db, patient_t * PatientsReal, int api){
     char buffer[BIG_BUFFER_SIZE] = "";
 
-    char * point = strstr(req->uri, "/Patients?");
-    point += PATIENTS_LINE_SIZE;
+    char * point;
+    if (api==1){
+       point = strstr(req->uri, "/api/Patients?");
+       point += PATIENTS_API_LINE_SIZE;
+    }
+    else{
+       point = strstr(req->uri, "/Patients?");
+       point += PATIENTS_LINE_SIZE;
+    }
+
     double days;
-    char diagnosis[20];
+    char diagnosis[STRING_MAX_SIZE];
     char daysf, dayss;
     int less, fail = 0;
     char text[BIG_BUFFER_SIZE] = "";
@@ -454,8 +462,16 @@ void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t *
     }
 
     if (fail == 1){
-        char * pageText = "<h4>Invalid request!</h4>";
-        char * textHTML = html_bufferInit(pageText);
+        char * pageText;
+        char * textHTML;
+        if (api==1){
+            pageText = "{\n    \"Error\": \"Invalid request\"\n}";
+            textHTML = json_bufferInit(pageText);
+        }
+        else{
+            pageText = "<h4>Invalid request!</h4>";
+            textHTML = html_bufferInit(pageText);
+        }
         strcat(buffer, textHTML);
         free(textHTML);
 
@@ -482,12 +498,22 @@ void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t *
     int filSize = db_filter(db, days, diagnosis, PatientsRealFilter, less, indexes);
 
     if (filSize == 0){
-        char * pageText = "<h4>No patients with this options!</h4>";
-        char * textHTML = html_bufferInit(pageText);
+        char * pageText;
+        char * textHTML;
+        if (api==1){
+            pageText = "{\n    \"Empty\": \"Empty\"\n}";
+            textHTML = json_bufferInit(pageText);
+        }
+        else{
+            pageText = "<h4>No patients with this properties!</h4>";
+            textHTML = html_bufferInit(pageText);
+        }
         strcat(buffer, textHTML);
         free(textHTML);
+
         socket_write_string(client, buffer);
         socket_close(client);
+
         return;
     }
 
@@ -499,21 +525,59 @@ void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t *
     patient_printList(PatientsRealFilter, filSize);
     puts("");
 
-    for(int i = 0; i < (filSize); i++)
-    {
-        char pageText[100] = "";
-        sprintf(pageText, "<a href=\"http://127.0.0.1:5000/Patients/%i\">%s %s<br></a>\n", i, patient_getSurname(PatientsFilter[i]), patient_getName(PatientsFilter[i]));
-        strcat(text, pageText);
+    int j=0;
+
+    if (api==1){
+        char * jsonPatient = NULL;
+        strcat(text, "[");
+
+        for(int i = 0; i < (filSize); i++)
+        {
+            int number=0;
+            for (int k=0; k<(*size); k++){
+                if (Patients[k]->id==indexes[j]){
+                    j++;
+                    break;
+                }
+                number++;
+            }
+            jsonPatient = patient_json(Patients[number]);
+
+            strcat(text, jsonPatient);
+            if(i !=  (*size) - 1) strcat(text, ",");
+        }
+
+        strcat(text, "]");
+
+        char * textHTML = json_bufferInit(text);
+        strcat(buffer, textHTML);
+        free(textHTML);
     }
+    else{
+        for(int i = 0; i < (filSize); i++){
+            int number=0;
+            for (int k=0; k<(*size); k++){
+                if (Patients[k]->id==indexes[j]){
+                    j++;
+                    break;
+                }
+                number++;
+            }
+            char pageText[100] = "";
+            sprintf(pageText, "<a href=\"http://127.0.0.1:5000/Patients/%i\">%s %s<br></a>\n", number, patient_getSurname(PatientsFilter[i]), patient_getName(PatientsFilter[i]));
+            strcat(text, pageText);
+        }
 
-    char * pageText = "<a href=\"http://127.0.0.1:5000/new-Patient\"><br>New Patient</a>";
-    strcat(text, pageText);
+        char * pageText = "<a href=\"http://127.0.0.1:5000/new-Patient\"><br>New Patient</a>";
+        strcat(text, pageText);
 
-    char * textHTML = html_bufferInit(text);
-    strcat(buffer, textHTML);
-    free(textHTML);
+        char * textHTML = html_bufferInit(text);
+        strcat(buffer, textHTML);
+        free(textHTML);
+    }
 
     socket_write_string(client, buffer);
     socket_close(client);
 }
+
 

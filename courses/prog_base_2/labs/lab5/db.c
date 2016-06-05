@@ -151,7 +151,7 @@ int db_count(db_t * self){
     return (patientsCount);
 }
 
-static void db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
+static int db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
     int id = sqlite3_column_int(stmt, 0);
     const unsigned char *name = sqlite3_column_text(stmt, 1);
     const unsigned char *surname = sqlite3_column_text(stmt, 2);
@@ -167,6 +167,8 @@ static void db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
     patient->days = days;
     patient->importance = importance;
     strcpy(patient->birthdate, (char *)birthdate);
+
+    return id;
 }
 
 int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet, int less, int * indexes){
@@ -186,6 +188,7 @@ int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error preparing statement by SELECT * command.\n");
     sqlite3_bind_double(stmt, 1, days);
     sqlite3_bind_text(stmt, 2, diagnosis, -1, SQLITE_STATIC);
+    int j=0;
     while(TRUE)
     {
         int returnCode2 = sqlite3_step(stmt);
@@ -200,7 +203,9 @@ int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet
         }
         else
         {
-            db_patient_fill(stmt, &patientSet[patientSetIndex]);
+            *(indexes+j) = db_patient_fill(stmt, &patientSet[patientSetIndex]);
+            printf("%i\n", *(indexes+j));
+            j++;
             patientSetIndex++;
         }
     }
@@ -217,8 +222,6 @@ int db_init(db_t * self, patient_t * patientSet){
 
     sqlite3_prepare_v2(self->db, sqlCommand, strlen(sqlCommand) + 1, &stmt, NULL);
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error preparing statement by SELECT * command.\n");
-    //sqlite3_bind_double(stmt, 1, days);
-    //sqlite3_bind_int(stmt, 2, diagnosis);
     while(TRUE)
     {
         int returnCode2 = sqlite3_step(stmt);
