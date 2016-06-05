@@ -169,9 +169,16 @@ static void db_patient_fill(sqlite3_stmt * stmt, patient_t * patient){
     strcpy(patient->birthdate, (char *)birthdate);
 }
 
-int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet){
+int db_filter(db_t * self, double days, char * diagnosis, patient_t * patientSet, int less, int * indexes){
     sqlite3_stmt *stmt = NULL;
-    const char *sqlCommand = "SELECT * FROM Patient WHERE Days > ? AND Diagnosis LIKE ?;";
+    const char *sqlCommand;
+    if (less==1){
+        sqlCommand = "SELECT * FROM Patient WHERE Days < ? AND Diagnosis LIKE ?;";
+    }
+    else{
+        sqlCommand = "SELECT * FROM Patient WHERE Days > ? AND Diagnosis LIKE ?;";
+    }
+
     int returnCode = 0;
     int patientSetIndex = 0;
 

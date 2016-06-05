@@ -24,7 +24,6 @@ int main(){
 
     db_t * db = db_new(db_name);
     int size = db_count(db);
-    //db_filter(db, 0.0, "lepra", *PatientsReal);
     printf("Opening %s database...\n", db_name);
     db_init(db, PatientsReal);
     patient_printList(PatientsReal, size);
@@ -61,7 +60,7 @@ int main(){
             }
             else if (strncmp(request.uri, "/Patients?", (PATIENTS_LINE_SIZE)) == 0)
             {
-                web_html_patientFilter(client, &request, Patients, &size, db);
+                web_html_patientFilter(client, &request, Patients, &size, db, PatientsReal);
             }
             else if (strcmp(request.uri, "/Patients") == 0)
             {

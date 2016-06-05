@@ -391,35 +391,129 @@ void web_html_patientID(socket_t * client, http_request_t * req, patient_t ** Pa
     socket_close(client);
 }
 
-void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db){
-    /// students?score_gt=4.0&group=KP-51
+void web_html_patientFilter(socket_t * client, http_request_t * req, patient_t ** Patients, int * size, db_t* db, patient_t * PatientsReal){
     char buffer[BIG_BUFFER_SIZE] = "";
 
     char * point = strstr(req->uri, "/Patients?");
     point += PATIENTS_LINE_SIZE;
-    int index = atoi(point);
+    double days;
+    char diagnosis[20];
+    char daysf, dayss;
+    int less, fail = 0;
+    char text[BIG_BUFFER_SIZE] = "";
 
-    if(0 <= index && index < (*size))
-    {
-        if (strcmp(req->method, "GET") == 0)
-        {
-            char pageText[SMALL_BUFFER_SIZE] = "";
-            char * text = patient_html(Patients[index], index);
-            strcat(pageText, text);
-            free(text);
-
-            char * textHTML = html_bufferInit(pageText);
-            strcat(buffer, textHTML);
-            free(textHTML);
+    if (strcmp(req->method, "GET") == 0){
+        if (strncmp(point, "days_gt=", 8) == 0){
+            less = 0;
+            point += 8;
+            daysf = *point;
+            point++;
+            if (strncmp(point, ".", 1) == 0){
+                point++;
+                dayss = *point;
+                point++;
+                if (strncmp(point, "&diagnosis=", 11) == 0){
+                    point+=11;
+                    strcpy(diagnosis, point);
+                }
+                else{
+                    fail = 1;
+                }
+            }
+            else {
+                fail = 1;
+            }
+        }
+        else if (strncmp(point, "days_lt=", 8) == 0){
+            less = 1;
+            point += 8;
+            daysf = *point;
+            point++;
+            if (strncmp(point, ".", 1) == 0){
+                point++;
+                dayss = *point;
+                point++;
+                if (strncmp(point, "&diagnosis=", 11) == 0){
+                    point+=11;
+                    strcpy(diagnosis, point);
+                }
+                else{
+                    fail = 1;
+                }
+            }
+            else {
+                fail = 1;
+            }
+        }
+        else{
+            fail = 1;
         }
     }
     else{
-        char * pageText = "<h4>ID Not Found!</h4>";
+        fail = 1;
+    }
+
+    if (fail == 1){
+        char * pageText = "<h4>Invalid request!</h4>";
         char * textHTML = html_bufferInit(pageText);
         strcat(buffer, textHTML);
         free(textHTML);
+
+        socket_write_string(client, buffer);
+        socket_close(client);
+
+        return;
     }
+
+    double days1 = (double)((int)daysf - '0');
+    double days2 = (double)((int)dayss - '0');
+    days = days1 + days2/10;
+    printf("Input information: %f, %s\n\n", days, diagnosis);
+
+    patient_t PatientsRealFilter[*size];
+    patient_t * PatientsFilter[*size];
+
+    for(int i=0; i<(*size); i++){
+        PatientsRealFilter[i] = PatientsReal[i];
+    }
+
+    int indexes[*size];
+
+    int filSize = db_filter(db, days, diagnosis, PatientsRealFilter, less, indexes);
+
+    if (filSize == 0){
+        char * pageText = "<h4>No patients with this options!</h4>";
+        char * textHTML = html_bufferInit(pageText);
+        strcat(buffer, textHTML);
+        free(textHTML);
+        socket_write_string(client, buffer);
+        socket_close(client);
+        return;
+    }
+
+    for (int i = 0; i < (filSize); i++){
+        PatientsFilter[i] = patient_new();
+        PatientsFilter[i] = &(PatientsRealFilter[i]);
+    }
+
+    patient_printList(PatientsRealFilter, filSize);
+    puts("");
+
+    for(int i = 0; i < (filSize); i++)
+    {
+        char pageText[100] = "";
+        sprintf(pageText, "<a href=\"http://127.0.0.1:5000/Patients/%i\">%s %s<br></a>\n", i, patient_getSurname(PatientsFilter[i]), patient_getName(PatientsFilter[i]));
+        strcat(text, pageText);
+    }
+
+    char * pageText = "<a href=\"http://127.0.0.1:5000/new-Patient\"><br>New Patient</a>";
+    strcat(text, pageText);
+
+    char * textHTML = html_bufferInit(text);
+    strcat(buffer, textHTML);
+    free(textHTML);
 
     socket_write_string(client, buffer);
     socket_close(client);
 }
+

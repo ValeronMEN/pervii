@@ -1,66 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="web.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="979" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="web.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14687" topLine="378" />
+		</Cursor>
+		<Folding>
+			<Collapse line="7" />
+			<Collapse line="79" />
+			<Collapse line="92" />
+		</Folding>
+	</File>
+	<File name="db.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="371" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="db.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6512" topLine="77" />
+		</Cursor>
+		<Folding>
+			<Collapse line="38" />
+			<Collapse line="44" />
+			<Collapse line="66" />
+			<Collapse line="99" />
+		</Folding>
+	</File>
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2090" topLine="41" />
+			<Cursor1 position="636" topLine="12" />
 		</Cursor>
 	</File>
 	<File name="patient.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="110" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-			<Collapse line="11" />
-			<Collapse line="15" />
-			<Collapse line="25" />
-			<Collapse line="35" />
-			<Collapse line="50" />
-			<Collapse line="86" />
-			<Collapse line="90" />
-			<Collapse line="94" />
-			<Collapse line="111" />
-		</Folding>
 	</File>
 	<File name="patient.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="399" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="db.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="104" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="db.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2230" topLine="57" />
-		</Cursor>
-		<Folding>
-			<Collapse line="66" />
-			<Collapse line="99" />
-		</Folding>
-	</File>
-	<File name="web.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="12333" topLine="58" />
-		</Cursor>
-		<Folding>
-			<Collapse line="7" />
-			<Collapse line="79" />
-			<Collapse line="92" />
-			<Collapse line="104" />
-			<Collapse line="125" />
-			<Collapse line="137" />
-			<Collapse line="197" />
-			<Collapse line="252" />
-			<Collapse line="306" />
-		</Folding>
-	</File>
-	<File name="web.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="966" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
