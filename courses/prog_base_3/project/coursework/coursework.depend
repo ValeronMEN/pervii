@@ -473,7 +473,7 @@
 1463158885 source:d:\Универ\Курсач\coursework\jack\jackcard.cpp
 	"JackCard.h"
 
-1463218454 source:d:\Универ\Курсач\coursework\jack\jackdeck.cpp
+1465298213 source:d:\Универ\Курсач\coursework\jack\jackdeck.cpp
 	"JackDeck.h"
 
 1463142956 d:\Универ\Курсач\coursework\jack\jackbet.h
@@ -639,13 +639,17 @@
 1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
 	"WitchStroke.h"
 
-1465252748 d:\Универ\Курсач\coursework\pig.h
+1465317457 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"pig/PigStandard.h"
 	"pig/PigDeck.h"
 	"pig/PigBackCard.h"
+	"pig/PigTake.h"
+	"pig/PigCompare.h"
+	"pig/PigList.h"
 
-1465257346 source:d:\Универ\Курсач\coursework\pig.cpp
+1465317971 source:d:\Универ\Курсач\coursework\pig.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Pig.h"
@@ -755,23 +759,48 @@
 
 1465250963 d:\Универ\Курсач\coursework\pig\pigstandard.h
 
-1465256794 source:d:\Универ\Курсач\coursework\pig\pigbackcard.cpp
+1465308799 source:d:\Универ\Курсач\coursework\pig\pigbackcard.cpp
 	"PigBackCard.h"
 
 1465247118 d:\Универ\Курсач\coursework\pig\pigbackcard.h
 	<string>
 	<SFML/Graphics.hpp>
 
-1465256765 source:d:\Универ\Курсач\coursework\pig\pigcard.cpp
+1465296023 source:d:\Универ\Курсач\coursework\pig\pigcard.cpp
 	"PigCard.h"
 
-1465246996 d:\Универ\Курсач\coursework\pig\pigcard.h
+1465298113 d:\Универ\Курсач\coursework\pig\pigcard.h
 	<string>
 	<SFML/Graphics.hpp>
 
-1465252698 source:d:\Универ\Курсач\coursework\pig\pigdeck.cpp
+1465314868 source:d:\Универ\Курсач\coursework\pig\pigdeck.cpp
 	"PigDeck.h"
 
-1465252717 d:\Универ\Курсач\coursework\pig\pigdeck.h
+1465314930 d:\Универ\Курсач\coursework\pig\pigdeck.h
+	"PigCard.h"
+
+1465304063 d:\Универ\Курсач\coursework\pig\pigtake.h
+	<SFML/Graphics.hpp>
+
+1465304369 source:d:\Универ\Курсач\coursework\pig\pigtake.cpp
+	"PigTake.h"
+
+1465316120 d:\Универ\Курсач\coursework\pig\pigcompare.h
+	<SFML/Graphics.hpp>
+
+1465316262 source:d:\Универ\Курсач\coursework\pig\pigcompare.cpp
+	"PigCompare.h"
+
+1463772039 source:d:\Универ\Курсач\coursework\pig\list.c
+	<stdlib.h>
+	"list.h"
+
+1463771351 d:\Универ\Курсач\coursework\pig\list.h
+	<stdlib.h>
+
+1465317254 source:d:\Универ\Курсач\coursework\pig\piglist.cpp
+	"PigList.h"
+
+1465317170 d:\Универ\Курсач\coursework\pig\piglist.h
 	"PigCard.h"
 

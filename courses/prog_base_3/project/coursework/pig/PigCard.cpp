@@ -42,9 +42,8 @@ int PigCard::getPoints(){
 }
 
 void PigCard::setTexture(){
-    this->texture.loadFromFile("textures/pigCards3.png");
+    this->texture.loadFromFile("textures/pigCards.png");
     this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
-    this->sprite.setTextureRect(sf::IntRect((float)(110.2*(this->valueIdentifier)), (float)(203 * (this->colorIdentifier)), (float)110.2, (float)203));
-    //this->sprite.setTextureRect(sf::IntRect((float)(165.3*(this->valueIdentifier)), (float)(304.5 * (this->colorIdentifier)), (float)165.3, (float)304.5));
+    this->sprite.setTextureRect(sf::IntRect((float)(139*(this->valueIdentifier)), (float)(216 * (this->colorIdentifier)), (float)139, (float)216));
 }

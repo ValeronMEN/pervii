@@ -39,7 +39,6 @@ JackDeck::JackDeck(){
         }
         p++;
 	}
-
 }
 
 JackCard JackDeck::getCard(){

@@ -1,9 +1,13 @@
 #include "PigBackCard.h"
 
 PigBackCard::PigBackCard(){
-    this->width = 110.2;
-    this->height = 203;
-    this->highlighted = false;
+    this->width = 139;
+    this->height = 216;
+
+    this->texture.loadFromFile("textures/pigCards.png");
+    this->texture.setSmooth(true);
+    this->sprite.setTexture(this->texture);
+    this->sprite.setTextureRect(sf::IntRect((float)(139*2), (float)(1+ 216 * 4), (float)139, (float)216));
 }
 
 bool PigBackCard::isClicked(int x, int y){
@@ -11,16 +15,4 @@ bool PigBackCard::isClicked(int x, int y){
         return true;
     }
     return false;
-}
-
-void PigBackCard::setCoordinates(int x, int y){
-    this->posX = x;
-    this->posY = y;
-}
-
-void PigBackCard::setTexture(){
-    this->texture.loadFromFile("textures/pigBackCard.png");
-    this->texture.setSmooth(true);
-    this->sprite.setTexture(this->texture);
-    this->sprite.setTextureRect(sf::IntRect(0, 0, (float)112, (float)206.25));
 }

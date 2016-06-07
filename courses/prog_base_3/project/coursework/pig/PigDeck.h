@@ -6,11 +6,12 @@
 class PigDeck{
 	private:
 		PigCard card[40];
-		int pos;
 
 	public:
+	    int pos;
 	    PigDeck();
 		PigCard getCard();
+		bool isEmpty();
 		void randomize();
 };
 

@@ -17,10 +17,18 @@ PigDeck::PigDeck(){
 			valueID++;
 		}
 	}
+
+	int points = 10;
+	for (int i=0; i<40; i+=4){
+        for (int j=0; j<4; j++){
+            this->card[i+j].setPoints(points);
+        }
+        points--;
+	}
 }
 
 PigCard PigDeck::getCard(){
-	pos++;
+	this->pos++;
 	return card[pos-1];
 }
 
