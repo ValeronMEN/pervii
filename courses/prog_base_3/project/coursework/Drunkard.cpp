@@ -148,7 +148,7 @@ void Drunkard::start()
                     }
                     if(card1f->valueIdentifier == card1s->valueIdentifier) // compare 1f and 1s
                     {
-                        if(firstQueue->size()==1||secondQueue->size()==1) //check to empty card2f and card2s
+                        if(firstQueue->size()==0||secondQueue->size()==0) //check to empty card2f and card2s
                         {
                             firstQueue->push(*card1f);
                             firstQueue->push(*card1s);
@@ -169,7 +169,7 @@ void Drunkard::start()
                             backCardSpr2s.setTexture(backCardTex);
                             backCardSpr2s.setPosition(552, 293);
 
-                            if(firstQueue->size()==1||secondQueue->size()==1) //check to empty card3f and card3s
+                            if(firstQueue->size()==0||secondQueue->size()==0) //check to empty card3f and card3s
                             {
                                 firstQueue->push(*card1f);
                                 firstQueue->push(*card1s);

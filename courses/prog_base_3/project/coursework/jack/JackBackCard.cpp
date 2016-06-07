@@ -7,7 +7,7 @@ JackBackCard::JackBackCard(){
     this->height = 216;
     this->visible = true;
 
-    this->texture.loadFromFile("textures/jackBackTex.png");
+    this->texture.loadFromFile("textures/ivanovBackCard.png");
     this->texture.setSmooth(true);
     this->sprite.setTexture(this->texture);
 }

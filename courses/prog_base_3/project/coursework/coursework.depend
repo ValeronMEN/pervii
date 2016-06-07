@@ -398,7 +398,7 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1463778166 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1464188234 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<SFML/Audio.hpp>
 	<queue>
@@ -430,7 +430,7 @@
 1462825368 d:\Универ\Курсач\coursework\winlose.h
 	<SFML/Graphics.hpp>
 
-1463777278 source:d:\Универ\Курсач\coursework\jack.cpp
+1465245316 source:d:\Универ\Курсач\coursework\jack.cpp
 	<SFML/Audio.hpp>
 	"Jack.h"
 	<windows.h>
@@ -516,7 +516,7 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1463152986 source:d:\Универ\Курсач\coursework\jack\jackbackcard.cpp
+1465239208 source:d:\Универ\Курсач\coursework\jack\jackbackcard.cpp
 	"JackBackCard.h"
 
 1463212014 d:\Универ\Курсач\coursework\jack\jackpoints.h
@@ -639,10 +639,13 @@
 1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
 	"WitchStroke.h"
 
-1463693472 d:\Универ\Курсач\coursework\pig.h
+1465252748 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
+	"pig/PigStandard.h"
+	"pig/PigDeck.h"
+	"pig/PigBackCard.h"
 
-1463738713 source:d:\Универ\Курсач\coursework\pig.cpp
+1465257346 source:d:\Универ\Курсач\coursework\pig.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Pig.h"
@@ -749,4 +752,26 @@
 1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio\soundfilewriter.hpp
 	<SFML/Audio/Export.hpp>
 	<string>
+
+1465250963 d:\Универ\Курсач\coursework\pig\pigstandard.h
+
+1465256794 source:d:\Универ\Курсач\coursework\pig\pigbackcard.cpp
+	"PigBackCard.h"
+
+1465247118 d:\Универ\Курсач\coursework\pig\pigbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465256765 source:d:\Универ\Курсач\coursework\pig\pigcard.cpp
+	"PigCard.h"
+
+1465246996 d:\Универ\Курсач\coursework\pig\pigcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465252698 source:d:\Универ\Курсач\coursework\pig\pigdeck.cpp
+	"PigDeck.h"
+
+1465252717 d:\Универ\Курсач\coursework\pig\pigdeck.h
+	"PigCard.h"
 

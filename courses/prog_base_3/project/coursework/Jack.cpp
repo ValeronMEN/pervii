@@ -253,6 +253,12 @@ void Jack::start()
     }
     music.play();
 
+    sf::Texture ivanovBackGr;
+    sf::Sprite ivanovBackGrSp;
+    ivanovBackGr.loadFromFile("textures/ivanovPr.png");
+    ivanovBackGrSp.setTexture(ivanovBackGr);
+    ivanovBackGrSp.setPosition(77.5, 50);
+
     sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points");
 
     // set buttons
@@ -303,7 +309,7 @@ void Jack::start()
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    if (launch->isPressed(event.mouseButton.x, event.mouseButton.y))
+                    if (launch->isPressed(event.mouseButton.x, event.mouseButton.y)&&(oneRate!=0))
                     {
                         int result = game(&jackWindow, oneRate);
                         if(result == 0)
@@ -363,6 +369,7 @@ void Jack::start()
         jackWindow.draw(launch->sprite);
         jackWindow.draw(myMoney);
         jackWindow.draw(myRate);
+        jackWindow.draw(ivanovBackGrSp);
         jackWindow.display();
     }
 }

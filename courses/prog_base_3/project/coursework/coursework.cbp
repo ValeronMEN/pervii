@@ -82,6 +82,13 @@
 		<Unit filename="jack/JackRate.h" />
 		<Unit filename="jack/JackStandard.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pig/PigBackCard.cpp" />
+		<Unit filename="pig/PigBackCard.h" />
+		<Unit filename="pig/PigCard.cpp" />
+		<Unit filename="pig/PigCard.h" />
+		<Unit filename="pig/PigDeck.cpp" />
+		<Unit filename="pig/PigDeck.h" />
+		<Unit filename="pig/PigStandard.h" />
 		<Unit filename="witch/WitchBackCard.cpp" />
 		<Unit filename="witch/WitchBackCard.h" />
 		<Unit filename="witch/WitchCard.cpp" />
