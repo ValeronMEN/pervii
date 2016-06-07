@@ -18,6 +18,9 @@ class PigCard{
 	    int points;
 	    PigCard();
 
+	    Sprite sprite;
+		Texture texture;
+
 	    bool isClicked(int x, int y);
 		short int getValueIdentifier();
 		short int getColorIdentifier();
@@ -27,9 +30,6 @@ class PigCard{
 		void setCoordinates(int x, int y);
 		void setPoints(int p);
 		int getPoints();
-
-		Sprite sprite;
-		Texture texture;
 };
 
 #endif

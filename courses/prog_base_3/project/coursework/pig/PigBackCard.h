@@ -16,7 +16,7 @@ class PigBackCard{
 
 	public:
 	    int points;
-	    PigBackCard();
+	    PigBackCard(bool gold);
 
 	    void setHighlighted(bool b);
 
