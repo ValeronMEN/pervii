@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1463693500 source:d:\Универ\Курсач\coursework\main.cpp
+1465500589 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
@@ -398,7 +398,7 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1464188234 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1465501166 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<SFML/Audio.hpp>
 	<queue>
@@ -430,12 +430,12 @@
 1462825368 d:\Универ\Курсач\coursework\winlose.h
 	<SFML/Graphics.hpp>
 
-1465245316 source:d:\Универ\Курсач\coursework\jack.cpp
+1465500906 source:d:\Универ\Курсач\coursework\jack.cpp
 	<SFML/Audio.hpp>
 	"Jack.h"
 	<windows.h>
 
-1463316321 d:\Универ\Курсач\coursework\jack.h
+1465500858 d:\Универ\Курсач\coursework\jack.h
 	<SFML/Graphics.hpp>
 	"jack/JackCard.h"
 	"jack/JackStandard.h"
@@ -584,7 +584,7 @@
 1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
 	"WitchCard.h"
 
-1464166011 source:d:\Универ\Курсач\coursework\witch.cpp
+1465500564 source:d:\Универ\Курсач\coursework\witch.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Witch.h"
@@ -639,7 +639,7 @@
 1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
 	"WitchStroke.h"
 
-1465339442 d:\Универ\Курсач\coursework\pig.h
+1465499559 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"pig/PigStandard.h"
@@ -649,7 +649,7 @@
 	"pig/PigCompare.h"
 	"pig/PigList.h"
 
-1465338539 source:d:\Универ\Курсач\coursework\pig.cpp
+1465503457 source:d:\Универ\Курсач\coursework\pig.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Pig.h"
@@ -779,10 +779,10 @@
 1465314930 d:\Универ\Курсач\coursework\pig\pigdeck.h
 	"PigCard.h"
 
-1465304063 d:\Универ\Курсач\coursework\pig\pigtake.h
+1465499142 d:\Универ\Курсач\coursework\pig\pigtake.h
 	<SFML/Graphics.hpp>
 
-1465304369 source:d:\Универ\Курсач\coursework\pig\pigtake.cpp
+1465499249 source:d:\Универ\Курсач\coursework\pig\pigtake.cpp
 	"PigTake.h"
 
 1465316120 d:\Универ\Курсач\coursework\pig\pigcompare.h

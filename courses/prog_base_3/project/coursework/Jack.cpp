@@ -243,6 +243,7 @@ int Jack::game(RenderWindow * win, int oneRate)
         }
         win->display();
     }
+    return ERROR_CODE;
 }
 
 void Jack::start()
@@ -259,7 +260,7 @@ void Jack::start()
     ivanovBackGrSp.setTexture(ivanovBackGr);
     ivanovBackGrSp.setPosition(77.5, 50);
 
-    sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points");
+    sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points", sf::Style::Close);
 
     // set buttons
     JackBet * bet = new JackBet();
@@ -312,6 +313,9 @@ void Jack::start()
                     if (launch->isPressed(event.mouseButton.x, event.mouseButton.y)&&(oneRate!=0))
                     {
                         int result = game(&jackWindow, oneRate);
+                        if(result == ERROR_CODE){
+                            return;
+                        }
                         if(result == 0)
                         {
                             oneRate = 0;

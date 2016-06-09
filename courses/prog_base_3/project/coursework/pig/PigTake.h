@@ -7,6 +7,10 @@ public:
     sf::Sprite sprite;
     sf::Texture texture;
 
+    void take();
+    void start();
+    void watch();
+
 private:
     float posX;
     float posY;

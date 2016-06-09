@@ -38,7 +38,7 @@ void Pig::fonts()
 
 void Pig::start()
 {
-    sf::RenderWindow window(sf::VideoMode(P_X, P_Y), "Pig");
+    sf::RenderWindow window(sf::VideoMode(P_X, P_Y), "Sons of Pharaoh", sf::Style::Close);
 
     sf::Music music;
     if (!music.openFromFile("music/pyramid.ogg"))
@@ -53,6 +53,7 @@ void Pig::start()
     deck->randomize();
 
     PigTake * takeBtn = new PigTake();
+    takeBtn->start();
     PigCompare * compareToken = new PigCompare();
     PigCard * toCheck = new PigCard();
     PigCard * middleCard = new PigCard();
@@ -73,6 +74,7 @@ void Pig::start()
     char text[BUFFER];
     bool start = true;
     bool middleVisible = false;
+    int middlePoints = 0, checkPoints = 0; // a values to compare
 
     while(window.isOpen())
     {
@@ -89,140 +91,177 @@ void Pig::start()
                 {
                     if (start)
                     {
-                        *middleCard = deck->getCard();
-                        coreSize--;
-                        middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
+                        *middleCard = deck->getCard(); // to locate it in middle pre start
+                        coreSize--; // one card must leave core deck
+                        middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106); // set sprite of middle card
                         middleCard->setTexture();
-                        middleList->addLast(*middleCard);
-                        middleSize = middleList->getSize();
-                        sprintf(text, "%i", middleSize);
+
+                        middleList->addLast(*middleCard); //add middle card to middle deck
+
+                        middleSize = middleList->getSize(); // set middle size
+                        sprintf(text, "%i", middleSize); // show sizes
                         middleScore.setString(text);
                         sprintf(text, CORESCORE, coreSize);
                         coreScore.setString(text);
-                        middleVisible = true;
-                        start = false;
+
+                        if (strokeman == PLAYER){ // takeBtn skin
+                            takeBtn->take();
+                        }
+                        else{
+                            takeBtn->watch();
+                        }
+                        middleVisible = true; // show middle objects
+                        start = false; // finish start point way
                         break;
                     }
-                    if (deck->pos==40)
+                    if (deck->pos==MAGIC_NUMBER) // check to empty core deck
                     {
-                        toCheckVisible = false;
-                        finish = true;
+                        toCheckVisible = false; // hide objects of check
+                        finish = true; // start finish point way
                         break;
                     }
-                    toCheckVisible = true;
-                    middleCard->setTexture();
-                    *toCheck = deck->getCard();
+
+                    toCheckVisible = true; // show objects of check
+
+                    //middleCard->setTexture();
+
+                    *toCheck = deck->getCard(); // take card from core deck to check
                     coreSize--;
-                    middleSize = middleList->getSize();
-                    sprintf(text, "%i", middleSize);
-                    middleScore.setString(text);
                     toCheck->setTexture();
+
+                    sprintf(text, CORESCORE, coreSize); // show size of core deck
+                    coreScore.setString(text);
+
+                    checkPoints = toCheck->getPoints();
+                    middlePoints = middleCard->getPoints();
+
+                    middleList->addLast(*toCheck); // add toCheck card to list
+
                     if (strokeman == PLAYER)
                     {
-                        toCheck->sprite.setPosition(20+139+32.5, 20+216+106);
-                        if (toCheck->getPoints()>=middleCard->getPoints())
+                        toCheck->sprite.setPosition(20+139+32.5, 20+216+106); // special position in this case
+                        if (checkPoints <= middlePoints)
                         {
-                            if (toCheck->getPoints() == middleCard->getPoints())
+                            if (checkPoints == middlePoints)
                             {
-                                compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 2);
+                                compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 2); // '=' token
                             }
                             else
                             {
-                                compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 0);
+                                compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 1);
                             }
-                            middleList->addLast(*toCheck);///
+
                             tempSp = middleCard->sprite;
                             *middleCard = *toCheck;
                             middleCard->sprite = tempSp;
+
                             middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
-                            sprintf(text, CORESCORE, coreSize);
-                            coreScore.setString(text);
+
+                            middleSize = middleList->getSize(); // set & show middle size
+                            sprintf(text, "%i", middleSize);
+                            middleScore.setString(text);
+
                             strokeman = AI;
+                            takeBtn->watch();
                             break;
                         }
-                        else if (toCheck->getPoints()<middleCard->getPoints())
-                        {
-                            compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 1);
-                            middleList->addLast(*middleCard);///
-                            mySum += middleList->getPoints();
-                            mySize += middleList->getSize();
-                            sprintf(text, MYSCORE, mySize, mySum);
-                            myScore.setString(text);
-                            middleList = new PigList();
-                            if (deck->pos!=40)
-                            {
-                                middleList->addLast(*toCheck);///
-                                tempSp = middleCard->sprite;
-                                //*middleCard = deck->getCard();
+                        else{ //(checkPoints > middlePoints)
+                            compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 0);
 
-                                middleSize = middleList->getSize();
-                                sprintf(text, "%i", middleSize);
-                                middleScore.setString(text);
+                            middleList->addLast(*middleCard);// add middle card to middle deck to take it
+
+                            mySum += middleList->getPoints(); // special values that send to player (this time)
+                            mySize += middleList->getSize();
+
+                            sprintf(text, MYSCORE, mySize, mySum); // show player score
+                            myScore.setString(text);
+
+                            middleList = new PigList(); // do it empty
+
+                            if (deck->pos != MAGIC_NUMBER)
+                            {
+                                *middleCard = deck->getCard(); // take new card from core deck
                                 coreSize--;
-                                *middleCard = *toCheck;
-                                middleCard->sprite = tempSp;
+
+                                sprintf(text, "%i", middleSize=1); // show middle size
+                                middleScore.setString(text);
+
+                                middleCard->setTexture();
                                 middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
+
+                                sprintf(text, CORESCORE, coreSize); // show core size
+                                coreScore.setString(text);
                             }
                             else{
-                                middleVisible = false;
+                                middleVisible = false; // to finish
                             }
-                            sprintf(text, CORESCORE, coreSize);
-                            coreScore.setString(text);
+
                             strokeman = AI;
+                            takeBtn->watch();
                             break;
                         }
                     }
                     else
                     {
                         toCheck->sprite.setPosition(20+139*3+32.5+250*2, 20+216+106);
-                        if (toCheck->getPoints()>=middleCard->getPoints())
+                        if (checkPoints <= middlePoints)
                         {
-                            if (toCheck->getPoints() == middleCard->getPoints())
+                            if (checkPoints == middlePoints)
                             {
                                 compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 2);
                             }
                             else
                             {
-                                compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 1);
+                                compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 0);
                             }
-                            middleList->addLast(*toCheck);///
+
                             tempSp = middleCard->sprite;
                             *middleCard = *toCheck;
                             middleCard->sprite = tempSp;
+
                             middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
-                            sprintf(text, CORESCORE, coreSize);
-                            coreScore.setString(text);
+
+                            middleSize = middleList->getSize(); // set & show middle size
+                            sprintf(text, "%i", middleSize);
+                            middleScore.setString(text);
+
                             strokeman = PLAYER;
+                            takeBtn->take();
                             break;
                         }
-                        else if (toCheck->getPoints()<middleCard->getPoints())
-                        {
-                            compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 0);
-                            middleList->addLast(*middleCard);///
+                        else{ //(checkPoints > middlePoints)
+                            compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 1);
+
+                            middleList->addLast(*middleCard);// add middle card to middle deck to take it
+
                             aiSum += middleList->getPoints();
                             aiSize += middleList->getSize();
+
                             sprintf(text, AISCORE, aiSize, aiSum);
                             aiScore.setString(text);
+
                             middleList = new PigList();
-                            if (deck->pos!=40)
+
+                            if (deck->pos != MAGIC_NUMBER)
                             {
-                                middleList->addLast(*toCheck);///
-                                tempSp = middleCard->sprite;
-                                //*middleCard = deck->getCard();
-                                middleSize = middleList->getSize();
-                                sprintf(text, "%i", middleSize);
-                                middleScore.setString(text);
+                                *middleCard = deck->getCard(); // take new card from core deck
                                 coreSize--;
-                                *middleCard = *toCheck;
-                                middleCard->sprite = tempSp;
+
+                                sprintf(text, "%i", middleSize=1); // show middle size
+                                middleScore.setString(text);
+
+                                middleCard->setTexture();
                                 middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
+
+                                sprintf(text, CORESCORE, coreSize); // show core size
+                                coreScore.setString(text);
                             }
                             else{
                                 middleVisible = false;
                             }
-                            sprintf(text, CORESCORE, coreSize);
-                            coreScore.setString(text);
+
                             strokeman = PLAYER;
+                            takeBtn->take();
                             break;
                         }
                     }

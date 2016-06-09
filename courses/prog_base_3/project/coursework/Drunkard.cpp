@@ -23,12 +23,21 @@ void Drunkard::start()
     }
     music.play();
 
+    sf::RenderWindow drunkardWindow(sf::VideoMode(D_X, D_Y), "Britney Beach", sf::Style::Close);
+    drunkardWindow.setPosition(sf::Vector2i(450, 15));
+
     sf::Texture background;
-    background.loadFromFile("textures/drunkardpalm.png");
     sf::Sprite backgroundspr;
+
+    background.loadFromFile("textures/drunkardLoading.png");
+    backgroundspr.setTexture(background);
+    drunkardWindow.draw(backgroundspr);
+    drunkardWindow.display();
+    Sleep(3000);
+
+    background.loadFromFile("textures/drunkardpalm.png");
     backgroundspr.setTexture(background);
 
-    sf::RenderWindow drunkardWindow(sf::VideoMode(D_X, D_Y), "Drunkard");
     ContinueButton * continueBtn = new ContinueButton();
     DrunkardReturn * returnBtn = new DrunkardReturn();
     std::queue<Card> myQueue;

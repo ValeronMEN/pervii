@@ -12,6 +12,7 @@
 #define AISCORE "ENEMY!\nSIZE  %i\nSCORE  %i"
 #define CORESCORE "SIZE  %i"
 #define BUFFER 100
+#define MAGIC_NUMBER 40
 
 class Pig{
 private:

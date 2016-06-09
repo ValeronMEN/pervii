@@ -18,7 +18,7 @@ void Witch::start()
     sf::Sprite backgroundspr;
     backgroundspr.setTexture(background);
 
-    sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Witch");
+    sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Witch", sf::Style::Close);
     WitchResult * resultBtn = new WitchResult(); //loading window
     window.clear(sf::Color(0,115,0));
     window.draw(resultBtn->sprite);

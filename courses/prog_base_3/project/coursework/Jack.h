@@ -12,6 +12,8 @@
 #include "jack/JackPoints.h"
 #include "jack/JackMessage.h"
 
+#define ERROR_CODE 2
+
 class Jack{
 public:
     void start();

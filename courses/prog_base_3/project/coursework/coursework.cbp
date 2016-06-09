@@ -39,6 +39,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Chicken.cpp" />
+		<Unit filename="Chicken.h" />
 		<Unit filename="Drunkard.cpp" />
 		<Unit filename="Drunkard.h" />
 		<Unit filename="Jack.cpp" />
@@ -49,6 +51,7 @@
 		<Unit filename="StartButton.h" />
 		<Unit filename="Witch.cpp" />
 		<Unit filename="Witch.h" />
+		<Unit filename="chicken/ChickenStandard.h" />
 		<Unit filename="drunkard/Card.cpp" />
 		<Unit filename="drunkard/Card.h" />
 		<Unit filename="drunkard/ContinueButton.cpp" />

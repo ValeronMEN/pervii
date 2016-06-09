@@ -4,11 +4,12 @@
 #include "Jack.h"
 #include "Witch.h"
 #include "Pig.h"
+#include "Chicken.h"
 
 using namespace sf;
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(1638, 900), "Card games");
+    sf::RenderWindow window(sf::VideoMode(1638, 900), "Card games", sf::Style::Close);
 
     StartButton* witchButton = new StartButton(0);
     StartButton* drunkardButton = new StartButton(1);
@@ -42,7 +43,10 @@ int main(){
                     window.setVisible(1);
                 }
                 if (chickenButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
-                    window.close();
+                    window.setVisible(0);
+                    Chicken * chicken = new Chicken();
+                    chicken->start();
+                    window.setVisible(1);
                 }
                 if (jackButton->isPressed(event.mouseButton.x, event.mouseButton.y)){
                     window.setVisible(0);
