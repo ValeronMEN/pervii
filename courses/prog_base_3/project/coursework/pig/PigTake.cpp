@@ -31,3 +31,18 @@ bool PigTake::isPressed(float x, float y){
     else
         return false;
 }
+
+void PigTake::win(){
+    this->texture.loadFromFile("textures/pigWin.png");
+    this->sprite.setTexture(this->texture);
+}
+
+void PigTake::lose(){
+    this->texture.loadFromFile("textures/pigLose.png");
+    this->sprite.setTexture(this->texture);
+}
+
+void PigTake::draw(){
+    this->texture.loadFromFile("textures/pigDraw.png");
+    this->sprite.setTexture(this->texture);
+}

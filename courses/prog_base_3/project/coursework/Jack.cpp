@@ -1,4 +1,5 @@
 #include <SFML/Audio.hpp>
+#include <SFML/Graphics/Image.hpp>
 #include "Jack.h"
 #include <windows.h>
 
@@ -260,7 +261,11 @@ void Jack::start()
     ivanovBackGrSp.setTexture(ivanovBackGr);
     ivanovBackGrSp.setPosition(77.5, 50);
 
+    //sf::Image image;
+    //image.loadFromFile("icos/ivanovico.png");
+
     sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points", sf::Style::Close);
+    //jackWindow.setIcon(640, 960, image.getPixelsPtr());
 
     // set buttons
     JackBet * bet = new JackBet();

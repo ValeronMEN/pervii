@@ -54,6 +54,7 @@ void Pig::start()
 
     PigTake * takeBtn = new PigTake();
     takeBtn->start();
+    PigTake * message = new PigTake();
     PigCompare * compareToken = new PigCompare();
     PigCard * toCheck = new PigCard();
     PigCard * middleCard = new PigCard();
@@ -114,16 +115,17 @@ void Pig::start()
                         start = false; // finish start point way
                         break;
                     }
-                    if (deck->pos==MAGIC_NUMBER) // check to empty core deck
+                    if (deck->pos >= (MAGIC_NUMBER-1)) // check to empty core deck
                     {
                         toCheckVisible = false; // hide objects of check
+                        middleVisible = false;
                         finish = true; // start finish point way
                         break;
                     }
 
                     toCheckVisible = true; // show objects of check
 
-                    //middleCard->setTexture();
+                    middleCard->setTexture(); // to swap temp texture from next operations
 
                     *toCheck = deck->getCard(); // take card from core deck to check
                     coreSize--;
@@ -136,6 +138,8 @@ void Pig::start()
                     middlePoints = middleCard->getPoints();
 
                     middleList->addLast(*toCheck); // add toCheck card to list
+
+                    tempSp = middleCard->sprite;
 
                     if (strokeman == PLAYER)
                     {
@@ -151,7 +155,6 @@ void Pig::start()
                                 compareToken->setPosition(20+139*2+32.5+25, 20+216+106+8, 1);
                             }
 
-                            tempSp = middleCard->sprite;
                             *middleCard = *toCheck;
                             middleCard->sprite = tempSp;
 
@@ -170,8 +173,8 @@ void Pig::start()
 
                             middleList->addLast(*middleCard);// add middle card to middle deck to take it
 
-                            mySum += middleList->getPoints(); // special values that send to player (this time)
-                            mySize += middleList->getSize();
+                            mySum = mySum + middleList->getPoints(); // special values that send to player (this time)
+                            mySize = mySize + middleList->getSize();
 
                             sprintf(text, MYSCORE, mySize, mySum); // show player score
                             myScore.setString(text);
@@ -181,6 +184,7 @@ void Pig::start()
                             if (deck->pos != MAGIC_NUMBER)
                             {
                                 *middleCard = deck->getCard(); // take new card from core deck
+
                                 coreSize--;
 
                                 sprintf(text, "%i", middleSize=1); // show middle size
@@ -188,6 +192,7 @@ void Pig::start()
 
                                 middleCard->setTexture();
                                 middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
+                                //middleCard->sprite = tempSp;
 
                                 sprintf(text, CORESCORE, coreSize); // show core size
                                 coreScore.setString(text);
@@ -215,7 +220,6 @@ void Pig::start()
                                 compareToken->setPosition(20+139*3+32.5+25+250, 20+216+106+8, 0);
                             }
 
-                            tempSp = middleCard->sprite;
                             *middleCard = *toCheck;
                             middleCard->sprite = tempSp;
 
@@ -234,8 +238,8 @@ void Pig::start()
 
                             middleList->addLast(*middleCard);// add middle card to middle deck to take it
 
-                            aiSum += middleList->getPoints();
-                            aiSize += middleList->getSize();
+                            aiSum = aiSum + middleList->getPoints();
+                            aiSize = aiSize + middleList->getSize();
 
                             sprintf(text, AISCORE, aiSize, aiSum);
                             aiScore.setString(text);
@@ -245,6 +249,7 @@ void Pig::start()
                             if (deck->pos != MAGIC_NUMBER)
                             {
                                 *middleCard = deck->getCard(); // take new card from core deck
+
                                 coreSize--;
 
                                 sprintf(text, "%i", middleSize=1); // show middle size
@@ -252,12 +257,14 @@ void Pig::start()
 
                                 middleCard->setTexture();
                                 middleCard->sprite.setPosition(20+139*2+32.5+250, 216+20+106);
+                                //middleCard->sprite = tempSp;
 
                                 sprintf(text, CORESCORE, coreSize); // show core size
                                 coreScore.setString(text);
                             }
                             else{
                                 middleVisible = false;
+                                toCheckVisible = false;
                             }
 
                             strokeman = PLAYER;
@@ -286,6 +293,19 @@ void Pig::start()
         window.draw(myScore);
         window.draw(aiScore);
         window.draw(coreScore);
+        if (finish == true){
+            if (mySum > aiSum){
+                message->win();
+            }
+            else if (mySum < aiSum){
+                message->lose();
+            }
+            else{
+                message->draw();
+            }
+            message->sprite.setPosition(20+139+32.5+139+25, 20+216+56);
+            window.draw(message->sprite);
+        }
         window.display();
     }
 }

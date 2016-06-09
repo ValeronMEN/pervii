@@ -10,6 +10,9 @@ public:
     void take();
     void start();
     void watch();
+    void win();
+    void lose();
+    void draw();
 
 private:
     float posX;
