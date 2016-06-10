@@ -4,6 +4,7 @@
 #include "chicken/ChickenNext.h"
 #include "chicken/ChickenBackCard.h"
 #include <queue>
+#include <string>
 
 class Chicken{
 private:
@@ -16,6 +17,8 @@ private:
     sf::Text mySize;
     sf::Text aiSize;
     sf::Image image;
+    sf::Text myName;
+    sf::Text aiName;
     void fonts(int strokeman);
     char * getWannaText(int);
     void getRound(int);

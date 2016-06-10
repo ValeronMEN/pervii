@@ -15,6 +15,8 @@
 #define ERROR_CODE 2
 
 class Jack{
+private:
+    sf::Image image;
 public:
     void start();
     int game(RenderWindow * win, int oneRate);

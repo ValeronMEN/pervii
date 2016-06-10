@@ -10,6 +10,10 @@
 #include "witch/WitchStroke.h"
 
 class Witch{
+private:
+    sf::Texture background;
+    sf::Sprite backgroundspr;
+    sf::Image image;
 public:
     void start();
 };

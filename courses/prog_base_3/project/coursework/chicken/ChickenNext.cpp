@@ -21,13 +21,11 @@ void ChickenNext::next(){
 }
 
 void ChickenNext::win(){
-    this->texture.loadFromFile("textures/witchtake.png");
+    this->texture.loadFromFile("textures/upWin.png");
     this->sprite.setTexture(this->texture);
-    this->sprite.setPosition(posX, posY);
 }
 
 void ChickenNext::lose(){
-    this->texture.loadFromFile("textures/witchfinish.png");
+    this->texture.loadFromFile("textures/upLose.png");
     this->sprite.setTexture(this->texture);
-    this->sprite.setPosition(posX, posY);
 }

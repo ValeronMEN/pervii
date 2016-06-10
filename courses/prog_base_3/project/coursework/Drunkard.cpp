@@ -22,6 +22,7 @@ void Drunkard::start()
         return; // error
     }
     music.play();
+    music.setLoop(true);
 
     sf::RenderWindow drunkardWindow(sf::VideoMode(D_X, D_Y), "Britney Beach", sf::Style::Close);
     drunkardWindow.setPosition(sf::Vector2i(450, 15));

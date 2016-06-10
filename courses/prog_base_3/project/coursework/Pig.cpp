@@ -41,6 +41,8 @@ void Pig::start()
     sf::RenderWindow window(sf::VideoMode(P_X, P_Y), "Sons of Pharaoh", sf::Style::Close);
     image.loadFromFile("textures/pigIco.png");
     window.setIcon(179, 179, image.getPixelsPtr());
+    window.clear(sf::Color::Yellow);
+    window.display();
 
     sf::Music music;
     if (!music.openFromFile("music/pyramid.ogg"))
@@ -48,6 +50,7 @@ void Pig::start()
         return;
     }
     music.play();
+    music.setLoop(true);
 
     fonts();
 

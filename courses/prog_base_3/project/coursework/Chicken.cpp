@@ -87,6 +87,16 @@ void Chicken::fonts(int strokeman)
     aiSize.setFont(myFont);
     aiSize.setCharacterSize(30);
 
+    myName.setPosition(30+60, -2);
+    myName.setColor(Color::White);
+    myName.setFont(myFont);
+    myName.setCharacterSize(30);
+
+    aiName.setPosition(C_X-30-139/2-58, C_Y-35);
+    aiName.setColor(Color::White);
+    aiName.setFont(myFont);
+    aiName.setCharacterSize(30);
+
     mySize.setString("52");
     aiSize.setString("52");
     wannaText.setString("I wanna see ACE!");
@@ -98,6 +108,9 @@ void Chicken::fonts(int strokeman)
     {
         strokeText.setString("Your stroke...");
     }
+
+    myName.setString("ME");
+    aiName.setString("Guardian Devil");
 
     background.loadFromFile("textures/upGround1.png");
     backgroundspr.setTexture(background);
@@ -120,6 +133,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(sf::Color(115,0,0));
         strokeText.setColor(sf::Color(115,0,0));
+        myName.setColor(Color::Black);
+        aiName.setColor(Color::Black);
     }
     else if(round == 4)
     {
@@ -129,6 +144,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(Color::White);
         strokeText.setColor(Color::White);
+        myName.setColor(Color::White);
+        aiName.setColor(Color::White);
     }
     else if(round == 5)
     {
@@ -138,6 +155,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(Color::Black);
         strokeText.setColor(Color::Black);
+        myName.setColor(Color::Black);
+        aiName.setColor(Color::Black);
     }
     else if(round == 6)
     {
@@ -147,6 +166,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(Color::Red);
         strokeText.setColor(Color::Red);
+        myName.setColor(Color::Red);
+        aiName.setColor(Color::Red);
     }
     else if(round == 7)
     {
@@ -156,6 +177,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(Color::White);
         strokeText.setColor(Color::White);
+        myName.setColor(Color::White);
+        aiName.setColor(Color::White);
     }
     else
     {
@@ -165,6 +188,8 @@ void Chicken::getRound(int round)
         backgroundspr.setTexture(background);
         wannaText.setColor(Color::White);
         strokeText.setColor(Color::White);
+        myName.setColor(Color::White);
+        aiName.setColor(Color::White);
     }
 }
 void Chicken::start()
@@ -175,6 +200,7 @@ void Chicken::start()
         return; // error
     }
     music.play();
+    music.setLoop(true);
 
     sf::RenderWindow window(sf::VideoMode(C_X, C_Y), "I WANNA", sf::Style::Close);
     image.loadFromFile("textures/upIco.png");
@@ -189,6 +215,7 @@ void Chicken::start()
     ChickenCard * aiCard = new ChickenCard();
     ChickenNext * nextBtn = new ChickenNext();
     nextBtn->next();
+    ChickenNext * message = new ChickenNext();
 
     ChickenBackCard * myDeckSkin = new ChickenBackCard();
     ChickenBackCard * aiDeckSkin = new ChickenBackCard();
@@ -214,6 +241,8 @@ void Chicken::start()
     int myPoints = 0, aiPoints = 0, wannaPoints = 1;
     char text[C_BUFFER] = "";
     int round = 1;
+    int myQueueSize, aiQueueSize;
+    bool finish = false;
 
     while(window.isOpen())
     {
@@ -226,7 +255,7 @@ void Chicken::start()
             }
             if ((event.type == sf::Event::MouseButtonPressed)&&(event.mouseButton.button == sf::Mouse::Left))
             {
-                if (nextBtn->isPressed(event.mouseButton.x, event.mouseButton.y))
+                if (nextBtn->isPressed(event.mouseButton.x, event.mouseButton.y) && (!finish))
                 {
                     if (!start)
                     {
@@ -288,10 +317,23 @@ void Chicken::start()
                         }
                         sprintf(text, WANNACONST, getWannaText(wannaPoints));
                         wannaText.setString(text);
-                        sprintf(text, "%i", myQueue.size());
+                        myQueueSize = myQueue.size();
+                        sprintf(text, "%i", myQueueSize);
                         mySize.setString(text);
-                        sprintf(text, "%i", aiQueue.size());
+                        aiQueueSize = aiQueue.size();
+                        sprintf(text, "%i", aiQueueSize);
                         aiSize.setString(text);
+                        if (myQueueSize == 0 || aiQueueSize == 0)
+                        {
+                            finish = true;
+                            if (myQueueSize == 0){
+                                message->win();
+                            }
+                            else{
+                                message->lose();
+                            }
+                            break;
+                        }
                     }
                     compareB = true;
                     start = false;
@@ -317,23 +359,32 @@ void Chicken::start()
             }
         }
         window.clear(sf::Color(0,115,0));
-        window.draw(backgroundspr);
-        window.draw(myDeckSkin->sprite);
-        window.draw(aiDeckSkin->sprite);
-        if (compareB == true)
+        if (finish == true)
         {
-            window.draw(myCard->sprite);
-            window.draw(aiCard->sprite);
+            window.draw(message->sprite);
         }
-        if (middleVisible)
+        else
         {
-            window.draw(middleCard->sprite);
+            window.draw(backgroundspr);
+            window.draw(myDeckSkin->sprite);
+            window.draw(aiDeckSkin->sprite);
+            if (compareB == true)
+            {
+                window.draw(myCard->sprite);
+                window.draw(aiCard->sprite);
+            }
+            if (middleVisible)
+            {
+                window.draw(middleCard->sprite);
+            }
+            window.draw(nextBtn->sprite);
+            window.draw(mySize);
+            window.draw(aiSize);
+            window.draw(wannaText);
+            window.draw(strokeText);
+            window.draw(myName);
+            window.draw(aiName);
         }
-        window.draw(nextBtn->sprite);
-        window.draw(mySize);
-        window.draw(aiSize);
-        window.draw(wannaText);
-        window.draw(strokeText);
         window.display();
     }
     return;

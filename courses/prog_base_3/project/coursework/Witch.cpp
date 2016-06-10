@@ -12,13 +12,15 @@ void Witch::start()
         return; // error
     }
     music.play();
+    music.setLoop(true);
 
-    sf::Texture background;
     background.loadFromFile("textures/witchcity.png");
-    sf::Sprite backgroundspr;
     backgroundspr.setTexture(background);
 
-    sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Witch", sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(W_X, W_Y), "Palmfever", sf::Style::Close);
+    image.loadFromFile("textures/witchIco.png");
+    window.setIcon(179, 179, image.getPixelsPtr());
+
     WitchResult * resultBtn = new WitchResult(); //loading window
     window.clear(sf::Color(0,115,0));
     window.draw(resultBtn->sprite);

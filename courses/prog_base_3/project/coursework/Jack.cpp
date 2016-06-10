@@ -254,6 +254,7 @@ void Jack::start()
         return; // error
     }
     music.play();
+    music.setLoop(true);
 
     sf::Texture ivanovBackGr;
     sf::Sprite ivanovBackGrSp;
@@ -261,11 +262,9 @@ void Jack::start()
     ivanovBackGrSp.setTexture(ivanovBackGr);
     ivanovBackGrSp.setPosition(77.5, 50);
 
-    //sf::Image image;
-    //image.loadFromFile("icos/ivanovico.png");
-
-    sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "21 points", sf::Style::Close);
-    //jackWindow.setIcon(640, 960, image.getPixelsPtr());
+    sf::RenderWindow jackWindow(sf::VideoMode(J_X, J_Y), "Ivanov's 21", sf::Style::Close);
+    image.loadFromFile("textures/jackIco.png");
+    jackWindow.setIcon(179, 179, image.getPixelsPtr());
 
     // set buttons
     JackBet * bet = new JackBet();
