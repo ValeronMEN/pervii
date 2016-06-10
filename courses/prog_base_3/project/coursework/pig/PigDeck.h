@@ -13,6 +13,7 @@ class PigDeck{
 		PigCard getCard();
 		bool isEmpty();
 		void randomize();
+		int getPoints();
 };
 
 #endif

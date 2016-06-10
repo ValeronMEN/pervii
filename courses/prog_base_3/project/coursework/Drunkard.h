@@ -16,4 +16,7 @@ private:
     sf::Sprite backCardSpr180;
     sf::Sprite backCardSpr2f;
     sf::Sprite backCardSpr2s;
+    sf::Texture background;
+    sf::Sprite backgroundspr;
+    sf::Image image;
 };

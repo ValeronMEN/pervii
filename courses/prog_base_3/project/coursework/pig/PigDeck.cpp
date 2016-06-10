@@ -47,3 +47,11 @@ void PigDeck::randomize()
 		this->card[id2] = cardSwipe;
 	}
 }
+
+int PigDeck::getPoints(){
+    int sum=0;
+    for (int i=0; i<40; i++){
+        sum = sum + card[i].getPoints();
+    }
+    return sum;
+}

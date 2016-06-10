@@ -25,9 +25,8 @@ void Drunkard::start()
 
     sf::RenderWindow drunkardWindow(sf::VideoMode(D_X, D_Y), "Britney Beach", sf::Style::Close);
     drunkardWindow.setPosition(sf::Vector2i(450, 15));
-
-    sf::Texture background;
-    sf::Sprite backgroundspr;
+    image.loadFromFile("textures/drunkardIco.png");
+    drunkardWindow.setIcon(179, 179, image.getPixelsPtr());
 
     background.loadFromFile("textures/drunkardLoading.png");
     backgroundspr.setTexture(background);

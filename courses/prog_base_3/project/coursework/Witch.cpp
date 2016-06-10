@@ -240,6 +240,12 @@ tostart:
                                         backcard[i]->setHighlighted(false);
                                         myList->addLast(aiList->deleteIndex(i));
 
+                                        for(int j=0; j<myList->getSize(); j++)
+                                        {
+                                            card[j].setHighlighted(false);
+                                        }
+                                        twoHighlighted = 0;
+
                                         player_x = 10;
                                         casino_x = W_X-(139+10);
 

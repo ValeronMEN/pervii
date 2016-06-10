@@ -399,7 +399,7 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1465501166 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1465574033 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
 	<SFML/Audio.hpp>
 	<queue>
@@ -411,7 +411,7 @@
 1462740910 d:\Универ\Курсач\coursework\startbutton.h
 	<SFML/Graphics.hpp>
 
-1463305970 d:\Универ\Курсач\coursework\drunkard.h
+1465573904 d:\Универ\Курсач\coursework\drunkard.h
 	<SFML/Graphics.hpp>
 	"drunkard/Card.h"
 	"drunkard/ContinueButton.h"
@@ -586,7 +586,7 @@
 1463335842 d:\Универ\Курсач\coursework\witch\witchdeck.h
 	"WitchCard.h"
 
-1465500564 source:d:\Универ\Курсач\coursework\witch.cpp
+1465554633 source:d:\Универ\Курсач\coursework\witch.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Witch.h"
@@ -651,7 +651,7 @@
 	"pig/PigCompare.h"
 	"pig/PigList.h"
 
-1465514457 source:d:\Универ\Курсач\coursework\pig.cpp
+1465515199 source:d:\Универ\Курсач\coursework\pig.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Pig.h"
@@ -775,10 +775,10 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1465314868 source:d:\Универ\Курсач\coursework\pig\pigdeck.cpp
+1465515168 source:d:\Универ\Курсач\coursework\pig\pigdeck.cpp
 	"PigDeck.h"
 
-1465314930 d:\Универ\Курсач\coursework\pig\pigdeck.h
+1465515059 d:\Универ\Курсач\coursework\pig\pigdeck.h
 	"PigCard.h"
 
 1465514340 d:\Универ\Курсач\coursework\pig\pigtake.h
@@ -806,13 +806,51 @@
 1465317170 d:\Универ\Курсач\coursework\pig\piglist.h
 	"PigCard.h"
 
-1465504277 source:d:\Универ\Курсач\coursework\chicken.cpp
+1465574873 source:d:\Универ\Курсач\coursework\chicken.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Chicken.h"
 
-1465504267 d:\Универ\Курсач\coursework\chicken.h
+1465573681 d:\Универ\Курсач\coursework\chicken.h
 	"chicken/ChickenStandard.h"
+	"chicken/ChickenDeck.h"
+	"chicken/ChickenList.h"
+	"chicken/ChickenNext.h"
+	"chicken/ChickenBackCard.h"
+	<queue>
 
-1465504247 d:\Универ\Курсач\coursework\chicken\chickenstandard.h
+1465573762 d:\Универ\Курсач\coursework\chicken\chickenstandard.h
+
+1465568689 source:d:\Универ\Курсач\coursework\chicken\chickenbackcard.cpp
+	"ChickenBackCard.h"
+
+1465568981 d:\Универ\Курсач\coursework\chicken\chickenbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465570608 source:d:\Универ\Курсач\coursework\chicken\chickencard.cpp
+	"ChickenCard.h"
+
+1465570500 d:\Универ\Курсач\coursework\chicken\chickencard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465570454 source:d:\Универ\Курсач\coursework\chicken\chickendeck.cpp
+	"ChickenDeck.h"
+
+1465570236 d:\Универ\Курсач\coursework\chicken\chickendeck.h
+	"ChickenCard.h"
+
+1465558449 source:d:\Универ\Курсач\coursework\chicken\chickenlist.cpp
+	"ChickenList.h"
+
+1465558443 d:\Универ\Курсач\coursework\chicken\chickenlist.h
+	"ChickenCard.h"
+
+1465574714 source:d:\Универ\Курсач\coursework\chicken\chickennext.cpp
+	"ChickenNext.h"
+
+1465574835 d:\Универ\Курсач\coursework\chicken\chickennext.h
+	<SFML/Graphics.hpp>
+	"ChickenStandard.h"
 
