@@ -10,6 +10,11 @@ using namespace sf;
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(1638, 900), "Card games", sf::Style::Close);
+    window.setPosition(sf::Vector2i(150, 60));
+
+    sf::Image image;
+    image.loadFromFile("textures/mainIco.png");
+    window.setIcon(179, 179, image.getPixelsPtr());
 
     StartButton* witchButton = new StartButton(0);
     StartButton* drunkardButton = new StartButton(1);

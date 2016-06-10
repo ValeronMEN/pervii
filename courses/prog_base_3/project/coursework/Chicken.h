@@ -18,6 +18,7 @@ private:
     sf::Image image;
     void fonts(int strokeman);
     char * getWannaText(int);
+    void getRound(int);
 
 public:
     void start();

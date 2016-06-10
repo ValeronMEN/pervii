@@ -24,6 +24,7 @@ private:
     sf::Text aiScore;
     sf::Text middleScore;
     sf::Sprite tempSp;
+    sf::Image image;
     void fonts();
 
 public:

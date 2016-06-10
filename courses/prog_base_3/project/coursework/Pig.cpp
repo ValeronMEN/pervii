@@ -39,6 +39,8 @@ void Pig::fonts()
 void Pig::start()
 {
     sf::RenderWindow window(sf::VideoMode(P_X, P_Y), "Sons of Pharaoh", sf::Style::Close);
+    image.loadFromFile("textures/pigIco.png");
+    window.setIcon(179, 179, image.getPixelsPtr());
 
     sf::Music music;
     if (!music.openFromFile("music/pyramid.ogg"))

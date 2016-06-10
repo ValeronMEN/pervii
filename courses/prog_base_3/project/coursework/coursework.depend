@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1465504058 source:d:\Универ\Курсач\coursework\main.cpp
+1465586280 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
@@ -641,7 +641,7 @@
 1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
 	"WitchStroke.h"
 
-1465499559 d:\Универ\Курсач\coursework\pig.h
+1465585759 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"pig/PigStandard.h"
@@ -651,7 +651,7 @@
 	"pig/PigCompare.h"
 	"pig/PigList.h"
 
-1465515199 source:d:\Универ\Курсач\coursework\pig.cpp
+1465585923 source:d:\Универ\Курсач\coursework\pig.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Pig.h"
@@ -806,12 +806,12 @@
 1465317170 d:\Универ\Курсач\coursework\pig\piglist.h
 	"PigCard.h"
 
-1465583005 source:d:\Универ\Курсач\coursework\chicken.cpp
+1465585914 source:d:\Универ\Курсач\coursework\chicken.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"Chicken.h"
 
-1465573681 d:\Универ\Курсач\coursework\chicken.h
+1465591175 d:\Универ\Курсач\coursework\chicken.h
 	"chicken/ChickenStandard.h"
 	"chicken/ChickenDeck.h"
 	"chicken/ChickenList.h"
@@ -819,7 +819,7 @@
 	"chicken/ChickenBackCard.h"
 	<queue>
 
-1465580434 d:\Универ\Курсач\coursework\chicken\chickenstandard.h
+1465592224 d:\Универ\Курсач\coursework\chicken\chickenstandard.h
 
 1465568689 source:d:\Универ\Курсач\coursework\chicken\chickenbackcard.cpp
 	"ChickenBackCard.h"
@@ -835,7 +835,7 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1465581338 source:d:\Универ\Курсач\coursework\chicken\chickendeck.cpp
+1465584228 source:d:\Универ\Курсач\coursework\chicken\chickendeck.cpp
 	"ChickenDeck.h"
 
 1465581332 d:\Универ\Курсач\coursework\chicken\chickendeck.h

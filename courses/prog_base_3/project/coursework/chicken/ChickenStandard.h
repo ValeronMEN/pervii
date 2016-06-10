@@ -3,4 +3,4 @@
 #define PLAYER 0
 #define AI 1
 #define WANNACONST "I wanna see %s!"
-#define BUFFER 200
+#define C_BUFFER 200

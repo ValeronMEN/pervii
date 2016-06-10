@@ -49,7 +49,7 @@ void ChickenDeck::randomizeNew()
 	int id1, id2;
 	for (int i = 0; i < 150; i++)
 	{
-		id1 = rand() % 36;
+		id1 = rand() % 52;
 		id2 = rand() % 52;
 		cardSwipe = this->card[id1];
 		this->card[id1] = this->card[id2];
