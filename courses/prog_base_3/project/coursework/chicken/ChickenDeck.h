@@ -12,6 +12,7 @@ class ChickenDeck{
 	    ChickenDeck();
 		ChickenCard getCard();
 		void randomize();
+		void randomizeNew();
 };
 
 #endif

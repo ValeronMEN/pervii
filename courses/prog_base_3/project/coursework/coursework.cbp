@@ -51,6 +51,16 @@
 		<Unit filename="StartButton.h" />
 		<Unit filename="Witch.cpp" />
 		<Unit filename="Witch.h" />
+		<Unit filename="chicken/ChickenBackCard.cpp" />
+		<Unit filename="chicken/ChickenBackCard.h" />
+		<Unit filename="chicken/ChickenCard.cpp" />
+		<Unit filename="chicken/ChickenCard.h" />
+		<Unit filename="chicken/ChickenDeck.cpp" />
+		<Unit filename="chicken/ChickenDeck.h" />
+		<Unit filename="chicken/ChickenList.cpp" />
+		<Unit filename="chicken/ChickenList.h" />
+		<Unit filename="chicken/ChickenNext.cpp" />
+		<Unit filename="chicken/ChickenNext.h" />
 		<Unit filename="chicken/ChickenStandard.h" />
 		<Unit filename="drunkard/Card.cpp" />
 		<Unit filename="drunkard/Card.h" />

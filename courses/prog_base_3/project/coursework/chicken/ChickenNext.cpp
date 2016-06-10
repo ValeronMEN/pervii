@@ -3,7 +3,7 @@
 ChickenNext::ChickenNext(){
     this->height = 100;
     this->width = 278;
-    this->posX = C_X;
+    this->posX = 0;
     this->posY = C_Y-100;
 }
 

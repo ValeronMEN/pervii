@@ -50,9 +50,9 @@ char * Chicken::getWannaText(int points){
 void Chicken::fonts(int strokeman)
 {
     aggFont.loadFromFile("fonts/Agg.ttf");
-    myFont.loadFromFile("fonts/Push.ttf");
+    myFont.loadFromFile("fonts/shitan.otf");
 
-    wannaText.setPosition(30+31+139+25+125, 30);
+    wannaText.setPosition(30+31+139+25+100, 30);
     wannaText.setColor(Color::Blue);
     wannaText.setFont(aggFont);
     wannaText.setCharacterSize(50);
@@ -67,7 +67,7 @@ void Chicken::fonts(int strokeman)
     mySize.setFont(myFont);
     mySize.setCharacterSize(30);
 
-    aiSize.setPosition(C_X-139-30-50, C_Y-30-216/2-20);
+    aiSize.setPosition(C_X-139-30-25, C_Y-30-216/2-20);
     aiSize.setColor(Color::White);
     aiSize.setFont(myFont);
     aiSize.setCharacterSize(30);
@@ -94,14 +94,10 @@ void Chicken::start(){
     ChickenDeck * myDeck = new ChickenDeck();
     myDeck->randomize();
     ChickenDeck * aiDeck = new ChickenDeck();
-    aiDeck->randomize();
+    aiDeck->randomizeNew();
     ChickenCard * middleCard = new ChickenCard();
-    middleCard->sprite.setPosition(430.5, C_Y-100);
     ChickenCard * myCard = new ChickenCard();
-    myCard->sprite.setPosition(30, 30+216+30);
     ChickenCard * aiCard = new ChickenCard();
-    aiCard->sprite.setPosition(C_X-139-30, C_Y-30-216-216-30);
-
     ChickenNext * nextBtn = new ChickenNext();
     nextBtn->next();
 
@@ -114,19 +110,8 @@ void Chicken::start(){
 
     std::queue<ChickenCard> myQueue;
     std::queue<ChickenCard> aiQueue;
-    std::queue<ChickenCard> *firstQueue;
-    std::queue<ChickenCard> *secondQueue;
 
     int strokeman = rand() % 2;
-    if (strokeman == AI)
-    {
-        firstQueue = &aiQueue;
-        secondQueue = &myQueue;
-    }
-    else{
-        firstQueue = &myQueue;
-        secondQueue = &aiQueue;
-    }
     fonts(strokeman);
 
     for (int i=0; i<52; i++){
@@ -134,6 +119,11 @@ void Chicken::start(){
         aiQueue.push(aiDeck->getCard());
     }
     bool compareB = false;
+    bool start = true;
+    bool middleVisible = false;
+    int myPoints = 0, aiPoints = 0, wannaPoints = 1;
+    char text[BUFFER] = "";
+    int round = 1;
 
     while(window.isOpen()){
         sf::Event event;
@@ -143,6 +133,101 @@ void Chicken::start(){
             }
             if ((event.type == sf::Event::MouseButtonPressed)&&(event.mouseButton.button == sf::Mouse::Left)){
                 if (nextBtn->isPressed(event.mouseButton.x, event.mouseButton.y)){
+                    if (!start){
+                        if (myPoints == wannaPoints && aiPoints == wannaPoints){
+                            if (strokeman == PLAYER){
+                                *middleCard = *myCard;
+                                myQueue.pop();
+                                aiQueue.push(aiQueue.front());
+                                aiQueue.pop();
+                                wannaPoints++;
+                            }
+                            else{
+                                *middleCard = *aiCard;
+                                aiQueue.pop();
+                                myQueue.push(myQueue.front());
+                                myQueue.pop();
+                                wannaPoints++;
+                            }
+                            middleVisible = true;
+                        }
+                        else if(myPoints == wannaPoints){
+                            *middleCard = *myCard;
+                            myQueue.pop();
+                            aiQueue.push(aiQueue.front());
+                            aiQueue.pop();
+                            wannaPoints++;
+                            middleVisible = true;
+                        }
+                        else if (aiPoints == wannaPoints){
+                            *middleCard = *aiCard;
+                            aiQueue.pop();
+                            myQueue.push(myQueue.front());
+                            myQueue.pop();
+                            wannaPoints++;
+                            middleVisible = true;
+                        }
+                        else{
+                            myQueue.push(myQueue.front());
+                            myQueue.pop();
+                            aiQueue.push(aiQueue.front());
+                            aiQueue.pop();
+                        }
+                        if (middleVisible){
+                            middleCard->setTexture();
+                            middleCard->sprite.setPosition(430.5, C_Y-550);
+                        }
+                        if (wannaPoints==14){
+                            round++;
+                            wannaPoints = 1;
+                            if (round == 2){
+                                wannaText.setColor(Color::Red);
+                                strokeText.setColor(Color::Red);
+                                background.loadFromFile("textures/upGround2.png");
+                                backgroundspr.setTexture(background);
+                            }
+                            else if(round == 3){
+                                mySize.setColor(Color::Black);
+                                aiSize.setColor(Color::Black);
+                                background.loadFromFile("textures/upGround3.png");
+                                backgroundspr.setTexture(background);
+                                wannaText.setColor(sf::Color(115,0,0));
+                                strokeText.setColor(sf::Color(115,0,0));
+                            }
+                            else{ // round = 4 and more
+                                mySize.setColor(Color::White);
+                                aiSize.setColor(Color::White);
+                                background.loadFromFile("textures/upGround4.png");
+                                backgroundspr.setTexture(background);
+                                wannaText.setColor(Color::White);
+                                strokeText.setColor(Color::White);
+                            }
+                        }
+                        sprintf(text, WANNACONST, getWannaText(wannaPoints));
+                        wannaText.setString(text);
+                        sprintf(text, "%i", myQueue.size());
+                        mySize.setString(text);
+                        sprintf(text, "%i", aiQueue.size());
+                        aiSize.setString(text);
+                    }
+                    compareB = true;
+                    start = false;
+                    *myCard = myQueue.front();
+                    *aiCard = aiQueue.front();
+                    myCard->setTexture();
+                    aiCard->setTexture();
+                    myCard->sprite.setPosition(30, 30+216+30);
+                    aiCard->sprite.setPosition(C_X-139-30, C_Y-30-216-216-30);
+                    myPoints = myCard->getPoints();
+                    aiPoints = aiCard->getPoints();
+                    if (strokeman == PLAYER){
+                        strokeman = AI;
+                        strokeText.setString("Enemy stroke...");
+                    }
+                    else{
+                        strokeman = PLAYER;
+                        strokeText.setString("Your stroke...");
+                    }
                 }
             }
         }
@@ -153,6 +238,9 @@ void Chicken::start(){
         if (compareB == true){
             window.draw(myCard->sprite);
             window.draw(aiCard->sprite);
+        }
+        if (middleVisible){
+            window.draw(middleCard->sprite);
         }
         window.draw(nextBtn->sprite);
         window.draw(mySize);

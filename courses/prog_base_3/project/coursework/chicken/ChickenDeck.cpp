@@ -9,7 +9,7 @@ ChickenDeck::ChickenDeck(){
 	for (int i = 0; i < 52; i++){
 		this->card[i].setColorIdentifier(colorID);
 		this->card[i].setValueIdentifier(valueID);
-		this->card[i].setPoints((colorID+1));
+		this->card[i].setPoints((valueID+1));
 
 		colorID++;
 
@@ -34,6 +34,22 @@ void ChickenDeck::randomize()
 	for (int i = 0; i < 100; i++)
 	{
 		id1 = rand() % 52;
+		id2 = rand() % 52;
+		cardSwipe = this->card[id1];
+		this->card[id1] = this->card[id2];
+		this->card[id2] = cardSwipe;
+	}
+}
+
+void ChickenDeck::randomizeNew()
+{
+    srand(std::time(0));
+    this->pos = 0;
+	ChickenCard cardSwipe;
+	int id1, id2;
+	for (int i = 0; i < 150; i++)
+	{
+		id1 = rand() % 36;
 		id2 = rand() % 52;
 		cardSwipe = this->card[id1];
 		this->card[id1] = this->card[id2];
