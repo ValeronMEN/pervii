@@ -25,6 +25,12 @@ void PigTake::watch(){
     this->sprite.setPosition(posX, posY);
 }
 
+void PigTake::finish(){
+    this->texture.loadFromFile("textures/pigFinish.png");
+    this->sprite.setTexture(this->texture);
+    this->sprite.setPosition(posX, posY);
+}
+
 bool PigTake::isPressed(float x, float y){
     if ((x > this->posX) && ( x < this->posX + this->width) && (y > this->posY) && (y < this->posY + this->height))
         return true;

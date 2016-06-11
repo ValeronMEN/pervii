@@ -19,6 +19,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
+					<Add library="D:\Универ\Курсач\coursework\libprocessing\bin\Debug\libprocessing.a" />
 					<Add directory="E:/sfml/SFML-2.3.2/lib" />
 				</Linker>
 			</Target>

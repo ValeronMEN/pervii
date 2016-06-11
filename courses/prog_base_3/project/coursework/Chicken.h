@@ -1,10 +1,13 @@
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <queue>
+#include <string>
+
 #include "chicken/ChickenStandard.h"
 #include "chicken/ChickenDeck.h"
 #include "chicken/ChickenList.h"
 #include "chicken/ChickenNext.h"
 #include "chicken/ChickenBackCard.h"
-#include <queue>
-#include <string>
 
 class Chicken{
 private:
@@ -20,7 +23,6 @@ private:
     sf::Text myName;
     sf::Text aiName;
     void fonts(int strokeman);
-    char * getWannaText(int);
     void getRound(int);
 
 public:

@@ -1,66 +1,6 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include "Chicken.h"
 
-char * Chicken::getWannaText(int points)
-{
-    if (points==1)
-    {
-        return "ACE";
-    }
-    else if (points == 2)
-    {
-        return "SECUNDA";
-    }
-    else if (points == 3)
-    {
-        return "TERTIA";
-    }
-    else if (points == 4)
-    {
-        return "QUARTA";
-    }
-    else if (points == 5)
-    {
-        return "QUINTA";
-    }
-    else if (points == 6)
-    {
-        return "SEXTA";
-    }
-    else if (points == 7)
-    {
-        return "SEPTIMA";
-    }
-    else if (points == 8)
-    {
-        return "OCTAVA";
-    }
-    else if (points == 9)
-    {
-        return "NONA";
-    }
-    else if (points == 10)
-    {
-        return "DECIMA";
-    }
-    else if (points == 11)
-    {
-        return "JACK";
-    }
-    else if (points == 12)
-    {
-        return "QUEEN";
-    }
-    else if (points == 13)
-    {
-        return "KING";
-    }
-    else
-    {
-        return NULL;
-    }
-}
+char* getWannaText(int points);
 
 void Chicken::fonts(int strokeman)
 {

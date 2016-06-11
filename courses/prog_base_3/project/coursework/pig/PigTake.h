@@ -13,6 +13,7 @@ public:
     void win();
     void lose();
     void draw();
+    void finish();
 
 private:
     float posX;

@@ -1,7 +1,4 @@
 #include "Drunkard.h"
-#include <SFML/Audio.hpp>
-#include <queue>
-#include <windows.h>
 
 void Drunkard::drawDecks()
 {

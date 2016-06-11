@@ -399,11 +399,8 @@
 1462819024 d:\Универ\Курсач\coursework\deck.h
 	"Card.h"
 
-1465595380 source:d:\Универ\Курсач\coursework\drunkard.cpp
+1465642945 source:d:\Универ\Курсач\coursework\drunkard.cpp
 	"Drunkard.h"
-	<SFML/Audio.hpp>
-	<queue>
-	<windows.h>
 
 1462740896 source:d:\Универ\Курсач\coursework\startbutton.cpp
 	"StartButton.h"
@@ -411,8 +408,11 @@
 1462740910 d:\Универ\Курсач\coursework\startbutton.h
 	<SFML/Graphics.hpp>
 
-1465573904 d:\Универ\Курсач\coursework\drunkard.h
+1465642951 d:\Универ\Курсач\coursework\drunkard.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<queue>
+	<windows.h>
 	"drunkard/Card.h"
 	"drunkard/ContinueButton.h"
 	"drunkard/DrunkardStandard.h"
@@ -641,7 +641,7 @@
 1463692257 source:d:\Универ\Курсач\coursework\witch\witchstroke.cpp
 	"WitchStroke.h"
 
-1465585759 d:\Универ\Курсач\coursework\pig.h
+1465642998 d:\Универ\Курсач\coursework\pig.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	"pig/PigStandard.h"
@@ -651,9 +651,7 @@
 	"pig/PigCompare.h"
 	"pig/PigList.h"
 
-1465596908 source:d:\Универ\Курсач\coursework\pig.cpp
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
+1465642989 source:d:\Универ\Курсач\coursework\pig.cpp
 	"Pig.h"
 
 1429780453 e:\sfml\sfml-2.3.2\include\sfml\audio.hpp
@@ -759,7 +757,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1465250963 d:\Универ\Курсач\coursework\pig\pigstandard.h
+1465642870 d:\Универ\Курсач\coursework\pig\pigstandard.h
 
 1465334227 source:d:\Универ\Курсач\coursework\pig\pigbackcard.cpp
 	"PigBackCard.h"
@@ -781,10 +779,10 @@
 1465515059 d:\Универ\Курсач\coursework\pig\pigdeck.h
 	"PigCard.h"
 
-1465514340 d:\Универ\Курсач\coursework\pig\pigtake.h
+1465661962 d:\Универ\Курсач\coursework\pig\pigtake.h
 	<SFML/Graphics.hpp>
 
-1465514328 source:d:\Универ\Курсач\coursework\pig\pigtake.cpp
+1465661841 source:d:\Универ\Курсач\coursework\pig\pigtake.cpp
 	"PigTake.h"
 
 1465316120 d:\Универ\Курсач\coursework\pig\pigcompare.h
@@ -806,19 +804,19 @@
 1465317170 d:\Универ\Курсач\coursework\pig\piglist.h
 	"PigCard.h"
 
-1465596656 source:d:\Универ\Курсач\coursework\chicken.cpp
-	<SFML/Graphics.hpp>
-	<SFML/Audio.hpp>
+1465657340 source:d:\Универ\Курсач\coursework\chicken.cpp
 	"Chicken.h"
 
-1465596130 d:\Универ\Курсач\coursework\chicken.h
+1465657123 d:\Универ\Курсач\coursework\chicken.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<queue>
+	<string>
 	"chicken/ChickenStandard.h"
 	"chicken/ChickenDeck.h"
 	"chicken/ChickenList.h"
 	"chicken/ChickenNext.h"
 	"chicken/ChickenBackCard.h"
-	<queue>
-	<string>
 
 1465592246 d:\Универ\Курсач\coursework\chicken\chickenstandard.h
 

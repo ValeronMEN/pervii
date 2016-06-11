@@ -1,4 +1,8 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <queue>
+#include <windows.h>
+
 #include "drunkard/Card.h"
 #include "drunkard/ContinueButton.h"
 #include "drunkard/DrunkardStandard.h"
