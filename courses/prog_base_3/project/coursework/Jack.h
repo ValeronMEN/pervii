@@ -17,7 +17,12 @@
 class Jack{
 private:
     sf::Image image;
+    sf::Texture backgroundGuide;
+    sf::Sprite backgroundsprGuide;
+
 public:
     void start();
     int game(RenderWindow * win, int oneRate);
+    bool guide;
+    int language;
 };

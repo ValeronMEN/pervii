@@ -12,6 +12,8 @@
 class Drunkard{
 public:
     void start();
+    bool guide;
+    int language;
 
 private:
     void drawDecks();
@@ -23,4 +25,8 @@ private:
     sf::Texture background;
     sf::Sprite backgroundspr;
     sf::Image image;
+    sf::Font myFont;
+    sf::Text strokeText;
+    sf::Texture backgroundGuide;
+    sf::Sprite backgroundsprGuide;
 };

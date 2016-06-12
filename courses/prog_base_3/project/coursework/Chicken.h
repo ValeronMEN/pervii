@@ -24,7 +24,11 @@ private:
     sf::Text aiName;
     void fonts(int strokeman);
     void getRound(int);
+    sf::Texture backgroundGuide;
+    sf::Sprite backgroundsprGuide;
 
 public:
     void start();
+    bool guide;
+    int language;
 };

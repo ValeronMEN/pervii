@@ -39,7 +39,30 @@ void Pig::start()
     sf::RenderWindow window(sf::VideoMode(P_X, P_Y), "Sons of Pharaoh", sf::Style::Close);
     image.loadFromFile("textures/pigIco.png");
     window.setIcon(179, 179, image.getPixelsPtr());
-    window.clear(sf::Color::Yellow);
+
+    sf::RenderWindow windowGuide(sf::VideoMode(500, 700), "Guide", sf::Style::Titlebar);
+    windowGuide.setVisible(false);
+
+    if (guide==true)
+    {
+        window.setPosition(sf::Vector2i(30, 30));
+        windowGuide.setVisible(true);
+
+        windowGuide.setPosition(sf::Vector2i(1370, 170));
+        if (language == 1){
+            backgroundGuide.loadFromFile("textures/pigRules.png");
+        }
+        else{
+            backgroundGuide.loadFromFile("textures/engPigRules.png");
+        }
+        backgroundsprGuide.setTexture(backgroundGuide);
+        windowGuide.draw(backgroundsprGuide);
+        windowGuide.display();
+    }
+
+    background.loadFromFile("textures/pigLoading.png");
+    backgroundspr.setTexture(background);
+    window.draw(backgroundspr);
     window.display();
 
     sf::Music music;
@@ -49,6 +72,8 @@ void Pig::start()
     }
     music.play();
     music.setLoop(true);
+
+    //
 
     fonts();
 
@@ -96,19 +121,23 @@ void Pig::start()
                 {
                     if (middleNew)
                     {
-                        if (middleFromCheck){
+                        if (middleFromCheck)
+                        {
                             *middleCard = *toCheck;
                             middleSize = middleList->getSize(); // set middle size
                             middleVisible = true; // show middle objects
                         }
-                        else{
+                        else
+                        {
                             middleList = new PigList();
-                            if (deck->pos==MAGIC_NUMBER){
+                            if (deck->pos==MAGIC_NUMBER)
+                            {
                                 finish = true;
                                 middleSize = 0; // set middle size
                                 middleVisible = false; // show middle objects
                             }
-                            else{
+                            else
+                            {
                                 *middleCard = deck->getCard(); /// to locate it in middle pre start
                                 coreSize--; // one card must leave core deck
                                 middleList->addLast(*middleCard); //add middle card to middle deck
@@ -145,7 +174,8 @@ void Pig::start()
                     }
                     else // !middleNew
                     {
-                        if (deck->pos==MAGIC_NUMBER){
+                        if (deck->pos==MAGIC_NUMBER)
+                        {
                             finish = true;
                             toCheckVisible = false;
                             break;

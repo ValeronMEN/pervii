@@ -48,6 +48,8 @@
 		<Unit filename="Jack.h" />
 		<Unit filename="Pig.cpp" />
 		<Unit filename="Pig.h" />
+		<Unit filename="StartAsk.cpp" />
+		<Unit filename="StartAsk.h" />
 		<Unit filename="StartButton.cpp" />
 		<Unit filename="StartButton.h" />
 		<Unit filename="Witch.cpp" />

@@ -146,6 +146,26 @@ void Chicken::start()
     image.loadFromFile("textures/upIco.png");
     window.setIcon(179, 179, image.getPixelsPtr());
 
+    sf::RenderWindow windowGuide(sf::VideoMode(500, 700), "Guide", sf::Style::Titlebar);
+    windowGuide.setVisible(false);
+
+    if (guide==true)
+    {
+        window.setPosition(sf::Vector2i(30, 30));
+        windowGuide.setVisible(true);
+
+        windowGuide.setPosition(sf::Vector2i(1370, 170));
+        if (language == 1){
+            backgroundGuide.loadFromFile("textures/chickenRules.png");
+        }
+        else{
+            backgroundGuide.loadFromFile("textures/engUpRules.png");
+        }
+        backgroundsprGuide.setTexture(backgroundGuide);
+        windowGuide.draw(backgroundsprGuide);
+        windowGuide.display();
+    }
+
     ChickenDeck * myDeck = new ChickenDeck();
     myDeck->randomize();
     ChickenDeck * aiDeck = new ChickenDeck();

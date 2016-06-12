@@ -12,6 +12,8 @@ class Pig{
 private:
     sf::Texture background; //background texture
     sf::Sprite backgroundspr;
+    sf::Texture backgroundGuide; //background texture
+    sf::Sprite backgroundsprGuide;
     sf::Font myFont;
     sf::Text myScore;
     sf::Text coreScore;
@@ -23,4 +25,6 @@ private:
 
 public:
     void start();
+    bool guide;
+    int language;
 };

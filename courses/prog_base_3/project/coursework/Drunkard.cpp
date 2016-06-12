@@ -10,6 +10,13 @@ void Drunkard::drawDecks()
 
     backCardSpr180.setTexture(backCardTex);
     backCardSpr180.setPosition(432, 19);
+
+    myFont.loadFromFile("fonts/shitan.otf");
+
+    strokeText.setPosition(0+10 , D_Y-50);
+    strokeText.setColor(sf::Color::White);
+    strokeText.setFont(myFont);
+    strokeText.setCharacterSize(30);
 }
 
 void Drunkard::start()
@@ -26,6 +33,26 @@ void Drunkard::start()
     image.loadFromFile("textures/drunkardIco.png");
     drunkardWindow.setIcon(179, 179, image.getPixelsPtr());
 
+    sf::RenderWindow windowGuide(sf::VideoMode(500, 700), "Guide", sf::Style::Titlebar);
+    windowGuide.setVisible(false);
+
+    if (guide==true)
+    {
+        drunkardWindow.setPosition(sf::Vector2i(100, 15));
+        windowGuide.setVisible(true);
+
+        windowGuide.setPosition(sf::Vector2i(1370, 170));
+        if (language == 1){
+            backgroundGuide.loadFromFile("textures/drunkardRules.png");
+        }
+        else{
+            backgroundGuide.loadFromFile("textures/engDrunkardRules.png");
+        }
+        backgroundsprGuide.setTexture(backgroundGuide);
+        windowGuide.draw(backgroundsprGuide);
+        windowGuide.display();
+    }
+
     background.loadFromFile("textures/drunkardLoading.png");
     backgroundspr.setTexture(background);
     drunkardWindow.draw(backgroundspr);
@@ -41,8 +68,7 @@ void Drunkard::start()
     std::queue<Card> aiQueue;
     std::queue<Card> *firstQueue;
     std::queue<Card> *secondQueue;
-    firstQueue = &myQueue;
-    secondQueue = &aiQueue;
+
     Deck * myDeck = new Deck();
     drawDecks();
     myDeck->randomize();
@@ -61,6 +87,10 @@ void Drunkard::start()
     {
         firstQueue = &aiQueue;
         secondQueue = &myQueue;
+    }
+    else{
+        firstQueue = &myQueue;
+        secondQueue = &aiQueue;
     }
 
     Card * card1f = new Card();
@@ -102,6 +132,14 @@ void Drunkard::start()
                 }
                 if ((continueBtn->isPressed(event.mouseButton.x, event.mouseButton.y))&&(finish==false))
                 {
+                    if (strokeman == 1){
+                        strokeman = 0;
+                        strokeText.setString("AI STROKE");
+                    }
+                    else{
+                        strokeman = 1;
+                        strokeText.setString("YOUR STROKE");
+                    }
                     //set text of size of decks, set false visible to 2f, 2s, 3f, 3s cards
                     itoa(myQueue.size(),textSize,10);
                     mySize.setString(textSize);
@@ -271,6 +309,7 @@ void Drunkard::start()
         drunkardWindow.draw(card1s->sprite);
         drunkardWindow.draw(mySize);
         drunkardWindow.draw(aiSize);
+        drunkardWindow.draw(strokeText);
         if (visible2fs)
         {
             drunkardWindow.draw(backCardSpr2f);

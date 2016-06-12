@@ -266,6 +266,26 @@ void Jack::start()
     image.loadFromFile("textures/jackIco.png");
     jackWindow.setIcon(179, 179, image.getPixelsPtr());
 
+    sf::RenderWindow windowGuide(sf::VideoMode(500, 700), "Guide", sf::Style::Titlebar);
+    windowGuide.setVisible(false);
+
+    if (guide==true)
+    {
+        jackWindow.setPosition(sf::Vector2i(100, 30));
+        windowGuide.setVisible(true);
+
+        windowGuide.setPosition(sf::Vector2i(1370, 170));
+        if (language == 1){
+            backgroundGuide.loadFromFile("textures/jackRules.png");
+        }
+        else{
+            backgroundGuide.loadFromFile("textures/engJackRules.png");
+        }
+        backgroundsprGuide.setTexture(backgroundGuide);
+        windowGuide.draw(backgroundsprGuide);
+        windowGuide.display();
+    }
+
     // set buttons
     JackBet * bet = new JackBet();
     JackMoney * money = new JackMoney();

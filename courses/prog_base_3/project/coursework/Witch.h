@@ -14,6 +14,11 @@ private:
     sf::Texture background;
     sf::Sprite backgroundspr;
     sf::Image image;
+    sf::Texture backgroundGuide;
+    sf::Sprite backgroundsprGuide;
+
 public:
     void start();
+    bool guide;
+    int language;
 };

@@ -21,6 +21,26 @@ void Witch::start()
     image.loadFromFile("textures/witchIco.png");
     window.setIcon(179, 179, image.getPixelsPtr());
 
+    sf::RenderWindow windowGuide(sf::VideoMode(500, 700), "Guide", sf::Style::Titlebar);
+    windowGuide.setVisible(false);
+
+    if (guide==true)
+    {
+        window.setPosition(sf::Vector2i(100, 30));
+        windowGuide.setVisible(true);
+
+        windowGuide.setPosition(sf::Vector2i(1370, 170));
+        if (language == 1){
+            backgroundGuide.loadFromFile("textures/witchRules.png");
+        }
+        else{
+            backgroundGuide.loadFromFile("textures/engWitchRules.png");
+        }
+        backgroundsprGuide.setTexture(backgroundGuide);
+        windowGuide.draw(backgroundsprGuide);
+        windowGuide.display();
+    }
+
     WitchResult * resultBtn = new WitchResult(); //loading window
     window.clear(sf::Color(0,115,0));
     window.draw(resultBtn->sprite);
