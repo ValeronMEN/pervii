@@ -62,14 +62,14 @@ void Drunkard::start()
     background.loadFromFile("textures/drunkardpalm.png");
     backgroundspr.setTexture(background);
 
-    ContinueButton * continueBtn = new ContinueButton();
+    DrunkardContinueButton * continueBtn = new DrunkardContinueButton();
     DrunkardReturn * returnBtn = new DrunkardReturn();
-    std::queue<Card> myQueue;
-    std::queue<Card> aiQueue;
-    std::queue<Card> *firstQueue;
-    std::queue<Card> *secondQueue;
+    std::queue<DrunkardCard> myQueue;
+    std::queue<DrunkardCard> aiQueue;
+    std::queue<DrunkardCard> *firstQueue;
+    std::queue<DrunkardCard> *secondQueue;
 
-    Deck * myDeck = new Deck();
+    DrunkardDeck * myDeck = new DrunkardDeck();
     drawDecks();
     myDeck->randomize();
 
@@ -93,12 +93,12 @@ void Drunkard::start()
         secondQueue = &aiQueue;
     }
 
-    Card * card1f = new Card();
-    Card * card1s = new Card();
-    Card * card2f = new Card();
-    Card * card2s = new Card();
-    Card * card3f = new Card();
-    Card * card3s = new Card();
+    DrunkardCard * card1f = new DrunkardCard();
+    DrunkardCard * card1s = new DrunkardCard();
+    DrunkardCard * card2f = new DrunkardCard();
+    DrunkardCard * card2s = new DrunkardCard();
+    DrunkardCard * card3f = new DrunkardCard();
+    DrunkardCard * card3s = new DrunkardCard();
 
     bool visible2fs = false;
     bool visible3fs = false;

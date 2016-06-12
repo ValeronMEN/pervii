@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1465690647 source:d:\Универ\Курсач\coursework\main.cpp
+1465690674 source:d:\Универ\Курсач\coursework\main.cpp
 	<SFML/Graphics.hpp>
 	"StartButton.h"
 	"Drunkard.h"
@@ -409,15 +409,15 @@
 1462740910 d:\Универ\Курсач\coursework\startbutton.h
 	<SFML/Graphics.hpp>
 
-1465687077 d:\Универ\Курсач\coursework\drunkard.h
+1465736060 d:\Универ\Курсач\coursework\drunkard.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<queue>
 	<windows.h>
-	"drunkard/Card.h"
-	"drunkard/ContinueButton.h"
+	"drunkard/DrunkardCard.h"
+	"drunkard/DrunkardContinueButton.h"
 	"drunkard/DrunkardStandard.h"
-	"drunkard/Deck.h"
+	"drunkard/DrunkardDeck.h"
 	"drunkard/DrunkardReturn.h"
 
 1463305570 d:\Универ\Курсач\coursework\continuebutton.h
@@ -539,7 +539,7 @@
 
 1463305524 d:\Универ\Курсач\coursework\jack\jackstandard.h
 
-1463738890 d:\Универ\Курсач\coursework\drunkard\card.h
+1465735880 d:\Универ\Курсач\coursework\drunkard\card.h
 	<string>
 	<SFML/Graphics.hpp>
 
@@ -550,7 +550,7 @@
 1462819024 d:\Универ\Курсач\coursework\drunkard\deck.h
 	"Card.h"
 
-1462823741 source:d:\Универ\Курсач\coursework\drunkard\card.cpp
+1465735833 source:d:\Универ\Курсач\coursework\drunkard\card.cpp
 	"Card.h"
 
 1463307736 source:d:\Универ\Курсач\coursework\drunkard\continuebutton.cpp
@@ -805,10 +805,10 @@
 1465317170 d:\Универ\Курсач\coursework\pig\piglist.h
 	"PigCard.h"
 
-1465688708 source:d:\Универ\Курсач\coursework\chicken.cpp
+1465733796 source:d:\Универ\Курсач\coursework\chicken.cpp
 	"Chicken.h"
 
-1465686955 d:\Универ\Курсач\coursework\chicken.h
+1465731996 d:\Универ\Курсач\coursework\chicken.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<queue>
@@ -859,4 +859,15 @@
 
 1465681152 source:d:\Универ\Курсач\coursework\startask.cpp
 	"StartAsk.h"
+
+1465736222 d:\Универ\Курсач\coursework\drunkard\drunkardcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465736249 d:\Универ\Курсач\coursework\drunkard\drunkardcontinuebutton.h
+	<SFML/Graphics.hpp>
+	"DrunkardStandard.h"
+
+1465736259 d:\Универ\Курсач\coursework\drunkard\drunkarddeck.h
+	"DrunkardCard.h"
 

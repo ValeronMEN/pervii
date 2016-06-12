@@ -3,10 +3,10 @@
 #include <queue>
 #include <windows.h>
 
-#include "drunkard/Card.h"
-#include "drunkard/ContinueButton.h"
+#include "drunkard/DrunkardCard.h"
+#include "drunkard/DrunkardContinueButton.h"
 #include "drunkard/DrunkardStandard.h"
-#include "drunkard/Deck.h"
+#include "drunkard/DrunkardDeck.h"
 #include "drunkard/DrunkardReturn.h"
 
 class Drunkard{

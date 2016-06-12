@@ -2,18 +2,20 @@
 
 char* getWannaText(int points);
 
+int getRand(void);
+int doCallback(int (*cbfun)(void));
+int getStrokeman(void);
+
 void Chicken::fonts(int strokeman)
 {
     aggFont.loadFromFile("fonts/Agg.ttf");
     myFont.loadFromFile("fonts/shitan.otf");
 
     wannaText.setPosition(30+31+139+25+100, 30);
-    wannaText.setColor(Color::Blue);
     wannaText.setFont(aggFont);
     wannaText.setCharacterSize(50);
 
     strokeText.setPosition(500-150 , C_Y - 100);
-    strokeText.setColor(Color::Blue);
     strokeText.setFont(aggFont);
     strokeText.setCharacterSize(50);
 
@@ -52,6 +54,8 @@ void Chicken::fonts(int strokeman)
     myName.setString("ME");
     aiName.setString("Guardian Devil");
 
+    wannaText.setColor(Color::Blue);
+    strokeText.setColor(Color::Blue);
     background.loadFromFile("textures/upGround1.png");
     backgroundspr.setTexture(background);
 }
@@ -132,6 +136,7 @@ void Chicken::getRound(int round)
         aiName.setColor(Color::White);
     }
 }
+
 void Chicken::start()
 {
     sf::Music music;
@@ -155,10 +160,12 @@ void Chicken::start()
         windowGuide.setVisible(true);
 
         windowGuide.setPosition(sf::Vector2i(1370, 170));
-        if (language == 1){
+        if (language == 1)
+        {
             backgroundGuide.loadFromFile("textures/chickenRules.png");
         }
-        else{
+        else
+        {
             backgroundGuide.loadFromFile("textures/engUpRules.png");
         }
         backgroundsprGuide.setTexture(backgroundGuide);
@@ -187,7 +194,7 @@ void Chicken::start()
     std::queue<ChickenCard> myQueue;
     std::queue<ChickenCard> aiQueue;
 
-    int strokeman = rand() % 2;
+    int strokeman = getStrokeman();
     fonts(strokeman);
 
     for (int i=0; i<52; i++)
@@ -286,10 +293,12 @@ void Chicken::start()
                         if (myQueueSize == 0 || aiQueueSize == 0)
                         {
                             finish = true;
-                            if (myQueueSize == 0){
+                            if (myQueueSize == 0)
+                            {
                                 message->win();
                             }
-                            else{
+                            else
+                            {
                                 message->lose();
                             }
                             break;
@@ -348,4 +357,18 @@ void Chicken::start()
         window.display();
     }
     return;
+}
+
+//Callback функція – це функція, вказівник якої передається як аргумент у іншу функцію, яка викликає її через цей вказівник.
+int getRand(void) {
+    return rand() % 2;
+}
+
+int doCallback(int (*cbfun)(void)) {
+    return cbfun();  // callback
+}
+
+int getStrokeman(void) {
+    int (*getRandCallBack)(void) = getRand;  // pointer to function callbackFun
+    return doCallback(getRandCallBack);  // pass pointer to function as an argument to function
 }
