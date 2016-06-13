@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1465816211 source:c:\users\drlove\desktop\thirdex\main.c
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+
+1465816205 c:\users\drlove\desktop\thirdex\module.h
+	"student.h"
+
+1465814635 c:\users\drlove\desktop\thirdex\student.h
+
+1465814391 source:c:\users\drlove\desktop\thirdex\module.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\thirdEx\sqlite3.h"
+	"module.h"
+
+1450774966 c:\users\drlove\desktop\thirdex\sqlite3.h
+	<stdarg.h>
+
