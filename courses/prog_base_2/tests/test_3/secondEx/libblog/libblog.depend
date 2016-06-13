@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1465809982 source:c:\users\drlove\desktop\secondex\libblog\main.c
+1465818203 source:c:\users\drlove\desktop\secondex\libblog\main.c
 	<stdio.h>
 	<stdlib.h>
 	"string.h"
 	"blog.h"
 
-1465809464 c:\users\drlove\desktop\secondex\libblog\blog.h
+1465818264 c:\users\drlove\desktop\secondex\libblog\blog.h
 

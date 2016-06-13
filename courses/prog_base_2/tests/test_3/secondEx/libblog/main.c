@@ -62,7 +62,7 @@ user_t * user_new(int id, char * login, char * name, char * surname, int years, 
         return NULL;
     }
 
-    user_t * myUser = malloc(sizeof(struct valerooncom_s));
+    user_t * myUser = malloc(sizeof(struct user_s));
     myUser->status = USER_OK;
     myUser->id = id;
     myUser->years = years;
@@ -135,6 +135,8 @@ post_t * post_new(char * text, user_t * myUser){
     }
     post_t * myPost = malloc(sizeof(struct post_s));
     strcpy(myPost->text, text);
+    myUser->posts[myUser->posts_size] = myPost;
+    myUser->posts_size++;
     return myPost;
 }
 
@@ -150,4 +152,22 @@ void user_free(valerooncom_t * myNetwork, user_t * myUser){
         post_free(myUser, myUser->posts[i]);
     }
     free(myUser);
+}
+
+void user_view(user_t * myUser){
+    printf("Id: %i\nLogin: %s\nName: %s\nSurname: %s\nCountry: %s\nYears: %i\nPosts size: %i\n\n",
+           myUser->id, myUser->login, myUser->name, myUser->surname, myUser->country, myUser->years, myUser->posts_size);
+    if (myUser->posts_size!=0){
+        int i;
+        for (i=0; i<myUser->posts_size; i++){
+            post_print(myUser->posts[i]);
+        }
+    }
+    else{
+        printf("There is no posts yet\n\n");
+    }
+}
+
+void post_print(post_t * myPost){
+    printf("%s", myPost->text);
 }

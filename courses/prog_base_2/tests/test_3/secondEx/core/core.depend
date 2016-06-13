@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1465813695 source:c:\users\drlove\desktop\secondex\core\main.c
+1465818604 source:c:\users\drlove\desktop\secondex\core\main.c
 	<stdio.h>
 	<stdlib.h>
 	"C:\Users\DrLove\Desktop\secondEx\libblog\blog.h"
 
-1465814056 c:\users\drlove\desktop\secondex\libblog\blog.h
+1465818264 c:\users\drlove\desktop\secondex\libblog\blog.h
 

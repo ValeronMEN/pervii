@@ -44,7 +44,7 @@ void db_delete(db_t * self){
 
 void db_student_insert(db_t * self, student_t * student){
     sqlite3_stmt *stmt = NULL;
-    const char *sqlInsertCommand = "INSERT INTO Patient ('Name', 'Surname', 'Fathername', 'City', 'Number', 'Birthdate') VALUES (?,?,?,?,?,?);";
+    const char *sqlInsertCommand = "INSERT INTO Student ('Name', 'Surname', 'Fathername', 'City', 'Number', 'Birthdate') VALUES (?,?,?,?,?,?);";
     int returnCode = 0;
 
     returnCode = sqlite3_prepare_v2(self->db, sqlInsertCommand, strlen(sqlInsertCommand) + 1, &stmt, NULL);
@@ -97,15 +97,15 @@ student_t * db_student_get(db_t * self, int id){
     return (toGet);
 }
 
-void db_patient_delete(db_t * self, int id){
+void db_student_delete(db_t * self, char * city){
     sqlite3_stmt *stmt = NULL;
-    const char *sqlDeleteCommand = "DELETE FROM Student WHERE Id=?";
+    const char *sqlDeleteCommand = "DELETE FROM Student WHERE CITY LIKE ?";
     int returnCode = 0;
 
     sqlite3_prepare_v2(self->db, sqlDeleteCommand, strlen(sqlDeleteCommand) + 1, &stmt, NULL);
     errorHandler_NotEqual(returnCode, SQLITE_OK, "Error preparing delete command.");
 
-    sqlite3_bind_int(stmt, 1, id);
+    sqlite3_bind_text(stmt, 1, city, -1, SQLITE_STATIC);
 
     sqlite3_step(stmt);
     sqlite3_reset(stmt);
@@ -124,7 +124,7 @@ int db_count(db_t * self){
     return (studentsCount);
 }
 
-static void db_patient_fill(sqlite3_stmt * stmt, student_t * student){
+static void db_student_fill(sqlite3_stmt * stmt, student_t * student){
     int id = sqlite3_column_int(stmt, 0);
     const unsigned char *name = sqlite3_column_text(stmt, 1);
     const unsigned char *surname = sqlite3_column_text(stmt, 2);
@@ -165,7 +165,7 @@ int db_filter(db_t * self, char * city, student_t * studentSet, int setMaxLen){
         }
         else
         {
-            db_patient_fill(stmt, &studentSet[patientSetIndex]);
+            db_student_fill(stmt, &studentSet[patientSetIndex]);
             patientSetIndex++;
         }
     }

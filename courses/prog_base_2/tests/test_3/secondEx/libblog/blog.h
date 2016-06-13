@@ -38,5 +38,6 @@ post_t * post_new(char * text, user_t * myUser);
 void post_free(user_t * myUser, post_t * myPost);
 
 void user_free();
+void user_view();
 
 #endif // BLOG_H_INCLUDED

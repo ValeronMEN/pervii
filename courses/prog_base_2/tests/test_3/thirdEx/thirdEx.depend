@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1465816211 source:c:\users\drlove\desktop\thirdex\main.c
+1465817703 source:c:\users\drlove\desktop\thirdex\main.c
 	<stdio.h>
 	<stdlib.h>
 	"module.h"
 
-1465816205 c:\users\drlove\desktop\thirdex\module.h
+1465817723 c:\users\drlove\desktop\thirdex\module.h
 	"student.h"
 
 1465814635 c:\users\drlove\desktop\thirdex\student.h
 
-1465814391 source:c:\users\drlove\desktop\thirdex\module.c
+1465817089 source:c:\users\drlove\desktop\thirdex\module.c
 	<stdlib.h>
 	<stdio.h>
 	<strings.h>
@@ -18,4 +18,9 @@
 
 1450774966 c:\users\drlove\desktop\thirdex\sqlite3.h
 	<stdarg.h>
+
+1465814779 source:c:\users\drlove\desktop\thirdex\student.c
+	<stdio.h>
+	<stdlib.h>
+	"student.h"
 
