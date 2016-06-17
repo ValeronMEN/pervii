@@ -4,7 +4,7 @@
 #include "module.h"
 
 #define PATIENTS_MAX_SIZE 10
-#define FILTER_CITY "Lvov"
+#define FILTER_CITY "Rovno"
 
 int main(){
     db_t * db = db_new("Student.db");

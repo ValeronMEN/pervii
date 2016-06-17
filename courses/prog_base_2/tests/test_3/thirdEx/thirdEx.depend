@@ -24,3 +24,25 @@
 	<stdlib.h>
 	"student.h"
 
+1465817703 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_3\thirdex\main.c
+	<stdio.h>
+	<stdlib.h>
+	"module.h"
+
+1465817723 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_3\thirdex\module.h
+	"student.h"
+
+1465814635 c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_3\thirdex\student.h
+
+1465817692 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_3\thirdex\module.c
+	<stdlib.h>
+	<stdio.h>
+	<strings.h>
+	"C:\Users\DrLove\Desktop\thirdEx\sqlite3.h"
+	"module.h"
+
+1465814779 source:c:\users\drlove\documents\github\pervii\courses\prog_base_2\tests\test_3\thirdex\student.c
+	<stdio.h>
+	<stdlib.h>
+	"student.h"
+
