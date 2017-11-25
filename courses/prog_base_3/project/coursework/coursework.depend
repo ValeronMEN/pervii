@@ -871,3 +871,338 @@
 1465736259 d:\Универ\Курсач\coursework\drunkard\drunkarddeck.h
 	"DrunkardCard.h"
 
+1465733796 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken.cpp
+	"Chicken.h"
+
+1465731996 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<queue>
+	<string>
+	"chicken/ChickenStandard.h"
+	"chicken/ChickenDeck.h"
+	"chicken/ChickenList.h"
+	"chicken/ChickenNext.h"
+	"chicken/ChickenBackCard.h"
+
+1465592246 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickenstandard.h
+
+1465581332 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickendeck.h
+	"ChickenCard.h"
+
+1465570500 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickencard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465558443 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickenlist.h
+	"ChickenCard.h"
+
+1465574835 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickennext.h
+	<SFML/Graphics.hpp>
+	"ChickenStandard.h"
+
+1465568981 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickenbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465568689 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickenbackcard.cpp
+	"ChickenBackCard.h"
+
+1465570608 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickencard.cpp
+	"ChickenCard.h"
+
+1465584228 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickendeck.cpp
+	"ChickenDeck.h"
+
+1465558449 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickenlist.cpp
+	"ChickenList.h"
+
+1465593450 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\chicken\chickennext.cpp
+	"ChickenNext.h"
+
+1465736290 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard.cpp
+	"Drunkard.h"
+
+1465736060 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<queue>
+	<windows.h>
+	"drunkard/DrunkardCard.h"
+	"drunkard/DrunkardContinueButton.h"
+	"drunkard/DrunkardStandard.h"
+	"drunkard/DrunkardDeck.h"
+	"drunkard/DrunkardReturn.h"
+
+1465736222 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465736249 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardcontinuebutton.h
+	<SFML/Graphics.hpp>
+	"DrunkardStandard.h"
+
+1463305768 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardstandard.h
+
+1465736259 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkarddeck.h
+	"DrunkardCard.h"
+
+1463305745 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardreturn.h
+	<SFML/Graphics.hpp>
+	"DrunkardStandard.h"
+
+1465736215 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardcard.cpp
+	"DrunkardCard.h"
+
+1465736238 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardcontinuebutton.cpp
+	"DrunkardContinueButton.h"
+
+1465736281 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkarddeck.cpp
+	"DrunkardDeck.h"
+
+1463305677 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\drunkard\drunkardreturn.cpp
+	"DrunkardReturn.h"
+
+1465688735 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack.cpp
+	<SFML/Audio.hpp>
+	<SFML/Graphics/Image.hpp>
+	"Jack.h"
+	<windows.h>
+
+1465687083 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack.h
+	<SFML/Graphics.hpp>
+	"jack/JackCard.h"
+	"jack/JackStandard.h"
+	"jack/JackDeck.h"
+	"jack/JackBet.h"
+	"jack/JackMoney.h"
+	"jack/JackRate.h"
+	"jack/JackLaunch.h"
+	"jack/JackMore.h"
+	"jack/JackOpen.h"
+	"jack/JackBackCard.h"
+	"jack/JackPoints.h"
+	"jack/JackMessage.h"
+
+1463158440 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463305524 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackstandard.h
+
+1463159128 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackdeck.h
+	"JackCard.h"
+
+1463142956 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackbet.h
+	<SFML/Graphics.hpp>
+
+1463145745 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmoney.h
+	<SFML/Graphics.hpp>
+
+1463145932 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackrate.h
+	<SFML/Graphics.hpp>
+
+1463146291 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jacklaunch.h
+	<SFML/Graphics.hpp>
+
+1463314836 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmore.h
+	<SFML/Graphics.hpp>
+
+1463314875 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackopen.h
+	<SFML/Graphics.hpp>
+
+1463152977 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463212014 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackpoints.h
+	<SFML/Graphics.hpp>
+
+1463316088 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmessage.h
+	<SFML/Graphics.hpp>
+	"JackStandard.h"
+
+1465239208 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackbackcard.cpp
+	"JackBackCard.h"
+
+1463142951 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackbet.cpp
+	"JackBet.h"
+
+1463158885 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackcard.cpp
+	"JackCard.h"
+
+1465298213 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackdeck.cpp
+	"JackDeck.h"
+
+1463146282 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jacklaunch.cpp
+	"JackLaunch.h"
+
+1463316102 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmessage.cpp
+	"JackMessage.h"
+
+1463145812 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmoney.cpp
+	"JackMoney.h"
+
+1463314822 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackmore.cpp
+	"JackMore.h"
+
+1463314860 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackopen.cpp
+	"JackOpen.h"
+
+1463211999 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackpoints.cpp
+	"JackPoints.h"
+
+1463145925 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\jack\jackrate.cpp
+	"JackRate.h"
+
+1465690674 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\main.cpp
+	<SFML/Graphics.hpp>
+	"StartButton.h"
+	"Drunkard.h"
+	"Jack.h"
+	"Witch.h"
+	"Pig.h"
+	"Chicken.h"
+	"StartAsk.h"
+
+1462740910 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\startbutton.h
+	<SFML/Graphics.hpp>
+
+1465687098 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch.h
+	<SFML/Graphics.hpp>
+	"witch/WitchStandard.h"
+	"witch/WitchDeck.h"
+	"witch/WitchList.h"
+	"witch/WitchBackCard.h"
+	"witch/WitchNext.h"
+	"witch/WitchThrow.h"
+	"witch/WitchMessage.h"
+	"witch/WitchResult.h"
+	"witch/WitchStroke.h"
+
+1464163818 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchstandard.h
+
+1463335842 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchdeck.h
+	"WitchCard.h"
+
+1463686334 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1463596854 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchlist.h
+	"WitchCard.h"
+
+1463516104 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1464165409 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchnext.h
+	<SFML/Graphics.hpp>
+
+1463511084 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchthrow.h
+	<SFML/Graphics.hpp>
+
+1463691979 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchmessage.h
+	<SFML/Graphics.hpp>
+
+1463595744 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchresult.h
+	<SFML/Graphics.hpp>
+
+1463691841 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchstroke.h
+	<SFML/Graphics.hpp>
+	"WitchStandard.h"
+
+1465687108 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"pig/PigStandard.h"
+	"pig/PigDeck.h"
+	"pig/PigBackCard.h"
+	"pig/PigTake.h"
+	"pig/PigCompare.h"
+	"pig/PigList.h"
+
+1465642870 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigstandard.h
+
+1465515059 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigdeck.h
+	"PigCard.h"
+
+1465338835 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465334163 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigbackcard.h
+	<string>
+	<SFML/Graphics.hpp>
+
+1465661962 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigtake.h
+	<SFML/Graphics.hpp>
+
+1465316120 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigcompare.h
+	<SFML/Graphics.hpp>
+
+1465317170 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\piglist.h
+	"PigCard.h"
+
+1465680338 c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\startask.h
+	<SFML/Graphics.hpp>
+
+1465688691 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig.cpp
+	"Pig.h"
+
+1465334227 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigbackcard.cpp
+	"PigBackCard.h"
+
+1465338809 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigcard.cpp
+	"PigCard.h"
+
+1465316262 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigcompare.cpp
+	"PigCompare.h"
+
+1465515168 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigdeck.cpp
+	"PigDeck.h"
+
+1465317254 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\piglist.cpp
+	"PigList.h"
+
+1465661841 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\pig\pigtake.cpp
+	"PigTake.h"
+
+1465681152 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\startask.cpp
+	"StartAsk.h"
+
+1462740896 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\startbutton.cpp
+	"StartButton.h"
+
+1465688753 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	"Witch.h"
+
+1463516114 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchbackcard.cpp
+	"WitchBackCard.h"
+
+1463686398 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchcard.cpp
+	"WitchCard.h"
+
+1463688941 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchdeck.cpp
+	"WitchDeck.h"
+
+1463596802 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchlist.cpp
+	"WitchList.h"
+
+1463691957 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchmessage.cpp
+	"WitchMessage.h"
+
+1464165395 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchnext.cpp
+	"WitchNext.h"
+
+1463595780 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchresult.cpp
+	"WitchResult.h"
+
+1463692257 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchstroke.cpp
+	"WitchStroke.h"
+
+1463511360 source:c:\users\drlove\documents\github\pervii\courses\prog_base_3\project\coursework\witch\witchthrow.cpp
+	"WitchThrow.h"
+
